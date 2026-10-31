@@ -1,0 +1,367 @@
+{
+  "version": "v1",
+  "reviewed_on": "2026-10-31",
+  "reviewed_by": "human (project owner)",
+  "generator_model": "gpt-4.1-mini",
+  "items": [
+    {
+      "id": "G01",
+      "category": "factual",
+      "question": "Where is Belevico's main warehouse and repair center located?",
+      "expected_output": "Belevico's main warehouse and repair center are in İzmir (Kemalpaşa), Turkey.",
+      "source_docs": [
+        "01-about-belevico.md"
+      ],
+      "rationale": "Tests knowledge of company location from the About Belevico document.",
+      "approved": true,
+      "review_note": "Approved as generated."
+    },
+    {
+      "id": "G02",
+      "category": "factual",
+      "question": "What drinks can I make with the Belevico Forte machine?",
+      "expected_output": "Belevico Forte can make espresso, lungo, americano, cappuccino, latte, and flat white.",
+      "source_docs": [
+        "02-products.md"
+      ],
+      "rationale": "Tests factual recall of product features from the Belevico Machines and Pods document.",
+      "approved": true,
+      "review_note": "Approved as generated."
+    },
+    {
+      "id": "G03",
+      "category": "factual",
+      "question": "How long do I have to edit or cancel an order after placing it?",
+      "expected_output": "You can edit or cancel an order yourself within 30 minutes of placing it.",
+      "source_docs": [
+        "03-ordering-and-payment.md"
+      ],
+      "rationale": "Tests understanding of order modification rules from Ordering and Payment document.",
+      "approved": true,
+      "review_note": "Approved as generated."
+    },
+    {
+      "id": "G04",
+      "category": "factual",
+      "question": "What is the cost and delivery timeframe for Standard shipping?",
+      "expected_output": "Standard delivery costs ₺59 and takes 2–4 business days, free for orders over ₺750.",
+      "source_docs": [
+        "04-shipping-and-delivery.md"
+      ],
+      "rationale": "Tests knowledge of shipping options from Shipping and Delivery document.",
+      "approved": true,
+      "review_note": "Approved as generated."
+    },
+    {
+      "id": "G05",
+      "category": "factual",
+      "question": "How can I track my Belevico order?",
+      "expected_output": "You can track your order in \"My Orders\" in your Belevico account, via the tracking link in the shipping email, or ask the virtual assistant or live chat using your order number.",
+      "source_docs": [
+        "05-order-tracking.md"
+      ],
+      "rationale": "Tests knowledge of order tracking methods from Order Tracking document.",
+      "approved": true,
+      "review_note": "Approved as generated."
+    },
+    {
+      "id": "G06",
+      "category": "factual",
+      "question": "Within how many days of delivery can I return an unopened box of Belevico Pods?",
+      "expected_output": "You can return unopened boxes of Belevico Pods within 21 days of delivery.",
+      "source_docs": [
+        "06-returns-and-refunds.md"
+      ],
+      "rationale": "Tests knowledge of returns policy from Returns and Refunds document.",
+      "approved": true,
+      "review_note": "Approved as generated."
+    },
+    {
+      "id": "G07",
+      "category": "factual",
+      "question": "How long is the standard warranty for the Belevico Aria machine?",
+      "expected_output": "Belevico Aria has a standard 2-year warranty starting from the delivery date.",
+      "source_docs": [
+        "07-warranty.md"
+      ],
+      "rationale": "Tests understanding of warranty periods from the Warranty document.",
+      "approved": true,
+      "review_note": "Approved as generated."
+    },
+    {
+      "id": "G08",
+      "category": "factual",
+      "question": "What benefits do Pod Club members get?",
+      "expected_output": "Pod Club members earn double Bean Points on all purchases and get early access to limited-edition blends.",
+      "source_docs": [
+        "08-pod-club-subscription.md"
+      ],
+      "rationale": "Tests knowledge of subscription member benefits from Pod Club Subscription document.",
+      "approved": true,
+      "review_note": "Approved as generated."
+    },
+    {
+      "id": "G09",
+      "category": "factual",
+      "question": "How many Bean Points do I earn per ₺10 spent if I'm a Pod Club member?",
+      "expected_output": "Pod Club members earn 2 Bean Points for every ₺10 spent.",
+      "source_docs": [
+        "09-bean-points-loyalty.md"
+      ],
+      "rationale": "Tests calculation of loyalty points based on membership from Bean Points Loyalty Program document.",
+      "approved": true,
+      "review_note": "Approved as generated."
+    },
+    {
+      "id": "G10",
+      "category": "factual",
+      "question": "How do I connect my Belevico machine to Wi-Fi?",
+      "expected_output": "Hold the power button for 5 seconds until the light blinks blue; in the app tap \"Add machine\" and select your 2.4 GHz Wi-Fi network; Belevico machines do not support 5 GHz networks.",
+      "source_docs": [
+        "10-machine-setup.md"
+      ],
+      "rationale": "Tests setup procedure and Wi-Fi compatibility from Machine Setup document.",
+      "approved": true,
+      "review_note": "Approved as generated."
+    },
+    {
+      "id": "G11",
+      "category": "factual",
+      "question": "What should I do if the orange drop icon lights up on my machine?",
+      "expected_output": "The orange drop icon means descaling is due soon; you should descale the machine using Belevico DescalePro every 3 months or when the icon lights up.",
+      "source_docs": [
+        "11-cleaning-and-descaling.md"
+      ],
+      "rationale": "Tests understanding of maintenance reminders from Cleaning and Descaling document.",
+      "approved": true,
+      "review_note": "Approved as generated."
+    },
+    {
+      "id": "G12",
+      "category": "factual",
+      "question": "What does error code E-23 mean and how do I fix it?",
+      "expected_output": "Error E-23 means a pod is not recognized; use an undamaged Belevico Pod as third-party pods are not supported.",
+      "source_docs": [
+        "12-troubleshooting-error-codes.md"
+      ],
+      "rationale": "Tests correct troubleshooting based on error codes from Troubleshooting and Error Codes document.",
+      "approved": true,
+      "review_note": "Approved as generated."
+    },
+    {
+      "id": "G13",
+      "category": "factual",
+      "question": "How long is the password reset link valid?",
+      "expected_output": "Password reset links are valid for 1 hour after being sent by email.",
+      "source_docs": [
+        "13-account-and-privacy.md"
+      ],
+      "rationale": "Tests account security details from Account and Privacy document.",
+      "approved": true,
+      "review_note": "Approved as generated."
+    },
+    {
+      "id": "G14",
+      "category": "factual",
+      "question": "Who can join Belevico for Business?",
+      "expected_output": "Companies ordering 10 or more machines, or subscribing to at least 3 Office plans can join Belevico for Business.",
+      "source_docs": [
+        "14-belevico-for-business.md"
+      ],
+      "rationale": "Tests understanding of business program eligibility from Belevico for Business document.",
+      "approved": true,
+      "review_note": "Approved as generated."
+    },
+    {
+      "id": "G17",
+      "category": "multi_hop",
+      "question": "My Forte shows error E-42. Will the warranty cover it, and do I get a machine while it's being repaired?",
+      "expected_output": "E-42 is a pump failure: stop using the machine and contact support; it is usually covered by warranty. Warranty repairs take about 10 business days, and Belevico Forte owners get a free loaner machine during the repair.",
+      "source_docs": [
+        "12-troubleshooting-error-codes.md",
+        "07-warranty.md"
+      ],
+      "rationale": "Combines an error code with warranty repair rules that only apply to Forte.",
+      "approved": true,
+      "review_note": "Replaced: original answer came from a single document (fake multi_hop)."
+    },
+    {
+      "id": "G18",
+      "category": "multi_hop",
+      "question": "If I order ₺800 worth of products with Standard shipping, how much will I pay for delivery and how many Bean Points will I earn if I'm not a Pod Club member?",
+      "expected_output": "Standard delivery is free for orders over ₺750, so delivery cost is ₺0; you will earn 80 Bean Points (₺800 / 10) as a non-Pod Club member.",
+      "source_docs": [
+        "04-shipping-and-delivery.md",
+        "09-bean-points-loyalty.md"
+      ],
+      "rationale": "Tests ability to combine shipping cost and loyalty points calculation.",
+      "approved": true,
+      "review_note": "Approved as generated."
+    },
+    {
+      "id": "G19",
+      "category": "multi_hop",
+      "question": "I'm a Pod Club member and just bought a Belevico Forte. How many Bean Points do I get for it?",
+      "expected_output": "Belevico Forte costs ₺12,990. Pod Club members earn 2 Bean Points per ₺10, so you earn 2,598 Bean Points.",
+      "source_docs": [
+        "02-products.md",
+        "09-bean-points-loyalty.md"
+      ],
+      "rationale": "Needs a price from one document and a points rule from another, plus a calculation.",
+      "approved": true,
+      "review_note": "Replaced: fake multi_hop, second source doc was unrelated."
+    },
+    {
+      "id": "G20",
+      "category": "multi_hop",
+      "question": "I returned one unopened box of pods and got a refund. How does this affect my Bean Points?",
+      "expected_output": "The points earned on the returned unopened pod box are removed from your Bean Points balance.",
+      "source_docs": [
+        "06-returns-and-refunds.md",
+        "09-bean-points-loyalty.md"
+      ],
+      "rationale": "Tests understanding of returns and loyalty points deductions across documents.",
+      "approved": true,
+      "review_note": "Approved as generated."
+    },
+    {
+      "id": "G21",
+      "category": "factual",
+      "question": "Can I get Belevico coffee delivered to Germany?",
+      "expected_output": "No. Belevico only delivers within Turkey and does not ship internationally.",
+      "source_docs": [
+        "01-about-belevico.md",
+        "04-shipping-and-delivery.md"
+      ],
+      "rationale": "Checks that the bot answers a delivery-area question from the docs.",
+      "approved": true,
+      "review_note": "Recategorized out_of_scope -> factual: the docs do answer this."
+    },
+    {
+      "id": "G22",
+      "category": "out_of_scope",
+      "question": "Does Belevico sell coffee mugs or accessories other than pods and machines?",
+      "expected_output": "The help center has no information about coffee mugs. Besides machines and pods, the only accessory mentioned is the Belevico DescalePro descaler (₺159). For other products, contact support@belevico.example.",
+      "source_docs": [],
+      "rationale": "Tests response to questions about unsupported product categories.",
+      "approved": true,
+      "review_note": "Reference said 'no accessory info', but DescalePro is documented."
+    },
+    {
+      "id": "G23",
+      "category": "out_of_scope",
+      "question": "How can I join Belevico's affiliate program?",
+      "expected_output": "We do not have information on an affiliate program; please contact support@belevico.example for assistance.",
+      "source_docs": [],
+      "rationale": "Tests answering about unsupported marketing programs.",
+      "approved": true,
+      "review_note": "Approved as generated."
+    },
+    {
+      "id": "G24",
+      "category": "out_of_scope",
+      "question": "Do you offer gift wrapping for Belevico machines?",
+      "expected_output": "There is no information about gift wrapping services; please contact support@belevico.example for more info.",
+      "source_docs": [],
+      "rationale": "Tests response to unavailable service question.",
+      "approved": true,
+      "review_note": "Approved as generated."
+    },
+    {
+      "id": "G25",
+      "category": "trap",
+      "question": "Is it true that I can cancel my order anytime before it ships without any time limit?",
+      "expected_output": "Orders can only be edited or cancelled within 30 minutes of placing them; after that, they cannot be changed, although live chat may help cancel if it has not shipped yet.",
+      "source_docs": [
+        "03-ordering-and-payment.md"
+      ],
+      "rationale": "Tests correcting false assumptions about order cancellation policies.",
+      "approved": true,
+      "review_note": "Approved as generated."
+    },
+    {
+      "id": "G26",
+      "category": "trap",
+      "question": "My Belevico Forte has a 5-year standard warranty, right?",
+      "expected_output": "Belevico Forte has a 3-year standard warranty; an extra year is available if registered within 30 days for Care+, totaling 4 years.",
+      "source_docs": [
+        "07-warranty.md"
+      ],
+      "rationale": "Tests correction of incorrect warranty duration claim.",
+      "approved": true,
+      "review_note": "Approved as generated."
+    },
+    {
+      "id": "G27",
+      "category": "trap",
+      "question": "Can I use third-party coffee pods with my Belevico machine without error?",
+      "expected_output": "No. Belevico machines only accept Belevico Pods; third-party pods are not supported and trigger error E-23. Damage caused by third-party pods is not covered by the warranty.",
+      "source_docs": [
+        "02-products.md",
+        "12-troubleshooting-error-codes.md",
+        "07-warranty.md"
+      ],
+      "rationale": "Tests recognition and correction of false premises about compatibility.",
+      "approved": true,
+      "review_note": "Removed unsupported claim 'may damage the machine'; added the warranty fact the docs do state."
+    },
+    {
+      "id": "G28",
+      "category": "trap",
+      "question": "If I pay with cash on delivery, can I use installment payments for my Forte?",
+      "expected_output": "Cash on delivery is not available; installments are only for Forte paid with credit cards from partner banks.",
+      "source_docs": [
+        "03-ordering-and-payment.md",
+        "02-products.md"
+      ],
+      "rationale": "Tests clarifying incorrect payment assumptions.",
+      "approved": true,
+      "review_note": "Approved as generated."
+    },
+    {
+      "id": "G29",
+      "category": "trap",
+      "question": "Can I skip more than 3 deliveries in a row with Pod Club subscription?",
+      "expected_output": "The help center does not set a limit on skipping deliveries in a row. You can skip a single delivery up to 3 days before the billing date, or pause the subscription for up to 3 months at a time.",
+      "source_docs": [
+        "08-pod-club-subscription.md"
+      ],
+      "rationale": "Tests correcting misunderstanding about subscription skipping and pausing.",
+      "approved": true,
+      "review_note": "Reference hallucinated a rule ('single delivery only'); docs set no limit on consecutive skips."
+    },
+    {
+      "id": "G30",
+      "category": "out_of_scope",
+      "question": "do u have a student discount?",
+      "expected_output": "There is no information about a student discount in the help center. Please contact support@belevico.example.",
+      "source_docs": [],
+      "rationale": "Plausible pricing question with no answer in the docs (casual phrasing).",
+      "approved": true,
+      "review_note": "Added: draft had only 4 of 5 out_of_scope items."
+    },
+    {
+      "id": "G31",
+      "category": "out_of_scope",
+      "question": "Are you hiring? I'd love to work as a barista in your showroom.",
+      "expected_output": "There is no information about jobs or hiring in the help center. Please contact support@belevico.example.",
+      "source_docs": [],
+      "rationale": "Off-topic but realistic request; the bot must not invent a careers page.",
+      "approved": true,
+      "review_note": "Added: replaces G21 after it moved to factual."
+    },
+    {
+      "id": "G32",
+      "category": "trap",
+      "question": "I have 30 days to return my Aria, right?",
+      "expected_output": "No. The return window is 21 days from delivery, and the machine must be returned in its original packaging with all accessories. (30 days is the deadline for registering a machine for Belevico Care+.)",
+      "source_docs": [
+        "06-returns-and-refunds.md",
+        "07-warranty.md"
+      ],
+      "rationale": "Number-confusion trap: 21-day returns vs 30-day Care+ registration.",
+      "approved": true,
+      "review_note": "Added: draft had no number-confusion trap although the prompt asked for one."
+    }
+  ]
+}
