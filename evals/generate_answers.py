@@ -37,6 +37,7 @@ def generate(label: str) -> None:
             "retrieved_sources": result["sources"],
             "tool_calls": result["tool_calls"],
             "latency_s": result["latency_s"],
+            "trace_id": result.get("trace_id"),  # Phase 6: lets us attach eval scores to the trace
         })
         print(f"{item['id']} ({result['latency_s']}s) {result['answer'][:90]!r}")
 
