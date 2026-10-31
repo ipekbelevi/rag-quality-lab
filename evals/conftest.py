@@ -1,8 +1,9 @@
 """pytest setup for the eval suite: telemetry off, scores saved and summarized at the end.
 
 Which saved run to score is chosen with env vars:
-    ANSWERS_FILE     (RAG tests,   default results/answers_baseline.json)
-    AGENT_RUNS_FILE  (agent tests, default results/agent_runs_baseline.json)
+    ANSWERS_FILE      (RAG tests,    default results/answers_baseline.json)
+    AGENT_RUNS_FILE   (agent tests,  default results/agent_runs_baseline.json)
+    SAFETY_RUNS_FILE  (safety tests, default results/safety_runs_baseline.json)
 """
 
 import os
@@ -16,11 +17,13 @@ from evals import score_log  # noqa: E402
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 ANSWERS_FILE = os.getenv("ANSWERS_FILE", "results/answers_baseline.json")
 AGENT_RUNS_FILE = os.getenv("AGENT_RUNS_FILE", "results/agent_runs_baseline.json")
+SAFETY_RUNS_FILE = os.getenv("SAFETY_RUNS_FILE", "results/safety_runs_baseline.json")
 
-# suite -> (output file prefix, source file the scores belong to)
+# suite -> (output file prefix, source file the scores belong to, source file prefix)
 SUITES = {
     "rag": ("deepeval", ANSWERS_FILE, "answers_"),
     "agent": ("agent", AGENT_RUNS_FILE, "agent_runs_"),
+    "safety": ("safety", SAFETY_RUNS_FILE, "safety_runs_"),
 }
 
 

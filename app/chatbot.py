@@ -13,7 +13,7 @@ import time
 
 import anthropic
 
-from app import config
+from app import config, guardrails
 from app.prompts import build_user_message, get_system_prompt
 from app.retriever import retrieve
 from app.tools import TOOLS, execute_tool
@@ -25,6 +25,13 @@ _client = anthropic.Anthropic()
 
 def answer(question: str) -> dict:
     start = time.perf_counter()
+
+    # Guardrail 1: block known attacks before spending any LLM call on them
+    if config.GUARDRAIL and (reason := guardrails.check_input(question)):
+        return {"question": question, "answer": guardrails.BLOCKED_MESSAGE, "blocked": reason,
+                "contexts": [], "sources": [], "tool_calls": [],
+                "input_tokens": 0, "output_tokens": 0, "latency_s": round(time.perf_counter() - start, 2)}
+
     contexts = retrieve(question)
     messages = [{"role": "user", "content": build_user_message(question, contexts)}]
     tool_calls, input_tokens, output_tokens = [], 0, 0
@@ -48,11 +55,20 @@ def answer(question: str) -> dict:
         messages.append({"role": "assistant", "content": response.content})
         results = []
         for block in response.content:
-            if block.type == "tool_use":
-                output, is_error = execute_tool(block.name, block.input)
+            if block.type != "tool_use":
+                continue
+            executed = sum(1 for c in tool_calls if not c.get("blocked"))
+            if config.GUARDRAIL and executed >= guardrails.MAX_ORDER_LOOKUPS:
+                # Guardrail 2: hard limit on lookups per message (stops enumeration)
+                output = f'{{"error": "Lookup limit reached: at most {guardrails.MAX_ORDER_LOOKUPS} orders per message."}}'
+                tool_calls.append({"name": block.name, "input": block.input, "output": output, "blocked": True})
+                is_error = True
+            else:
+                # Guardrail 3 (inside execute_tool): strip instruction-like text from tool results
+                output, is_error = execute_tool(block.name, block.input, sanitize=config.GUARDRAIL)
                 tool_calls.append({"name": block.name, "input": block.input, "output": output})
-                results.append({"type": "tool_result", "tool_use_id": block.id,
-                                "content": output, "is_error": is_error})
+            results.append({"type": "tool_result", "tool_use_id": block.id,
+                            "content": output, "is_error": is_error})
         messages.append({"role": "user", "content": results})
 
     text = "".join(b.text for b in response.content if b.type == "text").strip()

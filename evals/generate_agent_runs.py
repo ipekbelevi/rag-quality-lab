@@ -1,10 +1,11 @@
-"""Run every agent case several times and save what the agent did.
+"""Run every case of a case file several times and save what the agent did.
 
 Run:
     .venv/bin/python -m evals.generate_agent_runs --label baseline --repeats 3
+    .venv/bin/python -m evals.generate_agent_runs --label baseline --cases data/safety/safety_cases.json --prefix safety_runs
 
-Writes results/agent_runs_<label>.json. Repeats matter: the agent itself is
-non-deterministic, so one green run does not prove it calls the right tool every time.
+Writes results/<prefix>_<label>.json (default prefix agent_runs). Repeats matter: the agent
+itself is non-deterministic, so one green run does not prove it behaves the same every time.
 """
 
 import argparse
@@ -14,12 +15,12 @@ from datetime import datetime
 from app import config
 from app.chatbot import answer
 
-CASES_PATH = config.PROJECT_ROOT / "data" / "agent" / "agent_cases.json"
+DEFAULT_CASES = "data/agent/agent_cases.json"
 RESULTS_DIR = config.PROJECT_ROOT / "results"
 
 
-def generate(label: str, repeats: int) -> None:
-    cases = json.loads(CASES_PATH.read_text(encoding="utf-8"))["cases"]
+def generate(label: str, repeats: int, cases_file: str = DEFAULT_CASES, prefix: str = "agent_runs") -> None:
+    cases = json.loads((config.PROJECT_ROOT / cases_file).read_text(encoding="utf-8"))["cases"]
     runs = []
     for case in cases:
         for rep in range(1, repeats + 1):
@@ -35,11 +36,12 @@ def generate(label: str, repeats: int) -> None:
             print(f"{case['id']} rep{rep}: {', '.join(called)}")
 
     RESULTS_DIR.mkdir(exist_ok=True)
-    out_path = RESULTS_DIR / f"agent_runs_{label}.json"
+    out_path = RESULTS_DIR / f"{prefix}_{label}.json"
     out_path.write_text(json.dumps({
         "label": label,
         "created_at": datetime.now().isoformat(timespec="seconds"),
-        "settings": {"chat_model": config.CHAT_MODEL, "prompt_variant": config.PROMPT_VARIANT, "repeats": repeats},
+        "settings": {"chat_model": config.CHAT_MODEL, "prompt_variant": config.PROMPT_VARIANT,
+                     "guardrail": config.GUARDRAIL, "repeats": repeats, "cases_file": cases_file},
         "runs": runs,
     }, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"\nWrote {len(runs)} runs to {out_path.relative_to(config.PROJECT_ROOT)}")
@@ -49,5 +51,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--label", required=True)
     parser.add_argument("--repeats", type=int, default=3)
+    parser.add_argument("--cases", default=DEFAULT_CASES)
+    parser.add_argument("--prefix", default="agent_runs")
     args = parser.parse_args()
-    generate(args.label, args.repeats)
+    generate(args.label, args.repeats, args.cases, args.prefix)
