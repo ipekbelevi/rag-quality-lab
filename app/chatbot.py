@@ -14,7 +14,7 @@ import time
 import anthropic
 
 from app import config
-from app.prompts import SYSTEM_PROMPT, build_user_message
+from app.prompts import build_user_message, get_system_prompt
 from app.retriever import retrieve
 from app.tools import TOOLS, execute_tool
 
@@ -33,7 +33,7 @@ def answer(question: str) -> dict:
         response = _client.messages.create(
             model=config.CHAT_MODEL,
             max_tokens=2048,
-            system=SYSTEM_PROMPT,
+            system=get_system_prompt(config.PROMPT_VARIANT),
             tools=TOOLS,
             messages=messages,
             output_config={"effort": "low"},  # support chat: low effort is enough and cheaper

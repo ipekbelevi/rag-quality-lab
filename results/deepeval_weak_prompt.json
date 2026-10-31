@@ -1,0 +1,1207 @@
+{
+  "answers_file": "results/answers_weak_prompt.json",
+  "summary": {
+    "Answer Relevancy": {
+      "mean": 0.732,
+      "passed": 15,
+      "total": 25
+    },
+    "Contextual Precision": {
+      "mean": 0.936,
+      "passed": 25,
+      "total": 25
+    },
+    "Contextual Recall": {
+      "mean": 0.96,
+      "passed": 23,
+      "total": 25
+    },
+    "Faithfulness": {
+      "mean": 0.753,
+      "passed": 12,
+      "total": 25
+    },
+    "Hallucination": {
+      "mean": 0.98,
+      "passed": 24,
+      "total": 25
+    },
+    "Refusal [GEval]": {
+      "mean": 0.737,
+      "passed": 3,
+      "total": 5
+    }
+  },
+  "rows": [
+    {
+      "id": "G01",
+      "category": "factual",
+      "metric": "Faithfulness",
+      "score": 1.0,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 1.00 because there are no contradictions between the actual output and the retrieval context, indicating perfect alignment and faithfulness."
+    },
+    {
+      "id": "G01",
+      "category": "factual",
+      "metric": "Answer Relevancy",
+      "score": 0.5,
+      "threshold": 0.7,
+      "passed": false,
+      "reason": "The score is 0.50 because the response provides information about the showroom's opening hours and closing day, which does not answer the question about the location of Belevico's main warehouse and repair center. However, it partially relates to Belevico's facilities, preventing a lower score."
+    },
+    {
+      "id": "G01",
+      "category": "factual",
+      "metric": "Contextual Precision",
+      "score": 0.5,
+      "threshold": 0.5,
+      "passed": true,
+      "reason": "The score is 0.50 because the relevant node in the retrieval contexts is ranked second, while the first node is irrelevant as it only provides contact information without mentioning the warehouse location. This lowers the score since irrelevant nodes appear before the relevant one. However, the score is not lower because the relevant node clearly states the location of Belevico's main warehouse and repair center, making it highly pertinent despite its position."
+    },
+    {
+      "id": "G01",
+      "category": "factual",
+      "metric": "Contextual Recall",
+      "score": 1.0,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 1.00 because the sentence in the expected output directly matches the information in node 2 of the retrieval context, confirming the location of Belevico's main warehouse and repair center in İzmir (Kemalpaşa), Turkey, with no conflicting information present."
+    },
+    {
+      "id": "G01",
+      "category": "factual",
+      "metric": "Hallucination",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 1.00 because the actual output fully aligns with the context, accurately reflecting the locations and operating hours without any contradictions."
+    },
+    {
+      "id": "G02",
+      "category": "factual",
+      "metric": "Faithfulness",
+      "score": 1.0,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 1.00 because there are no contradictions between the actual output and the retrieval context, indicating complete alignment and faithfulness."
+    },
+    {
+      "id": "G02",
+      "category": "factual",
+      "metric": "Answer Relevancy",
+      "score": 0.714,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 0.71 because the response correctly addresses the types of drinks the Belevico Forte machine can make, but includes irrelevant details about automatic rinsing and machine cost that do not pertain to the drink options."
+    },
+    {
+      "id": "G02",
+      "category": "factual",
+      "metric": "Contextual Precision",
+      "score": 1.0,
+      "threshold": 0.5,
+      "passed": true,
+      "reason": "The score is 1.00 because the first node in retrieval contexts clearly lists the drinks the Belevico Forte machine can make, providing precise and relevant information. The subsequent nodes, ranked lower, discuss unrelated topics such as pod compatibility, setup, and cleaning instructions, which justifies their lower ranking and maintains perfect contextual precision."
+    },
+    {
+      "id": "G02",
+      "category": "factual",
+      "metric": "Contextual Recall",
+      "score": 1.0,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 1.00 because the sentence in the expected output exactly matches the information provided in the 1st node in the retrieval context, with no conflicting or missing details."
+    },
+    {
+      "id": "G02",
+      "category": "factual",
+      "metric": "Hallucination",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 1.00 because the actual output fully aligns with the context, accurately listing the drinks, features, and price of the Belevico Forte without any contradictions."
+    },
+    {
+      "id": "G03",
+      "category": "factual",
+      "metric": "Faithfulness",
+      "score": 0.8,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 0.80 because while the actual output correctly references the order number format BLV- followed by 6 digits, it incorrectly implies the existence of an AI service to check order status, which is not mentioned in the retrieval context."
+    },
+    {
+      "id": "G03",
+      "category": "factual",
+      "metric": "Answer Relevancy",
+      "score": 0.857,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 0.86 because the response mostly addresses the time frame for editing or canceling an order, but it includes an irrelevant statement about the order number format, which does not pertain to the question asked."
+    },
+    {
+      "id": "G03",
+      "category": "factual",
+      "metric": "Contextual Precision",
+      "score": 1.0,
+      "threshold": 0.5,
+      "passed": true,
+      "reason": "The score is 1.00 because the first node in the retrieval contexts, which is relevant, is ranked highest and clearly states, 'You can edit or cancel an order yourself within 30 minutes of placing it,' directly answering the question. All subsequent nodes, which are irrelevant, discuss unrelated topics such as order delays, returns, and order statuses, and are correctly ranked lower. This perfect ordering ensures maximum contextual precision."
+    },
+    {
+      "id": "G03",
+      "category": "factual",
+      "metric": "Contextual Recall",
+      "score": 1.0,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 1.00 because the first sentence in the expected output is directly supported by the information in node 1 of the retrieval context, with no conflicting or missing details."
+    },
+    {
+      "id": "G03",
+      "category": "factual",
+      "metric": "Hallucination",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 1.00 because the actual output fully aligns with the context, accurately reflecting all details about order editing, cancellation policies, live chat support, and the order number format without any contradictions."
+    },
+    {
+      "id": "G04",
+      "category": "factual",
+      "metric": "Faithfulness",
+      "score": 0.75,
+      "threshold": 0.8,
+      "passed": false,
+      "reason": "The score is 0.75 because the actual output makes claims about the format of order numbers and the AI's ability to check order status, but the retrieval context does not provide information to verify or contradict these claims, leading to ambiguity."
+    },
+    {
+      "id": "G04",
+      "category": "factual",
+      "metric": "Answer Relevancy",
+      "score": 0.375,
+      "threshold": 0.7,
+      "passed": false,
+      "reason": "The score is 0.38 because the response includes several irrelevant details such as delivery availability to all provinces, international shipping restrictions, PO box restrictions, order number format, and order status checking, none of which address the cost or delivery timeframe for Standard shipping. However, it is not lower because some relevant information about Standard shipping is present."
+    },
+    {
+      "id": "G04",
+      "category": "factual",
+      "metric": "Contextual Precision",
+      "score": 1.0,
+      "threshold": 0.5,
+      "passed": true,
+      "reason": "The score is 1.00 because the first node in retrieval contexts, which is relevant, is ranked highest and contains a direct answer with a table specifying the cost and delivery timeframe for Standard shipping. The subsequent nodes, which are irrelevant, are correctly ranked lower as they discuss unrelated topics such as order delays, damaged parcels, and order statuses without mentioning cost or delivery timeframe."
+    },
+    {
+      "id": "G04",
+      "category": "factual",
+      "metric": "Contextual Recall",
+      "score": 1.0,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 1.00 because the first sentence in the expected output directly matches the information in node 1 of the retrieval context, which specifies the delivery time and cost details exactly as stated."
+    },
+    {
+      "id": "G04",
+      "category": "factual",
+      "metric": "Hallucination",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 1.00 because the actual output fully aligns with the context, accurately reflecting all shipping details without any contradictions."
+    },
+    {
+      "id": "G05",
+      "category": "factual",
+      "metric": "Faithfulness",
+      "score": 0.857,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 0.86 because the actual output states that live chat is available every day from 09:00 to 21:00 Turkey time, but it overlooks that it is closed on national holidays, making the availability not truly every day without exception."
+    },
+    {
+      "id": "G05",
+      "category": "factual",
+      "metric": "Answer Relevancy",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 1.00 because the response directly addresses how to track a Belevico order without including any irrelevant information, making it fully relevant and helpful."
+    },
+    {
+      "id": "G05",
+      "category": "factual",
+      "metric": "Contextual Precision",
+      "score": 0.833,
+      "threshold": 0.5,
+      "passed": true,
+      "reason": "The score is 0.83 because the first node in retrieval contexts, which directly answers the question about tracking a Belevico order, is ranked highest, and the third node supporting tracking methods is ranked third. However, the second node, which discusses placing or canceling orders without mentioning tracking, is ranked second, above the third relevant node. Similarly, the fourth node about payment methods is ranked last, appropriately lower. The presence of an irrelevant node (second node) ranked above a relevant node (third node) prevents the score from being higher."
+    },
+    {
+      "id": "G05",
+      "category": "factual",
+      "metric": "Contextual Recall",
+      "score": 1.0,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 1.00 because the expected output perfectly matches the information provided in node 1 of the retrieval context, covering all three methods of tracking an order without any unsupported content."
+    },
+    {
+      "id": "G05",
+      "category": "factual",
+      "metric": "Hallucination",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 1.00 because the actual output fully aligns with the context, accurately listing all three methods to track an order without any contradictions."
+    },
+    {
+      "id": "G06",
+      "category": "factual",
+      "metric": "Faithfulness",
+      "score": 1.0,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 1.00 because there are no contradictions between the actual output and the retrieval context, indicating complete alignment and faithfulness."
+    },
+    {
+      "id": "G06",
+      "category": "factual",
+      "metric": "Answer Relevancy",
+      "score": 0.375,
+      "threshold": 0.7,
+      "passed": false,
+      "reason": "The score is 0.38 because the response includes several details about the return process and shipping costs that do not directly answer the specific question about the time frame for returning an unopened box of Belevico Pods. However, it does provide some relevant information about returns, which justifies the partial score."
+    },
+    {
+      "id": "G06",
+      "category": "factual",
+      "metric": "Contextual Precision",
+      "score": 1.0,
+      "threshold": 0.5,
+      "passed": true,
+      "reason": "The score is 1.00 because the first node in retrieval contexts clearly provides the return policy, stating 'You can return items within 21 days of delivery.' and specifying 'Pods: only unopened boxes can be returned.', which directly answers the question. The subsequent nodes, ranked lower, are irrelevant as they do not mention return policies or timeframes, ensuring all relevant information is prioritized perfectly."
+    },
+    {
+      "id": "G06",
+      "category": "factual",
+      "metric": "Contextual Recall",
+      "score": 1.0,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 1.00 because the sentence is fully supported by node 1 in the retrieval context, which clearly states the return policy for unopened boxes of Belevico Pods within 21 days of delivery. This direct alignment ensures complete accuracy and relevance."
+    },
+    {
+      "id": "G06",
+      "category": "factual",
+      "metric": "Hallucination",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 1.00 because the actual output fully aligns with the context, accurately reflecting the return policy details without any contradictions."
+    },
+    {
+      "id": "G07",
+      "category": "factual",
+      "metric": "Faithfulness",
+      "score": 1.0,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 1.00 because there are no contradictions between the actual output and the retrieval context, indicating complete faithfulness."
+    },
+    {
+      "id": "G07",
+      "category": "factual",
+      "metric": "Answer Relevancy",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 1.00 because the response directly addresses the question about the standard warranty for the Belevico Aria machine without including any irrelevant information."
+    },
+    {
+      "id": "G07",
+      "category": "factual",
+      "metric": "Contextual Precision",
+      "score": 1.0,
+      "threshold": 0.5,
+      "passed": true,
+      "reason": "The score is 1.00 because the first node in the retrieval contexts clearly provides the exact length of the standard warranty for the Belevico Aria machine, stating 'Belevico Aria | 2 years' and explaining the warranty start date. All subsequent nodes, ranked lower, contain irrelevant information such as warranty exclusions, features, prices, and setup instructions without specifying the standard warranty length. This perfect ordering of relevant information at the top and irrelevant details below justifies the highest possible score."
+    },
+    {
+      "id": "G07",
+      "category": "factual",
+      "metric": "Contextual Recall",
+      "score": 1.0,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 1.00 because the sentence in the expected output is fully supported by node 1 in the retrieval context, which explicitly states the 2-year warranty and its start from the delivery date, with no conflicting information present."
+    },
+    {
+      "id": "G07",
+      "category": "factual",
+      "metric": "Hallucination",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 1.00 because the actual output fully aligns with the context, accurately reflecting the warranty details and additional coverage without any contradictions."
+    },
+    {
+      "id": "G08",
+      "category": "factual",
+      "metric": "Faithfulness",
+      "score": 1.0,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 1.00 because there are no contradictions between the actual output and the retrieval context, indicating perfect alignment and faithfulness."
+    },
+    {
+      "id": "G08",
+      "category": "factual",
+      "metric": "Answer Relevancy",
+      "score": 0.833,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 0.83 because the answer provides relevant information about benefits but includes a statement about usual points earned that is not specific to Pod Club members, which slightly reduces relevancy."
+    },
+    {
+      "id": "G08",
+      "category": "factual",
+      "metric": "Contextual Precision",
+      "score": 0.833,
+      "threshold": 0.5,
+      "passed": true,
+      "reason": "The score is 0.83 because the first and third nodes in retrieval contexts, which are relevant, are ranked higher than the second and fourth nodes, which are irrelevant. However, the presence of the second node, which describes subscription plans and billing details without mentioning member benefits, at rank 2 lowers the score slightly, as it should be ranked lower than all relevant nodes."
+    },
+    {
+      "id": "G08",
+      "category": "factual",
+      "metric": "Contextual Recall",
+      "score": 1.0,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 1.00 because the entire expected output is directly supported by the first node in the retrieval context, which explicitly states the benefits for Pod Club members including double Bean Points and early access to limited-edition blends. There are no unsupported parts, making the recall complete and accurate."
+    },
+    {
+      "id": "G08",
+      "category": "factual",
+      "metric": "Hallucination",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 1.00 because the actual output fully aligns with the context, accurately listing all member benefits without any contradictions."
+    },
+    {
+      "id": "G09",
+      "category": "factual",
+      "metric": "Faithfulness",
+      "score": 0.75,
+      "threshold": 0.8,
+      "passed": false,
+      "reason": "The score is 0.75 because the actual output ambiguously states that shipping fees do not earn Bean Points, while the context only excludes shipping fees from the calculation without explicitly confirming they don't earn points, leading to partial inconsistency."
+    },
+    {
+      "id": "G09",
+      "category": "factual",
+      "metric": "Answer Relevancy",
+      "score": 0.429,
+      "threshold": 0.7,
+      "passed": false,
+      "reason": "The score is 0.43 because the response includes several irrelevant statements about shipping fees, point redemption, and usage limits, which do not directly answer how many Bean Points are earned per ₺10 spent. However, it partially addresses the topic by mentioning aspects related to points, just not the specific earning rate, preventing a lower score."
+    },
+    {
+      "id": "G09",
+      "category": "factual",
+      "metric": "Contextual Precision",
+      "score": 1.0,
+      "threshold": 0.5,
+      "passed": true,
+      "reason": "The score is 1.00 because the first two nodes in retrieval contexts, ranked 1st and 2nd, are relevant and directly address the points earned per ₺10 spent by Pod Club members, with clear explanations such as 'Pod Club members earn double points (2 points for every ₺10)' and 'Pod Club members earn double Bean Points on all purchases.' The irrelevant nodes, ranked 3rd and 4th, discuss unrelated topics like returns and subscription plans, which justifies their lower ranking. This perfect ordering of relevant nodes above irrelevant ones results in the highest possible contextual precision score."
+    },
+    {
+      "id": "G09",
+      "category": "factual",
+      "metric": "Contextual Recall",
+      "score": 1.0,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 1.00 because the first and second nodes in the retrieval context clearly state that Pod Club members earn double points, specifically 2 points for every ₺10 spent, which directly supports the sentence in the expected output."
+    },
+    {
+      "id": "G09",
+      "category": "factual",
+      "metric": "Hallucination",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 1.00 because the actual output fully aligns with the context, accurately reflecting all details about Pod Club points earning and redemption without any contradictions."
+    },
+    {
+      "id": "G10",
+      "category": "factual",
+      "metric": "Faithfulness",
+      "score": 0.9,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 0.90 because the actual output implies selecting the 2.4 GHz network when both 2.4 GHz and 5 GHz are broadcast, but the retrieval context does not explicitly mention this selection, leading to slight ambiguity."
+    },
+    {
+      "id": "G10",
+      "category": "factual",
+      "metric": "Answer Relevancy",
+      "score": 0.692,
+      "threshold": 0.7,
+      "passed": false,
+      "reason": "The score is 0.69 because the response includes relevant information about connecting the Belevico machine to Wi-Fi, but it also contains several irrelevant statements about warranty activation, warranty extension, and details about the Belevico Nomad model that does not connect to Wi-Fi. These unrelated points reduce the overall relevancy of the answer."
+    },
+    {
+      "id": "G10",
+      "category": "factual",
+      "metric": "Contextual Precision",
+      "score": 1.0,
+      "threshold": 0.5,
+      "passed": true,
+      "reason": "The score is 1.00 because the first two nodes in the retrieval contexts, which are ranked highest, provide detailed and relevant instructions on connecting the Belevico machine to Wi-Fi, including specific steps and network requirements. The irrelevant nodes, discussing the Belevico Nomad without Wi-Fi and customer support information, are correctly ranked lower (third and fourth nodes), ensuring that relevant information is prioritized effectively."
+    },
+    {
+      "id": "G10",
+      "category": "factual",
+      "metric": "Contextual Recall",
+      "score": 1.0,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 1.00 because all sentences in the expected output are fully supported by node 1 and node 2 in the retrieval context, which provide clear instructions on holding the power button, selecting the 2.4 GHz Wi-Fi network in the app, and the limitation regarding 5 GHz networks for Belevico machines. This comprehensive alignment ensures complete contextual recall."
+    },
+    {
+      "id": "G10",
+      "category": "factual",
+      "metric": "Hallucination",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 1.00 because the actual output fully aligns with the context, accurately summarizing all instructions without any contradictions."
+    },
+    {
+      "id": "G11",
+      "category": "factual",
+      "metric": "Faithfulness",
+      "score": 0.818,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 0.82 because the actual output ambiguously associates the sachet with 'Belevico' which is recommended but not explicitly stated in the context, and it slightly misrepresents the descaling frequency by implying a strict 3-month interval regardless of the orange drop icon status, whereas the context specifies descaling every 3 months or earlier when the icon lights up."
+    },
+    {
+      "id": "G11",
+      "category": "factual",
+      "metric": "Answer Relevancy",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 1.00 because the response directly addresses the user's question about the orange drop icon without including any irrelevant information, making it fully relevant and helpful."
+    },
+    {
+      "id": "G11",
+      "category": "factual",
+      "metric": "Contextual Precision",
+      "score": 0.806,
+      "threshold": 0.5,
+      "passed": true,
+      "reason": "The score is 0.81 because the first node in retrieval contexts correctly explains the orange drop icon, and the third and fourth nodes provide relevant descaling instructions, which are appropriately ranked high. However, the second node, which lists unrelated error codes, appears too early (second position) among relevant nodes, lowering the score since irrelevant nodes should be ranked lower than all relevant ones."
+    },
+    {
+      "id": "G11",
+      "category": "factual",
+      "metric": "Contextual Recall",
+      "score": 1.0,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 1.00 because the expected output directly reflects information from node 1 about the orange drop icon indicating descaling is due soon, and node 4 which specifies descaling every 3 months or when the icon lights up, using Belevico DescalePro. There are no unsupported elements, making the recall complete and accurate."
+    },
+    {
+      "id": "G11",
+      "category": "factual",
+      "metric": "Hallucination",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 1.00 because the actual output fully aligns with the context, accurately reflecting all instructions and warnings without any contradictions."
+    },
+    {
+      "id": "G12",
+      "category": "factual",
+      "metric": "Faithfulness",
+      "score": 0.556,
+      "threshold": 0.8,
+      "passed": false,
+      "reason": "The score is 0.56 because the actual output includes ambiguous interpretations of the context, such as implying fixes for error E-23 that are not explicitly stated, and assumptions about pricing details and support instructions that are not clearly confirmed in the retrieval context."
+    },
+    {
+      "id": "G12",
+      "category": "factual",
+      "metric": "Answer Relevancy",
+      "score": 0.917,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 0.92 because the response correctly explains the meaning and fix for error code E-23, but includes irrelevant details about the price and packaging of Belevico Pods, which do not pertain to the error code."
+    },
+    {
+      "id": "G12",
+      "category": "factual",
+      "metric": "Contextual Precision",
+      "score": 0.75,
+      "threshold": 0.5,
+      "passed": true,
+      "reason": "The score is 0.75 because the first node in retrieval contexts is highly relevant, clearly explaining error code E-23 and its fix, and the fourth node also provides pertinent information about the cause and solution. However, the second and third nodes, ranked second and third respectively, are irrelevant as they discuss unrelated topics like light signals and cleaning procedures, which lowers the score. The relevant nodes being ranked first and fourth rather than consecutively prevents a higher score."
+    },
+    {
+      "id": "G12",
+      "category": "factual",
+      "metric": "Contextual Recall",
+      "score": 1.0,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 1.00 because the first sentence in the expected output exactly matches the information in node 1 of the retrieval context, with no unsupported content, indicating perfect alignment and complete support from the retrieval context."
+    },
+    {
+      "id": "G12",
+      "category": "factual",
+      "metric": "Hallucination",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 1.00 because the actual output fully aligns with the context, accurately reflecting the explanation of error code E-23 and the recommended actions without any contradictions."
+    },
+    {
+      "id": "G13",
+      "category": "factual",
+      "metric": "Faithfulness",
+      "score": 0.5,
+      "threshold": 0.8,
+      "passed": false,
+      "reason": "The score is 0.50 because the actual output introduces assumptions not explicitly supported by the context, such as advising users to check the spam folder and stating that expired password reset links can be renewed, which are ambiguous and not confirmed by the retrieval context."
+    },
+    {
+      "id": "G13",
+      "category": "factual",
+      "metric": "Answer Relevancy",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 1.00 because the response directly and fully addresses the question about the validity duration of the password reset link without including any irrelevant information."
+    },
+    {
+      "id": "G13",
+      "category": "factual",
+      "metric": "Contextual Precision",
+      "score": 1.0,
+      "threshold": 0.5,
+      "passed": true,
+      "reason": "The score is 1.00 because the first node in the retrieval contexts clearly provides the exact duration of the password reset link validity, stating it is valid for 1 hour. All subsequent nodes discuss unrelated topics such as marketing messages, loyalty programs, and refund policies, which should rightly be ranked lower. This perfect ordering of relevant information at the top and irrelevant information below justifies the highest possible score."
+    },
+    {
+      "id": "G13",
+      "category": "factual",
+      "metric": "Contextual Recall",
+      "score": 1.0,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 1.00 because the sentence in the expected output exactly matches the information in node 1 of the retrieval context, with no conflicting or missing details."
+    },
+    {
+      "id": "G13",
+      "category": "factual",
+      "metric": "Hallucination",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 1.00 because the actual output fully aligns with the context, accurately reflecting that the password reset link is sent by email and is valid for 1 hour, with no contradictions present."
+    },
+    {
+      "id": "G14",
+      "category": "factual",
+      "metric": "Faithfulness",
+      "score": 0.909,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 0.91 because the actual output claims priority repair within 5 business days instead of 10, but the context only states priority repair within 5 days without mentioning a 10-day comparison, making this claim partially unsupported."
+    },
+    {
+      "id": "G14",
+      "category": "factual",
+      "metric": "Answer Relevancy",
+      "score": 0.364,
+      "threshold": 0.7,
+      "passed": false,
+      "reason": "The score is 0.36 because the response includes many details about Office plans, billing, and benefits that do not directly answer who can join Belevico for Business. However, it is not lower because some relevant information is present, but the focus on unrelated details reduces overall relevancy."
+    },
+    {
+      "id": "G14",
+      "category": "factual",
+      "metric": "Contextual Precision",
+      "score": 1.0,
+      "threshold": 0.5,
+      "passed": true,
+      "reason": "The score is 1.00 because the first node in retrieval contexts, which is relevant, is ranked highest and clearly states the eligibility criteria for joining Belevico for Business. The subsequent nodes, which are irrelevant as they discuss unrelated topics like customer support, company background, and a loyalty program, are correctly ranked lower. This perfect ordering ensures maximum contextual precision."
+    },
+    {
+      "id": "G14",
+      "category": "factual",
+      "metric": "Contextual Recall",
+      "score": 1.0,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 1.00 because the sentence in the expected output exactly matches the information in node 1 of the retrieval context, with no discrepancies or missing details."
+    },
+    {
+      "id": "G14",
+      "category": "factual",
+      "metric": "Hallucination",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 1.00 because the actual output fully aligns with the context, accurately reflecting all key details without any contradictions."
+    },
+    {
+      "id": "G17",
+      "category": "multi_hop",
+      "metric": "Faithfulness",
+      "score": 0.75,
+      "threshold": 0.8,
+      "passed": false,
+      "reason": "The score is 0.75 because the actual output ambiguously specifies a particular order number format 'BLV-000000' and the need to provide error code E-42, which the context does not explicitly state. Additionally, it implies support can check warranty status and delivery details upon receiving the order number, which is not mentioned in the context."
+    },
+    {
+      "id": "G17",
+      "category": "multi_hop",
+      "metric": "Answer Relevancy",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 1.00 because the response directly addresses the warranty coverage and machine replacement questions without any irrelevant information, providing clear and concise answers."
+    },
+    {
+      "id": "G17",
+      "category": "multi_hop",
+      "metric": "Contextual Precision",
+      "score": 1.0,
+      "threshold": 0.5,
+      "passed": true,
+      "reason": "The score is 1.00 because the nodes in retrieval contexts that are relevant are ranked higher than the irrelevant ones. Specifically, the first node clearly states that 'Belevico Forte owners receive a free loaner machine during the repair,' directly addressing the question, and it is ranked first. The second node explains the meaning of error E-42 and warranty coverage, also ranked before the irrelevant nodes. The irrelevant nodes, which provide general warranty information and unrelated cleaning procedures, are ranked lower (third and fourth), ensuring perfect contextual precision."
+    },
+    {
+      "id": "G17",
+      "category": "multi_hop",
+      "metric": "Contextual Recall",
+      "score": 1.0,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 1.00 because every sentence in the expected output is directly supported by node 1 in the retrieval context, with no unsupported information present. This perfect alignment reflects a complete and accurate recall of the relevant details."
+    },
+    {
+      "id": "G17",
+      "category": "multi_hop",
+      "metric": "Hallucination",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 1.00 because the actual output fully aligns with the provided contexts, accurately reflecting the error code details and warranty information without any contradictions."
+    },
+    {
+      "id": "G18",
+      "category": "multi_hop",
+      "metric": "Faithfulness",
+      "score": 0.714,
+      "threshold": 0.8,
+      "passed": false,
+      "reason": "The score is 0.71 because the actual output mentions details about the Standard shipping fee amount and its display at checkout, but the retrieval context does not provide any information on these points, leading to ambiguity and partial misalignment."
+    },
+    {
+      "id": "G18",
+      "category": "multi_hop",
+      "metric": "Answer Relevancy",
+      "score": 0.714,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 0.71 because the response includes relevant information about delivery costs and Bean Points for non-Pod Club members, but it also contains irrelevant details about Pod Club membership benefits and plans, which the user explicitly stated they are not part of."
+    },
+    {
+      "id": "G18",
+      "category": "multi_hop",
+      "metric": "Contextual Precision",
+      "score": 1.0,
+      "threshold": 0.5,
+      "passed": true,
+      "reason": "The score is 1.00 because the first node in retrieval contexts, which is relevant, is ranked highest and clearly explains how Bean Points are earned for non-Pod Club members. The subsequent nodes, which are irrelevant, discuss Pod Club subscriptions and benefits unrelated to delivery costs or points calculation for non-members, justifying their lower ranking."
+    },
+    {
+      "id": "G18",
+      "category": "multi_hop",
+      "metric": "Contextual Recall",
+      "score": 0.5,
+      "threshold": 0.8,
+      "passed": false,
+      "reason": "The score is 0.50 because the calculation of Bean Points in sentence 1 is directly supported by node 1 in the retrieval context, but the information about free standard delivery for orders over ₺750 and delivery cost details is missing from all nodes, leading to partial support for the expected output."
+    },
+    {
+      "id": "G18",
+      "category": "multi_hop",
+      "metric": "Hallucination",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 1.00 because the actual output fully aligns with the contexts, accurately reflecting the details about shipping fees and Bean Points without any contradictions."
+    },
+    {
+      "id": "G19",
+      "category": "multi_hop",
+      "metric": "Faithfulness",
+      "score": 0.167,
+      "threshold": 0.8,
+      "passed": false,
+      "reason": "The score is 0.17 because the actual output assumes Pod Club members earn double points on Belevico Forte machine purchases and provides example calculations based on this, but the context does not confirm points apply to machine purchases. Additionally, the output mentions checking order details via a specific order number format and viewing points balance immediately in the app, which are not supported by the context."
+    },
+    {
+      "id": "G19",
+      "category": "multi_hop",
+      "metric": "Answer Relevancy",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 1.00 because the response directly addresses the user's question about Bean Points for the Belevico Forte purchase, with no irrelevant information included."
+    },
+    {
+      "id": "G19",
+      "category": "multi_hop",
+      "metric": "Contextual Precision",
+      "score": 0.833,
+      "threshold": 0.5,
+      "passed": true,
+      "reason": "The score is 0.83 because the first node in retrieval contexts correctly ranks a relevant context explaining the Bean Points program for Pod Club members, and the third node provides necessary pricing information, both essential for answering the input. However, the second node, which is irrelevant as it lacks specific pricing or points details, is ranked higher than the fourth irrelevant node but still appears before all relevant nodes are perfectly ordered, preventing a perfect score."
+    },
+    {
+      "id": "G19",
+      "category": "multi_hop",
+      "metric": "Contextual Recall",
+      "score": 1.0,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 1.00 because all sentences in the expected output are fully supported by node 1 and node 2 in the retrieval context, which provide the price of Belevico Forte and the Pod Club points earning rate, enabling accurate calculation of Bean Points earned."
+    },
+    {
+      "id": "G19",
+      "category": "multi_hop",
+      "metric": "Hallucination",
+      "score": 0.5,
+      "threshold": 0.7,
+      "passed": false,
+      "reason": "The score is 0.50 because the actual output partially aligns with the second context regarding Pod Club points but incorrectly attributes this information to the first context, indicating a mix of accurate and hallucinated details."
+    },
+    {
+      "id": "G20",
+      "category": "multi_hop",
+      "metric": "Faithfulness",
+      "score": 0.333,
+      "threshold": 0.8,
+      "passed": false,
+      "reason": "The score is 0.33 because the actual output includes claims about points removal for pod payments, shipping exclusions, order number formats, and sharing order numbers that are not supported or mentioned in the retrieval context, indicating significant discrepancies."
+    },
+    {
+      "id": "G20",
+      "category": "multi_hop",
+      "metric": "Answer Relevancy",
+      "score": 0.833,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 0.83 because the response partially addresses the impact of returns on Bean Points but includes an irrelevant offer to check order details, which doesn't explain the effect on points directly."
+    },
+    {
+      "id": "G20",
+      "category": "multi_hop",
+      "metric": "Contextual Precision",
+      "score": 1.0,
+      "threshold": 0.5,
+      "passed": true,
+      "reason": "The score is 1.00 because the first node in retrieval contexts clearly explains the impact of returning an unopened box on Bean Points, stating that points earned on returned items are removed from the balance. The subsequent nodes, ranked lower, are irrelevant as they discuss general program info, subscription benefits, and return processes without addressing the effect on Bean Points. This perfect ranking ensures all relevant information is prioritized above unrelated content."
+    },
+    {
+      "id": "G20",
+      "category": "multi_hop",
+      "metric": "Contextual Recall",
+      "score": 1.0,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 1.00 because the first sentence in the expected output is fully supported by node 1 in the retrieval context, which explicitly states that points earned on a returned item are removed from your balance, perfectly aligning with the expected output."
+    },
+    {
+      "id": "G20",
+      "category": "multi_hop",
+      "metric": "Hallucination",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 1.00 because the actual output fully aligns with all provided contexts, accurately reflecting the points system and shipping fee policies without any contradictions."
+    },
+    {
+      "id": "G21",
+      "category": "factual",
+      "metric": "Faithfulness",
+      "score": 1.0,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 1.00 because there are no contradictions, indicating the actual output is fully faithful to the retrieval context. Great job maintaining accuracy!"
+    },
+    {
+      "id": "G21",
+      "category": "factual",
+      "metric": "Answer Relevancy",
+      "score": 0.333,
+      "threshold": 0.7,
+      "passed": false,
+      "reason": "The score is 0.33 because the response provides some relevant information about Belevico's showroom and support options, but it fails to directly address whether delivery to Germany is available. The inclusion of showroom location, opening hours, and support contact details, which do not clarify delivery options to Germany, lowers the relevancy."
+    },
+    {
+      "id": "G21",
+      "category": "factual",
+      "metric": "Contextual Precision",
+      "score": 1.0,
+      "threshold": 0.5,
+      "passed": true,
+      "reason": "The score is 1.00 because the first node in the retrieval contexts clearly states that Belevico only delivers within Turkey, directly addressing the delivery question for Germany. All subsequent nodes, ranked lower, are irrelevant as they focus on contact information, product details, and business programs without mentioning delivery policies. This perfect ranking of relevant over irrelevant nodes justifies the top score."
+    },
+    {
+      "id": "G21",
+      "category": "factual",
+      "metric": "Contextual Recall",
+      "score": 1.0,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 1.00 because the sentence in the expected output is fully supported by the information in node 1 of the retrieval context, which clearly states that Belevico only sells and delivers within Turkey, confirming no international shipping."
+    },
+    {
+      "id": "G21",
+      "category": "factual",
+      "metric": "Hallucination",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 1.00 because the actual output fully aligns with the provided contexts, accurately reflecting Belevico's delivery limitations and showroom details without any contradictions."
+    },
+    {
+      "id": "G25",
+      "category": "trap",
+      "metric": "Faithfulness",
+      "score": 0.714,
+      "threshold": 0.8,
+      "passed": false,
+      "reason": "The score is 0.71 because the actual output makes reasonable but not explicitly supported claims about contacting live chat promptly after 30 minutes and about the order number format enabling status checks, reflecting ambiguity rather than direct contradictions."
+    },
+    {
+      "id": "G25",
+      "category": "trap",
+      "metric": "Answer Relevancy",
+      "score": 0.875,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 0.88 because the response mostly addresses the cancellation time limit question, but it includes an irrelevant statement about providing an order number format for status checking, which does not directly answer the user's query."
+    },
+    {
+      "id": "G25",
+      "category": "trap",
+      "metric": "Contextual Precision",
+      "score": 1.0,
+      "threshold": 0.5,
+      "passed": true,
+      "reason": "The score is 1.00 because the first node in retrieval contexts, ranked highest, directly addresses the cancellation timing with clear details, while all subsequent nodes discuss unrelated topics such as subscription management and order status without relevant cancellation information, ensuring perfect ranking of relevant over irrelevant nodes."
+    },
+    {
+      "id": "G25",
+      "category": "trap",
+      "metric": "Contextual Recall",
+      "score": 1.0,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 1.00 because the expected output perfectly aligns with the information in node 1 of the retrieval context, accurately reflecting the 30-minute window for editing or cancelling orders and the possibility of live chat assistance before shipment."
+    },
+    {
+      "id": "G25",
+      "category": "trap",
+      "metric": "Hallucination",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 1.00 because the actual output fully aligns with the context, accurately reflecting all details about the cancellation policy without any contradictions."
+    },
+    {
+      "id": "G26",
+      "category": "trap",
+      "metric": "Faithfulness",
+      "score": 0.667,
+      "threshold": 0.8,
+      "passed": false,
+      "reason": "The score is 0.67 because the actual output ambiguously states the warranty period without specifying the base 3-year warranty plus the additional year for registration, and it also mentions an order number format and delivery date check not supported by the context."
+    },
+    {
+      "id": "G26",
+      "category": "trap",
+      "metric": "Answer Relevancy",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 1.00 because the response directly addresses the warranty duration of Belevico Forte without any irrelevant information, making it fully relevant to the input."
+    },
+    {
+      "id": "G26",
+      "category": "trap",
+      "metric": "Contextual Precision",
+      "score": 1.0,
+      "threshold": 0.5,
+      "passed": true,
+      "reason": "The score is 1.00 because the first node in retrieval contexts, ranked highest, correctly provides the exact warranty period and registration details, making it highly relevant. All subsequent nodes, ranked lower, discuss unrelated topics such as exclusions, features, and contact information, justifying their lower ranking and resulting in perfect contextual precision."
+    },
+    {
+      "id": "G26",
+      "category": "trap",
+      "metric": "Contextual Recall",
+      "score": 1.0,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 1.00 because the sentence about Belevico Forte's 3-year standard warranty and the additional year upon registration within 30 days is fully supported by node 1 in the retrieval context, with no conflicting or missing information."
+    },
+    {
+      "id": "G26",
+      "category": "trap",
+      "metric": "Hallucination",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 1.00 because the actual output fully aligns with the context, accurately reflecting the warranty duration and conditions without any contradictions."
+    },
+    {
+      "id": "G27",
+      "category": "trap",
+      "metric": "Faithfulness",
+      "score": 0.714,
+      "threshold": 0.8,
+      "passed": false,
+      "reason": "The score is 0.71 because the actual output includes specific blend names and intensities not specified in the context, and mentions a blend suggestion service that the context does not reference, leading to ambiguity and partial misalignment."
+    },
+    {
+      "id": "G27",
+      "category": "trap",
+      "metric": "Answer Relevancy",
+      "score": 0.5,
+      "threshold": 0.7,
+      "passed": false,
+      "reason": "The score is 0.50 because the response includes relevant information about the Belevico Pods but also contains several irrelevant details about pricing, packaging, and blend intensities that do not address the question about third-party pod compatibility."
+    },
+    {
+      "id": "G27",
+      "category": "trap",
+      "metric": "Contextual Precision",
+      "score": 1.0,
+      "threshold": 0.5,
+      "passed": true,
+      "reason": "The score is 1.00 because the first node in the retrieval contexts clearly states that Belevico machines only accept Belevico Pods and that third-party pods trigger error E-23, directly addressing the input. The subsequent nodes provide unrelated information such as company background, setup instructions, and machine features, which justifies their lower ranking compared to the highly relevant first node. This perfect ordering of relevant over irrelevant nodes results in an excellent contextual precision score."
+    },
+    {
+      "id": "G27",
+      "category": "trap",
+      "metric": "Contextual Recall",
+      "score": 1.0,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 1.00 because the first sentence in the expected output directly matches the information in node 1 of the retrieval context, and the warranty coverage detail is logically implied, resulting in a fully supported and accurate summary."
+    },
+    {
+      "id": "G27",
+      "category": "trap",
+      "metric": "Hallucination",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 1.00 because the actual output fully aligns with the contexts, accurately reflecting all factual details without any contradictions."
+    },
+    {
+      "id": "G28",
+      "category": "trap",
+      "metric": "Faithfulness",
+      "score": 0.833,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 0.83 because the actual output implies that the order status can be checked using the order number from the confirmation email, but the context only states that the email contains the order number without explicitly confirming this usage, leading to some ambiguity."
+    },
+    {
+      "id": "G28",
+      "category": "trap",
+      "metric": "Answer Relevancy",
+      "score": 0.667,
+      "threshold": 0.7,
+      "passed": false,
+      "reason": "The score is 0.67 because the answer partially addresses the question about cash on delivery and installments, but includes irrelevant details about bank transfer payment holds, automatic cancellations, and order status checks that do not pertain to the query. These unrelated statements prevent a higher score."
+    },
+    {
+      "id": "G28",
+      "category": "trap",
+      "metric": "Contextual Precision",
+      "score": 1.0,
+      "threshold": 0.5,
+      "passed": true,
+      "reason": "The score is 1.00 because the first node in the retrieval contexts, which is relevant, is ranked highest and clearly states that cash on delivery is not available and installments are only for Forte paid with credit cards. The subsequent nodes, which are irrelevant, discuss unrelated topics such as order changes and warranty, and are correctly ranked lower. This perfect ordering ensures maximum contextual precision."
+    },
+    {
+      "id": "G28",
+      "category": "trap",
+      "metric": "Contextual Recall",
+      "score": 1.0,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 1.00 because the sentence in the expected output perfectly matches the information provided in node 1 of the retrieval context, with no discrepancies or missing details."
+    },
+    {
+      "id": "G28",
+      "category": "trap",
+      "metric": "Hallucination",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 1.00 because the actual output fully aligns with the context, accurately reflecting payment options and order details without any contradictions."
+    },
+    {
+      "id": "G29",
+      "category": "trap",
+      "metric": "Faithfulness",
+      "score": 0.5,
+      "threshold": 0.8,
+      "passed": false,
+      "reason": "The score is 0.50 because the actual output incorrectly states that deliveries can be skipped for a month at a time, whereas the context allows skipping only a single delivery up to 3 days before billing. Additionally, the output ambiguously claims pausing is simpler than skipping for several months and mentions AI assistance for order lookup, neither of which are supported by the context."
+    },
+    {
+      "id": "G29",
+      "category": "trap",
+      "metric": "Answer Relevancy",
+      "score": 0.5,
+      "threshold": 0.7,
+      "passed": false,
+      "reason": "The score is 0.50 because the response includes information about timing and managing skips that doesn't directly address the policy on skipping more than 3 deliveries consecutively. However, it partially relates to skipping deliveries, which justifies the moderate score."
+    },
+    {
+      "id": "G29",
+      "category": "trap",
+      "metric": "Contextual Precision",
+      "score": 1.0,
+      "threshold": 0.5,
+      "passed": true,
+      "reason": "The score is 1.00 because the first node in the retrieval contexts, which is ranked highest, directly addresses the question by explaining the rules about skipping deliveries and pausing subscriptions. The subsequent nodes, ranked lower, provide information unrelated to skipping limits, such as subscription plans, shipping details, and returns, which justifies their lower ranking and maintains perfect contextual precision."
+    },
+    {
+      "id": "G29",
+      "category": "trap",
+      "metric": "Contextual Recall",
+      "score": 0.5,
+      "threshold": 0.8,
+      "passed": false,
+      "reason": "The score is 0.50 because the retrieval context (node 1) supports the details about skipping a single delivery up to 3 days before billing and pausing subscriptions for up to 3 months, which corresponds to sentence 1 in the expected output. However, there is no information in the nodes about the help center setting limits on skipping deliveries, making that part unsupported."
+    },
+    {
+      "id": "G29",
+      "category": "trap",
+      "metric": "Hallucination",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 1.00 because the actual output fully aligns with the context, accurately reflecting the subscription management details without any contradictions."
+    },
+    {
+      "id": "G32",
+      "category": "trap",
+      "metric": "Faithfulness",
+      "score": 0.6,
+      "threshold": 0.8,
+      "passed": false,
+      "reason": "The score is 0.60 because the actual output incorrectly extends the return window beyond the stated 21 days and confuses the 30-day period for app registration with the return policy. Additionally, it ambiguously suggests recommendations and procedures not supported by the context, such as specific order number formats and urgency in starting returns."
+    },
+    {
+      "id": "G32",
+      "category": "trap",
+      "metric": "Answer Relevancy",
+      "score": 0.818,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 0.82 because the response correctly addresses the return period but incorrectly states it as 21 days instead of 30, which contradicts the user's assumption. Additionally, mentioning warranty benefits from app registration is unrelated to the return timeframe, preventing a higher score."
+    },
+    {
+      "id": "G32",
+      "category": "trap",
+      "metric": "Contextual Precision",
+      "score": 0.833,
+      "threshold": 0.5,
+      "passed": true,
+      "reason": "The score is 0.83 because the first node in retrieval contexts correctly ranks a relevant context explaining the 21-day return window, which is crucial to the input question. However, the second node, which is irrelevant as it discusses warranty details unrelated to returns, is ranked higher than the third relevant node that clarifies the 30-day registration period versus the 21-day return window. This misranking of an irrelevant node above a relevant one prevents the score from being higher."
+    },
+    {
+      "id": "G32",
+      "category": "trap",
+      "metric": "Contextual Recall",
+      "score": 1.0,
+      "threshold": 0.8,
+      "passed": true,
+      "reason": "The score is 1.00 because the expected output accurately reflects information from node 1 about the 21-day return window and packaging requirements, as well as node 3 regarding the 30-day registration deadline for Belevico Care+. There are no unsupported statements, making the response fully aligned with the retrieval context."
+    },
+    {
+      "id": "G32",
+      "category": "trap",
+      "metric": "Hallucination",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The score is 1.00 because the actual output fully aligns with the contexts, accurately reflecting the 21-day return window and correctly differentiating it from the 30-day registration period for Belevico Care+, with no contradictions present."
+    },
+    {
+      "id": "G22",
+      "category": "out_of_scope",
+      "metric": "Refusal [GEval]",
+      "score": 0.89,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The response correctly identifies that information about mugs or other accessories is not available, avoiding any invented details. It acknowledges the scope of Belevico's products as machines and pods, which aligns with the help center topics. The output also directs the customer to visit the showroom or contact support for further assistance. The only minor shortcoming is the inclusion of showroom hours, which may be more detailed than necessary but still relevant."
+    },
+    {
+      "id": "G23",
+      "category": "out_of_scope",
+      "metric": "Refusal [GEval]",
+      "score": 0.563,
+      "threshold": 0.7,
+      "passed": false,
+      "reason": "The response correctly states that information about the affiliate program is not available in Belevico's materials and directs the customer to contact support, fulfilling key evaluation steps. However, it provides additional details about other programs like Bean Points referral and Belevico for Business, which may be considered assumed or unrelated information, slightly reducing alignment with the requirement to avoid invented or assumed details."
+    },
+    {
+      "id": "G24",
+      "category": "out_of_scope",
+      "metric": "Refusal [GEval]",
+      "score": 0.754,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The response correctly identifies that the gift wrapping information is not available in the help center and avoids providing any assumed details. It directs the customer to contact Belevico support and visit the showroom, fulfilling key evaluation steps. However, it includes additional information about warranty and delivery that is unrelated to the question, which slightly detracts from focus and relevance."
+    },
+    {
+      "id": "G30",
+      "category": "out_of_scope",
+      "metric": "Refusal [GEval]",
+      "score": 0.579,
+      "threshold": 0.7,
+      "passed": false,
+      "reason": "The response correctly states that there is no information about a student discount in the help center and directs the customer to contact Belevico support, aligning with steps 2 and 4. However, it provides additional details about unrelated programs and offers, which introduces assumed information not requested and not confirmed as relevant, conflicting with step 3."
+    },
+    {
+      "id": "G31",
+      "category": "out_of_scope",
+      "metric": "Refusal [GEval]",
+      "score": 0.897,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The response correctly identifies that hiring information is outside the scope of the Belevico help center and explicitly states that the information about job openings is not available. It avoids inventing any policies or details and directs the customer to contact Belevico support through official channels. However, it adds specific showroom hours and location details, which may not be strictly from the help center, slightly reducing alignment."
+    }
+  ]
+}

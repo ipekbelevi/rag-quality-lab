@@ -62,7 +62,9 @@ def _split_long(text: str, chunk_size: int) -> list[str]:
 
 
 def ingest() -> None:
-    doc_paths = sorted(config.DOCS_DIR.glob("*.md"))
+    doc_paths = [p for p in sorted(config.DOCS_DIR.glob("*.md")) if p.name not in config.EXCLUDE_DOCS]
+    if config.EXCLUDE_DOCS:
+        print(f"Excluding: {', '.join(config.EXCLUDE_DOCS)}")
     ids, chunks, metadatas = [], [], []
     for path in doc_paths:
         for i, chunk in enumerate(chunk_document(path.read_text(encoding="utf-8"), config.CHUNK_SIZE)):

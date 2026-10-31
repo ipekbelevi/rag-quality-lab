@@ -23,6 +23,9 @@ EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "text-embedding-3-small")
 CHUNK_SIZE = int(os.getenv("CHUNK_SIZE", "800"))  # max characters per chunk
 TOP_K = int(os.getenv("TOP_K", "4"))  # how many chunks to retrieve per question
 COLLECTION_NAME = "belevico_help_center"
+PROMPT_VARIANT = os.getenv("PROMPT_VARIANT", "default")  # see app/prompts.py
+# Comma-separated doc file names to leave out of ingestion (simulates a missing doc)
+EXCLUDE_DOCS = [d.strip() for d in os.getenv("EXCLUDE_DOCS", "").split(",") if d.strip()]
 
 # Paths
 DOCS_DIR = PROJECT_ROOT / "data" / "docs"

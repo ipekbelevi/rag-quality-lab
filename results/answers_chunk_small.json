@@ -1,0 +1,1097 @@
+{
+  "label": "chunk_small",
+  "created_at": "2026-10-31T12:13:16",
+  "settings": {
+    "chat_model": "claude-haiku-5-5",
+    "chunk_size": 120,
+    "top_k": 4,
+    "prompt_variant": "default",
+    "excluded_docs": [],
+    "golden_set": "golden_v1.json"
+  },
+  "usage": {
+    "input_tokens": 28311,
+    "output_tokens": 5075
+  },
+  "records": [
+    {
+      "id": "G01",
+      "category": "factual",
+      "question": "Where is Belevico's main warehouse and repair center located?",
+      "expected_output": "Belevico's main warehouse and repair center are in İzmir (Kemalpaşa), Turkey.",
+      "source_docs": [
+        "01-about-belevico.md"
+      ],
+      "answer": "I'm sorry, I don't have that information. The help center excerpts I have mention that Belevico sells and delivers only within Turkey, but they don't say where the main warehouse and repair center is located.\n\nFor the exact address, please contact Belevico support at support@belevico.example or call 0850 555 23 58 (weekdays 09:00–18:00).",
+      "contexts": [
+        "# About Belevico\n## Where we operate\nBelevico currently sells and delivers only within Turkey. Our main warehouse and repair center are",
+        "# About Belevico\nbusiness day.\n- Phone: 0850 555 23 58, weekdays 09:00–18:00.",
+        "# About Belevico\nclosed on Sundays.",
+        "# Belevico for Business\nBusiness. To apply, email business@belevico.example with your company name, tax number and the number of employees."
+      ],
+      "retrieved_sources": [
+        [
+          "01-about-belevico.md",
+          0.716
+        ],
+        [
+          "01-about-belevico.md",
+          0.64
+        ],
+        [
+          "01-about-belevico.md",
+          0.586
+        ],
+        [
+          "14-belevico-for-business.md",
+          0.574
+        ]
+      ],
+      "tool_calls": [],
+      "latency_s": 2.25
+    },
+    {
+      "id": "G02",
+      "category": "factual",
+      "question": "What drinks can I make with the Belevico Forte machine?",
+      "expected_output": "Belevico Forte can make espresso, lungo, americano, cappuccino, latte, and flat white.",
+      "source_docs": [
+        "02-products.md"
+      ],
+      "answer": "The Belevico Forte can make **espresso, lungo, americano, cappuccino, latte, and flat white**. It has the built-in LatteCore milk system for the milk-based drinks.",
+      "contexts": [
+        "# Belevico Machines and Pods\n## Belevico Forte\nBelevico Forte is our premium machine with a built-in milk system called LatteCore.\n- Water tank: 1.8",
+        "# Belevico Machines and Pods\nliters\n- Pump pressure: 19 bar\n- Drinks: espresso, lungo, americano, cappuccino, latte, flat white\n- LatteCore milk",
+        "# Belevico Machines and Pods\nDrinks: espresso, lungo, americano\n- No milk system\n- Price: ₺7,490",
+        "# Belevico Machines and Pods\nmakes about 6 espressos\n- Water tank: 0.25 liters\n- Drinks: espresso only\n- Price: ₺3,290"
+      ],
+      "retrieved_sources": [
+        [
+          "02-products.md",
+          0.712
+        ],
+        [
+          "02-products.md",
+          0.658
+        ],
+        [
+          "02-products.md",
+          0.628
+        ],
+        [
+          "02-products.md",
+          0.591
+        ]
+      ],
+      "tool_calls": [],
+      "latency_s": 1.43
+    },
+    {
+      "id": "G03",
+      "category": "factual",
+      "question": "How long do I have to edit or cancel an order after placing it?",
+      "expected_output": "You can edit or cancel an order yourself within 30 minutes of placing it.",
+      "source_docs": [
+        "03-ordering-and-payment.md"
+      ],
+      "answer": "You can edit or cancel an order yourself within 30 minutes of placing it, from \"My Orders\" in your account. After 30 minutes the order goes to our warehouse and can no longer be changed. If it hasn't shipped yet, live chat support may still be able to cancel it.\n\nFor further help, contact support@belevico.example.",
+      "contexts": [
+        "# Ordering and Payment\n## Changing or cancelling an order\nYou can edit or cancel an order yourself within 30 minutes of placing it, from \"My",
+        "# Ordering and Payment\nis held for 48 hours. If payment does not arrive within 48 hours, the order is cancelled automatically.",
+        "# Ordering and Payment\nOrders\" in your account. After 30 minutes the order goes to our warehouse and can no longer be changed. If the order has",
+        "# Ordering and Payment\nnot shipped yet, live chat support may still be able to cancel it."
+      ],
+      "retrieved_sources": [
+        [
+          "03-ordering-and-payment.md",
+          0.662
+        ],
+        [
+          "03-ordering-and-payment.md",
+          0.548
+        ],
+        [
+          "03-ordering-and-payment.md",
+          0.531
+        ],
+        [
+          "03-ordering-and-payment.md",
+          0.515
+        ]
+      ],
+      "tool_calls": [],
+      "latency_s": 1.4
+    },
+    {
+      "id": "G04",
+      "category": "factual",
+      "question": "What is the cost and delivery timeframe for Standard shipping?",
+      "expected_output": "Standard delivery costs ₺59 and takes 2–4 business days, free for orders over ₺750.",
+      "source_docs": [
+        "04-shipping-and-delivery.md"
+      ],
+      "answer": "Standard shipping takes **2–4 business days** and costs **₺59**. Orders over **₺750** ship free.",
+      "contexts": [
+        "# Shipping and Delivery\n## Delivery options and costs\n| Option | Delivery time | Cost |\n|--------|---------------|------|\n| Standard | 2–4",
+        "# Shipping and Delivery\nbusiness day | Free |",
+        "# Shipping and Delivery\nbusiness days | ₺59, free for orders over ₺750 |\n| Express | Next business day | ₺149 |\n| Showroom pickup | Ready in 1",
+        "# Tracking Your Order\n## My order is delayed\nIf your order shows Delayed for more than 3 business days, contact live chat. If a Standard"
+      ],
+      "retrieved_sources": [
+        [
+          "04-shipping-and-delivery.md",
+          0.698
+        ],
+        [
+          "04-shipping-and-delivery.md",
+          0.555
+        ],
+        [
+          "04-shipping-and-delivery.md",
+          0.52
+        ],
+        [
+          "05-order-tracking.md",
+          0.479
+        ]
+      ],
+      "tool_calls": [],
+      "latency_s": 1.91
+    },
+    {
+      "id": "G05",
+      "category": "factual",
+      "question": "How can I track my Belevico order?",
+      "expected_output": "You can track your order in \"My Orders\" in your Belevico account, via the tracking link in the shipping email, or ask the virtual assistant or live chat using your order number.",
+      "source_docs": [
+        "05-order-tracking.md"
+      ],
+      "answer": "Based on our help center, you can track your Belevico order in three ways:\n\n1. In \"My Orders\" in your Belevico account\n2. Through live chat, using your order number (format BLV- followed by 6 digits)\n3. Through our virtual assistant on the website, which can check the status of an order if you give it your order number, and is available 24/7\n\nIf you'd like me to check the status of a specific order right now, please share your order number (it starts with BLV- followed by 6 digits).",
+      "contexts": [
+        "# Tracking Your Order\n## How to track an order\nYou can track an order in three ways:\n1. In \"My Orders\" in your Belevico account\n2. Through the",
+        "# About Belevico\nof an order if you give it your order number.",
+        "# Tracking Your Order\nlive chat, using your order number (format BLV- followed by 6 digits)",
+        "# About Belevico\nOur virtual assistant on the website can answer questions about our products and policies 24/7, and can check the status"
+      ],
+      "retrieved_sources": [
+        [
+          "05-order-tracking.md",
+          0.821
+        ],
+        [
+          "01-about-belevico.md",
+          0.732
+        ],
+        [
+          "05-order-tracking.md",
+          0.637
+        ],
+        [
+          "01-about-belevico.md",
+          0.63
+        ]
+      ],
+      "tool_calls": [],
+      "latency_s": 1.42
+    },
+    {
+      "id": "G06",
+      "category": "factual",
+      "question": "Within how many days of delivery can I return an unopened box of Belevico Pods?",
+      "expected_output": "You can return unopened boxes of Belevico Pods within 21 days of delivery.",
+      "source_docs": [
+        "06-returns-and-refunds.md"
+      ],
+      "answer": "I don't have the return window in days in the information I have. I can confirm that unopened boxes of Belevico Pods can be returned, and that opened boxes can only be returned if the pods are defective.\n\nFor the exact return period, please contact Belevico support at support@belevico.example.",
+      "contexts": [
+        "# Belevico Machines and Pods\n## Belevico Pods\nBelevico Pods are sold in boxes of 10 pods. A box costs ₺189. We currently offer 14 blends, from the",
+        "# Returns and Refunds\n- Machines: must be returned in their original packaging with all accessories.\n- Pods: only unopened boxes can be",
+        "# About Belevico\nproduce our own compostable coffee pods, called Belevico Pods.",
+        "# Returns and Refunds\nreturned. Opened pod boxes cannot be returned unless the pods are defective.\n- Pod Club subscription boxes cannot be"
+      ],
+      "retrieved_sources": [
+        [
+          "02-products.md",
+          0.537
+        ],
+        [
+          "06-returns-and-refunds.md",
+          0.531
+        ],
+        [
+          "01-about-belevico.md",
+          0.514
+        ],
+        [
+          "06-returns-and-refunds.md",
+          0.511
+        ]
+      ],
+      "tool_calls": [],
+      "latency_s": 1.69
+    },
+    {
+      "id": "G07",
+      "category": "factual",
+      "question": "How long is the standard warranty for the Belevico Aria machine?",
+      "expected_output": "Belevico Aria has a standard 2-year warranty starting from the delivery date.",
+      "source_docs": [
+        "07-warranty.md"
+      ],
+      "answer": "The standard warranty for the Belevico Aria is **2 years**. The warranty starts on the delivery date.",
+      "contexts": [
+        "# Warranty\n## Warranty periods\n| Machine | Standard warranty |\n|---------|-------------------|\n| Belevico Aria | 2 years |\n|",
+        "# Warranty\nBelevico Forte owners receive a free loaner machine during the repair. Loaner machines are not available for Aria or",
+        "# Warranty\n## Belevico Care+\nIf you register your machine in the Belevico Home app within 30 days of delivery, you get Belevico",
+        "# Warranty\nBelevico Forte | 3 years |\n| Belevico Nomad | 1 year |\n\nThe warranty starts on the delivery date."
+      ],
+      "retrieved_sources": [
+        [
+          "07-warranty.md",
+          0.814
+        ],
+        [
+          "07-warranty.md",
+          0.752
+        ],
+        [
+          "07-warranty.md",
+          0.698
+        ],
+        [
+          "07-warranty.md",
+          0.664
+        ]
+      ],
+      "tool_calls": [],
+      "latency_s": 1.11
+    },
+    {
+      "id": "G08",
+      "category": "factual",
+      "question": "What benefits do Pod Club members get?",
+      "expected_output": "Pod Club members earn double Bean Points on all purchases and get early access to limited-edition blends.",
+      "source_docs": [
+        "08-pod-club-subscription.md"
+      ],
+      "answer": "Pod Club members get:\n\n- **Double Bean Points** on all purchases\n- **Early access to limited-edition blends**\n\nPod Club is Belevico's monthly pod subscription. The help center text I have is incomplete, so for full details, contact support@belevico.example.",
+      "contexts": [
+        "# Pod Club Subscription\n## Member benefits\nPod Club members earn double Bean Points on all purchases and get early access to limited-edition",
+        "# Pod Club Subscription\nPod Club is our monthly pod subscription.",
+        "# Pod Club Subscription\nblends.",
+        "# Pod Club Subscription\ndate."
+      ],
+      "retrieved_sources": [
+        [
+          "08-pod-club-subscription.md",
+          0.79
+        ],
+        [
+          "08-pod-club-subscription.md",
+          0.761
+        ],
+        [
+          "08-pod-club-subscription.md",
+          0.689
+        ],
+        [
+          "08-pod-club-subscription.md",
+          0.666
+        ]
+      ],
+      "tool_calls": [],
+      "latency_s": 2.32
+    },
+    {
+      "id": "G09",
+      "category": "factual",
+      "question": "How many Bean Points do I earn per ₺10 spent if I'm a Pod Club member?",
+      "expected_output": "Pod Club members earn 2 Bean Points for every ₺10 spent.",
+      "source_docs": [
+        "09-bean-points-loyalty.md"
+      ],
+      "answer": "Pod Club members earn **2 Bean Points for every ₺10** spent, which is double the standard 1 point per ₺10. Shipping fees don't earn points.",
+      "contexts": [
+        "# Bean Points Loyalty Program\n## Earning points\n- You earn 1 Bean Point for every ₺10 you spend.\n- Shipping fees do not earn points.\n- Pod Club",
+        "# Pod Club Subscription\n## Member benefits\nPod Club members earn double Bean Points on all purchases and get early access to limited-edition",
+        "# Bean Points Loyalty Program\n## Using points\nEvery 100 Bean Points can be redeemed for a ₺25 discount at checkout. You can use up to 1,000 points",
+        "# Bean Points Loyalty Program\nmembers earn double points (2 points for every ₺10).\n- Referral: when a friend places their first order with your"
+      ],
+      "retrieved_sources": [
+        [
+          "09-bean-points-loyalty.md",
+          0.84
+        ],
+        [
+          "08-pod-club-subscription.md",
+          0.781
+        ],
+        [
+          "09-bean-points-loyalty.md",
+          0.72
+        ],
+        [
+          "09-bean-points-loyalty.md",
+          0.716
+        ]
+      ],
+      "tool_calls": [],
+      "latency_s": 1.81
+    },
+    {
+      "id": "G10",
+      "category": "factual",
+      "question": "How do I connect my Belevico machine to Wi-Fi?",
+      "expected_output": "Hold the power button for 5 seconds until the light blinks blue; in the app tap \"Add machine\" and select your 2.4 GHz Wi-Fi network; Belevico machines do not support 5 GHz networks.",
+      "source_docs": [
+        "10-machine-setup.md"
+      ],
+      "answer": "To connect your Belevico machine to Wi-Fi, make sure your network is **2.4 GHz**. Belevico machines only connect to 2.4 GHz networks and do not support 5 GHz Wi-Fi.\n\nIf your machine still won't connect after checking this, contact Belevico support at support@belevico.example.",
+      "contexts": [
+        "# Setting Up Your Machine\nBelevico machines only connect to 2.4 GHz Wi-Fi networks. 5 GHz networks are not supported.",
+        "# Troubleshooting and Error Codes\n## Machine does not connect to Wi-Fi\nMake sure your network is 2.4 GHz. Belevico machines do not support 5 GHz Wi-Fi.",
+        "# Setting Up Your Machine\n## Connecting to the Belevico Home app\nThe Belevico Home app is available for iOS and Android.",
+        "# Setting Up Your Machine\n## Belevico Nomad setup\nBelevico Nomad has no Wi-Fi and does not connect to the app. Charge it fully over USB-C before"
+      ],
+      "retrieved_sources": [
+        [
+          "10-machine-setup.md",
+          0.769
+        ],
+        [
+          "12-troubleshooting-error-codes.md",
+          0.687
+        ],
+        [
+          "10-machine-setup.md",
+          0.663
+        ],
+        [
+          "10-machine-setup.md",
+          0.628
+        ]
+      ],
+      "tool_calls": [],
+      "latency_s": 1.31
+    },
+    {
+      "id": "G11",
+      "category": "factual",
+      "question": "What should I do if the orange drop icon lights up on my machine?",
+      "expected_output": "The orange drop icon means descaling is due soon; you should descale the machine using Belevico DescalePro every 3 months or when the icon lights up.",
+      "source_docs": [
+        "11-cleaning-and-descaling.md"
+      ],
+      "answer": "When the orange drop icon lights up, it means descaling is due soon. Please descale your machine as soon as you can. Our help center recommends descaling every 3 months, or earlier when the orange drop icon appears.\n\nI don't have the step-by-step descaling instructions in my reference material. For those, please contact Belevico support at support@belevico.example.",
+      "contexts": [
+        "# Troubleshooting and Error Codes\n## Light signals\n- Blinking blue: the machine is in Wi-Fi pairing mode.\n- Orange drop icon: descaling is due soon.\n-",
+        "# Cleaning and Descaling\n## Descaling\nDescale your machine every 3 months, or earlier when the orange drop icon lights up. A blinking red light",
+        "# Troubleshooting and Error Codes\nBlinking red: descaling is overdue.\n- Blinking white: the machine is heating up.",
+        "# Setting Up Your Machine\n1. Create an account or sign in to the app.\n2. Hold the power button for 5 seconds until the light blinks blue.\n3. In"
+      ],
+      "retrieved_sources": [
+        [
+          "12-troubleshooting-error-codes.md",
+          0.569
+        ],
+        [
+          "11-cleaning-and-descaling.md",
+          0.508
+        ],
+        [
+          "12-troubleshooting-error-codes.md",
+          0.404
+        ],
+        [
+          "10-machine-setup.md",
+          0.401
+        ]
+      ],
+      "tool_calls": [],
+      "latency_s": 2.09
+    },
+    {
+      "id": "G12",
+      "category": "factual",
+      "question": "What does error code E-23 mean and how do I fix it?",
+      "expected_output": "Error E-23 means a pod is not recognized; use an undamaged Belevico Pod as third-party pods are not supported.",
+      "source_docs": [
+        "12-troubleshooting-error-codes.md"
+      ],
+      "answer": "Error **E-23** means **\"Pod not recognized.\"** The help center excerpt I have is cut off, so I can only partly explain the fix. It begins with \"Use an undamaged...\" (presumably an undamaged pod). The product information also says that pods which aren't supported will trigger E-23.\n\nFor the full steps, please contact Belevico support at support@belevico.example.",
+      "contexts": [
+        "# Troubleshooting and Error Codes\n## Error codes\n| Code | Meaning | What to do |\n|------|---------|------------|\n| E-11 | Water tank not detected | Remove",
+        "# Troubleshooting and Error Codes\nwash the milk carafe, dry the sensor contacts, and reattach the carafe. |\n| E-23 | Pod not recognized | Use an undamaged",
+        "# Belevico Machines and Pods\nsupported and will trigger error E-23.",
+        "# Troubleshooting and Error Codes\nminutes. |\n| E-42 | Pump failure | Stop using the machine and contact support. This is usually covered by warranty. |"
+      ],
+      "retrieved_sources": [
+        [
+          "12-troubleshooting-error-codes.md",
+          0.578
+        ],
+        [
+          "12-troubleshooting-error-codes.md",
+          0.559
+        ],
+        [
+          "02-products.md",
+          0.538
+        ],
+        [
+          "12-troubleshooting-error-codes.md",
+          0.523
+        ]
+      ],
+      "tool_calls": [],
+      "latency_s": 1.86
+    },
+    {
+      "id": "G13",
+      "category": "factual",
+      "question": "How long is the password reset link valid?",
+      "expected_output": "Password reset links are valid for 1 hour after being sent by email.",
+      "source_docs": [
+        "13-account-and-privacy.md"
+      ],
+      "answer": "The password reset link is valid for 1 hour. It's sent to you by email.\n\nIf you have any other questions, contact Belevico support at support@belevico.example.",
+      "contexts": [
+        "# Account and Privacy\n## Password and login\n- Password reset links are sent by email and are valid for 1 hour.\n- You can turn on two-factor",
+        "# Account and Privacy\nauthentication (2FA) by SMS under Settings > Security.\n- After 5 failed login attempts, your account is locked for 15",
+        "# Bean Points Loyalty Program\n## Expiry\nPoints expire if your account has no purchases for 12 months in a row. Making any purchase resets the 12-month",
+        "# Account and Privacy\ndeletion is completed within 30 days. Deleting your account permanently removes your Bean Points balance and cancels any"
+      ],
+      "retrieved_sources": [
+        [
+          "13-account-and-privacy.md",
+          0.603
+        ],
+        [
+          "13-account-and-privacy.md",
+          0.35
+        ],
+        [
+          "09-bean-points-loyalty.md",
+          0.348
+        ],
+        [
+          "13-account-and-privacy.md",
+          0.314
+        ]
+      ],
+      "tool_calls": [],
+      "latency_s": 1.03
+    },
+    {
+      "id": "G14",
+      "category": "factual",
+      "question": "Who can join Belevico for Business?",
+      "expected_output": "Companies ordering 10 or more machines, or subscribing to at least 3 Office plans can join Belevico for Business.",
+      "source_docs": [
+        "14-belevico-for-business.md"
+      ],
+      "answer": "Companies that order 10 or more machines, or subscribe to at least 3 Office plans, can join Belevico for Business. It's our program for offices, cafés and hotels.\n\nTo apply, email business@belevico.example with your company name, tax number and the number of employees.",
+      "contexts": [
+        "# Belevico for Business\n## Who can join\nCompanies that order 10 or more machines, or subscribe to at least 3 Office plans, can join Belevico for",
+        "# Belevico for Business\nBusiness. To apply, email business@belevico.example with your company name, tax number and the number of employees.",
+        "# Belevico for Business\nBelevico for Business is our program for offices, cafés and hotels.",
+        "# Belevico for Business\n## Benefits\n- A dedicated account manager\n- 15% discount on machines\n- Invoicing with payment terms of net 30 days\n-"
+      ],
+      "retrieved_sources": [
+        [
+          "14-belevico-for-business.md",
+          0.805
+        ],
+        [
+          "14-belevico-for-business.md",
+          0.779
+        ],
+        [
+          "14-belevico-for-business.md",
+          0.757
+        ],
+        [
+          "14-belevico-for-business.md",
+          0.7
+        ]
+      ],
+      "tool_calls": [],
+      "latency_s": 1.11
+    },
+    {
+      "id": "G17",
+      "category": "multi_hop",
+      "question": "My Forte shows error E-42. Will the warranty cover it, and do I get a machine while it's being repaired?",
+      "expected_output": "E-42 is a pump failure: stop using the machine and contact support; it is usually covered by warranty. Warranty repairs take about 10 business days, and Belevico Forte owners get a free loaner machine during the repair.",
+      "source_docs": [
+        "12-troubleshooting-error-codes.md",
+        "07-warranty.md"
+      ],
+      "answer": "Your Forte showing error E-42 (pump failure) is usually covered by warranty. The help center says to stop using the machine and contact support.\n\nBelevico Forte owners also receive a free loaner machine during the repair.\n\nTo start a warranty repair, contact support at support@belevico.example with your order number and a short video of the problem. If you share your order number, I can also check its status.",
+      "contexts": [
+        "# Troubleshooting and Error Codes\nminutes. |\n| E-42 | Pump failure | Stop using the machine and contact support. This is usually covered by warranty. |",
+        "# Warranty\nBelevico Forte owners receive a free loaner machine during the repair. Loaner machines are not available for Aria or",
+        "# Warranty\n## How warranty repair works\nContact support with your order number and a short video of the problem. If the issue is",
+        "# Warranty\nCare+: one extra year of warranty, free of charge. Machines registered after 30 days do not qualify for Care+."
+      ],
+      "retrieved_sources": [
+        [
+          "12-troubleshooting-error-codes.md",
+          0.609
+        ],
+        [
+          "07-warranty.md",
+          0.547
+        ],
+        [
+          "07-warranty.md",
+          0.512
+        ],
+        [
+          "07-warranty.md",
+          0.481
+        ]
+      ],
+      "tool_calls": [],
+      "latency_s": 2.43
+    },
+    {
+      "id": "G18",
+      "category": "multi_hop",
+      "question": "If I order ₺800 worth of products with Standard shipping, how much will I pay for delivery and how many Bean Points will I earn if I'm not a Pod Club member?",
+      "expected_output": "Standard delivery is free for orders over ₺750, so delivery cost is ₺0; you will earn 80 Bean Points (₺800 / 10) as a non-Pod Club member.",
+      "source_docs": [
+        "04-shipping-and-delivery.md",
+        "09-bean-points-loyalty.md"
+      ],
+      "answer": "**Delivery fee:** I don't have the Standard shipping fee in the help center information I can access, so I can't tell you what you'll pay for delivery. Please contact support@belevico.example for that.\n\n**Bean Points:** You'd earn **80 Bean Points**. You earn 1 point for every ₺10 spent, so ₺800 gives 80 points. Shipping fees don't earn points, so the delivery charge wouldn't change this number.",
+      "contexts": [
+        "# Bean Points Loyalty Program\n## Earning points\n- You earn 1 Bean Point for every ₺10 you spend.\n- Shipping fees do not earn points.\n- Pod Club",
+        "# Pod Club Subscription\n## Member benefits\nPod Club members earn double Bean Points on all purchases and get early access to limited-edition",
+        "# Shipping and Delivery\nPod Club subscription deliveries always ship free with Standard delivery.",
+        "# Bean Points Loyalty Program\n## Using points\nEvery 100 Bean Points can be redeemed for a ₺25 discount at checkout. You can use up to 1,000 points"
+      ],
+      "retrieved_sources": [
+        [
+          "09-bean-points-loyalty.md",
+          0.743
+        ],
+        [
+          "08-pod-club-subscription.md",
+          0.654
+        ],
+        [
+          "04-shipping-and-delivery.md",
+          0.64
+        ],
+        [
+          "09-bean-points-loyalty.md",
+          0.628
+        ]
+      ],
+      "tool_calls": [],
+      "latency_s": 2.29
+    },
+    {
+      "id": "G19",
+      "category": "multi_hop",
+      "question": "I'm a Pod Club member and just bought a Belevico Forte. How many Bean Points do I get for it?",
+      "expected_output": "Belevico Forte costs ₺12,990. Pod Club members earn 2 Bean Points per ₺10, so you earn 2,598 Bean Points.",
+      "source_docs": [
+        "02-products.md",
+        "09-bean-points-loyalty.md"
+      ],
+      "answer": "As a Pod Club member, you earn **2 Bean Points for every ₺10 you spend** on purchases, since Pod Club members earn double the standard 1 point per ₺10.\n\nShipping fees don't earn points, so only the product price counts. I don't have the Forte's price in my help center information, so I can't give the exact total. To work it out, multiply the amount you spent on the Forte (excluding shipping) by 0.2. For example, a ₺1,000 purchase would earn 200 points.\n\nIf you'd like to check your order, share your order number (format BLV-123456). For questions about how your points were credited, contact support@belevico.example.",
+      "contexts": [
+        "# Bean Points Loyalty Program\n## Earning points\n- You earn 1 Bean Point for every ₺10 you spend.\n- Shipping fees do not earn points.\n- Pod Club",
+        "# Pod Club Subscription\n## Member benefits\nPod Club members earn double Bean Points on all purchases and get early access to limited-edition",
+        "# Bean Points Loyalty Program\nBean Points is Belevico's free loyalty program. Every customer with a Belevico account is automatically a member.",
+        "# Bean Points Loyalty Program\n## Using points\nEvery 100 Bean Points can be redeemed for a ₺25 discount at checkout. You can use up to 1,000 points"
+      ],
+      "retrieved_sources": [
+        [
+          "09-bean-points-loyalty.md",
+          0.72
+        ],
+        [
+          "08-pod-club-subscription.md",
+          0.708
+        ],
+        [
+          "09-bean-points-loyalty.md",
+          0.687
+        ],
+        [
+          "09-bean-points-loyalty.md",
+          0.636
+        ]
+      ],
+      "tool_calls": [],
+      "latency_s": 3.15
+    },
+    {
+      "id": "G20",
+      "category": "multi_hop",
+      "question": "I returned one unopened box of pods and got a refund. How does this affect my Bean Points?",
+      "expected_output": "The points earned on the returned unopened pod box are removed from your Bean Points balance.",
+      "source_docs": [
+        "06-returns-and-refunds.md",
+        "09-bean-points-loyalty.md"
+      ],
+      "answer": "If you return an item, the points you earned on that item are removed from your Bean Points balance. This applies to your returned box of pods.\n\nThe help center doesn't say how many points that box accounted for. You earn 1 Bean Point for every ₺10 you spend, and shipping fees don't earn points. If you'd like to know your exact new balance, contact support@belevico.example. If you share your order number, I can also check the order details for you.",
+      "contexts": [
+        "# Bean Points Loyalty Program\n## Earning points\n- You earn 1 Bean Point for every ₺10 you spend.\n- Shipping fees do not earn points.\n- Pod Club",
+        "# Bean Points Loyalty Program\nperiod.\n\n## Returns and points\nIf you return an item, the points earned on that item are removed from your balance.",
+        "# Returns and Refunds\n- Machines: must be returned in their original packaging with all accessories.\n- Pods: only unopened boxes can be",
+        "# Returns and Refunds\nreturned. Opened pod boxes cannot be returned unless the pods are defective.\n- Pod Club subscription boxes cannot be"
+      ],
+      "retrieved_sources": [
+        [
+          "09-bean-points-loyalty.md",
+          0.63
+        ],
+        [
+          "09-bean-points-loyalty.md",
+          0.624
+        ],
+        [
+          "06-returns-and-refunds.md",
+          0.607
+        ],
+        [
+          "06-returns-and-refunds.md",
+          0.599
+        ]
+      ],
+      "tool_calls": [],
+      "latency_s": 2.12
+    },
+    {
+      "id": "G21",
+      "category": "factual",
+      "question": "Can I get Belevico coffee delivered to Germany?",
+      "expected_output": "No. Belevico only delivers within Turkey and does not ship internationally.",
+      "source_docs": [
+        "01-about-belevico.md",
+        "04-shipping-and-delivery.md"
+      ],
+      "answer": "I don't have information about shipping to Germany in the help center materials I have access to. For delivery options to your country, please contact Belevico support at support@belevico.example.\n\nWhat I can tell you: Belevico Pods are sold in boxes of 10 pods for ₺189 per box, and we currently offer 14 blends.",
+      "contexts": [
+        "# About Belevico\nBelevico is a coffee technology company founded in 2019 in İzmir, Turkey. We design smart pod coffee machines and",
+        "# About Belevico\nproduce our own compostable coffee pods, called Belevico Pods.",
+        "# About Belevico\n## Our mission\nOur mission is to make café-quality coffee at home with zero plastic waste. Every Belevico Pod is made",
+        "# Belevico Machines and Pods\n## Belevico Pods\nBelevico Pods are sold in boxes of 10 pods. A box costs ₺189. We currently offer 14 blends, from the"
+      ],
+      "retrieved_sources": [
+        [
+          "01-about-belevico.md",
+          0.557
+        ],
+        [
+          "01-about-belevico.md",
+          0.554
+        ],
+        [
+          "01-about-belevico.md",
+          0.545
+        ],
+        [
+          "02-products.md",
+          0.512
+        ]
+      ],
+      "tool_calls": [],
+      "latency_s": 1.33
+    },
+    {
+      "id": "G22",
+      "category": "out_of_scope",
+      "question": "Does Belevico sell coffee mugs or accessories other than pods and machines?",
+      "expected_output": "The help center has no information about coffee mugs. Besides machines and pods, the only accessory mentioned is the Belevico DescalePro descaler (₺159). For other products, contact support@belevico.example.",
+      "source_docs": [],
+      "answer": "I don't have information about whether Belevico sells coffee mugs or other accessories. The help center covers Belevico machines and Belevico Pods (sold in boxes of 10 for ₺189 each, with 14 blends currently offered).\n\nFor a definitive answer, please contact Belevico support at support@belevico.example.",
+      "contexts": [
+        "# About Belevico\nproduce our own compostable coffee pods, called Belevico Pods.",
+        "# Belevico Machines and Pods\n## Belevico Pods\nBelevico Pods are sold in boxes of 10 pods. A box costs ₺189. We currently offer 14 blends, from the",
+        "# Belevico Machines and Pods\nBelevico Pods only work with Belevico machines. Belevico machines only accept Belevico Pods; third-party pods are not",
+        "# About Belevico\n## Our mission\nOur mission is to make café-quality coffee at home with zero plastic waste. Every Belevico Pod is made"
+      ],
+      "retrieved_sources": [
+        [
+          "01-about-belevico.md",
+          0.647
+        ],
+        [
+          "02-products.md",
+          0.635
+        ],
+        [
+          "02-products.md",
+          0.634
+        ],
+        [
+          "01-about-belevico.md",
+          0.629
+        ]
+      ],
+      "tool_calls": [],
+      "latency_s": 1.42
+    },
+    {
+      "id": "G23",
+      "category": "out_of_scope",
+      "question": "How can I join Belevico's affiliate program?",
+      "expected_output": "We do not have information on an affiliate program; please contact support@belevico.example for assistance.",
+      "source_docs": [],
+      "answer": "I don't have information about an affiliate program in the help center. The closest topics I can see are Bean Points (our free loyalty program for customers) and Belevico for Business (for offices, cafés and hotels).\n\nFor questions about an affiliate program, please contact Belevico support at support@belevico.example.",
+      "contexts": [
+        "# Bean Points Loyalty Program\nBean Points is Belevico's free loyalty program. Every customer with a Belevico account is automatically a member.",
+        "# Belevico for Business\nBelevico for Business is our program for offices, cafés and hotels.",
+        "# Belevico for Business\n## Who can join\nCompanies that order 10 or more machines, or subscribe to at least 3 Office plans, can join Belevico for",
+        "# Belevico for Business\nBusiness. To apply, email business@belevico.example with your company name, tax number and the number of employees."
+      ],
+      "retrieved_sources": [
+        [
+          "09-bean-points-loyalty.md",
+          0.645
+        ],
+        [
+          "14-belevico-for-business.md",
+          0.636
+        ],
+        [
+          "14-belevico-for-business.md",
+          0.63
+        ],
+        [
+          "14-belevico-for-business.md",
+          0.628
+        ]
+      ],
+      "tool_calls": [],
+      "latency_s": 1.27
+    },
+    {
+      "id": "G24",
+      "category": "out_of_scope",
+      "question": "Do you offer gift wrapping for Belevico machines?",
+      "expected_output": "There is no information about gift wrapping services; please contact support@belevico.example for more info.",
+      "source_docs": [],
+      "answer": "I don't have information about gift wrapping for Belevico machines in the help center material I can access. For details, please contact Belevico support at support@belevico.example.",
+      "contexts": [
+        "# Belevico for Business\n## Benefits\n- A dedicated account manager\n- 15% discount on machines\n- Invoicing with payment terms of net 30 days\n-",
+        "# Warranty\n## Belevico Care+\nIf you register your machine in the Belevico Home app within 30 days of delivery, you get Belevico",
+        "# Belevico for Business\n## Who can join\nCompanies that order 10 or more machines, or subscribe to at least 3 Office plans, can join Belevico for",
+        "# Belevico Machines and Pods\n## Belevico Pods\nBelevico Pods are sold in boxes of 10 pods. A box costs ₺189. We currently offer 14 blends, from the"
+      ],
+      "retrieved_sources": [
+        [
+          "14-belevico-for-business.md",
+          0.57
+        ],
+        [
+          "07-warranty.md",
+          0.514
+        ],
+        [
+          "14-belevico-for-business.md",
+          0.51
+        ],
+        [
+          "02-products.md",
+          0.505
+        ]
+      ],
+      "tool_calls": [],
+      "latency_s": 1.03
+    },
+    {
+      "id": "G25",
+      "category": "trap",
+      "question": "Is it true that I can cancel my order anytime before it ships without any time limit?",
+      "expected_output": "Orders can only be edited or cancelled within 30 minutes of placing them; after that, they cannot be changed, although live chat may help cancel if it has not shipped yet.",
+      "source_docs": [
+        "03-ordering-and-payment.md"
+      ],
+      "answer": "No, that isn't quite right. Based on our help center:\n\n- **Within 30 minutes** of placing an order, you can edit or cancel it yourself from \"My [the rest of this section is missing from our help center text].\"\n- **After 30 minutes**, if the order hasn't shipped yet, live chat support may still be able to cancel it. This is not guaranteed.\n\nI don't have information on cancelling an order anytime before shipping without a time limit. For your specific order, please contact support@belevico.example or share your order number and I can check its status.",
+      "contexts": [
+        "# Shipping and Delivery\nUnclaimed pickup orders are cancelled and refunded after 10 days.",
+        "# Ordering and Payment\n## Changing or cancelling an order\nYou can edit or cancel an order yourself within 30 minutes of placing it, from \"My",
+        "# Ordering and Payment\nnot shipped yet, live chat support may still be able to cancel it.",
+        "# Ordering and Payment\nis held for 48 hours. If payment does not arrive within 48 hours, the order is cancelled automatically."
+      ],
+      "retrieved_sources": [
+        [
+          "04-shipping-and-delivery.md",
+          0.489
+        ],
+        [
+          "03-ordering-and-payment.md",
+          0.487
+        ],
+        [
+          "03-ordering-and-payment.md",
+          0.486
+        ],
+        [
+          "03-ordering-and-payment.md",
+          0.463
+        ]
+      ],
+      "tool_calls": [],
+      "latency_s": 2.22
+    },
+    {
+      "id": "G26",
+      "category": "trap",
+      "question": "My Belevico Forte has a 5-year standard warranty, right?",
+      "expected_output": "Belevico Forte has a 3-year standard warranty; an extra year is available if registered within 30 days for Care+, totaling 4 years.",
+      "source_docs": [
+        "07-warranty.md"
+      ],
+      "answer": "According to our warranty information, the standard warranty for the Belevico Forte is **3 years**, not 5. The warranty starts on the delivery date.\n\nIf you have questions about your specific machine's coverage, contact support@belevico.example.",
+      "contexts": [
+        "# Warranty\nBelevico Forte | 3 years |\n| Belevico Nomad | 1 year |\n\nThe warranty starts on the delivery date.",
+        "# Warranty\n## Warranty periods\n| Machine | Standard warranty |\n|---------|-------------------|\n| Belevico Aria | 2 years |\n|",
+        "# Warranty\nBelevico Forte owners receive a free loaner machine during the repair. Loaner machines are not available for Aria or",
+        "# Warranty\n## Belevico Care+\nIf you register your machine in the Belevico Home app within 30 days of delivery, you get Belevico"
+      ],
+      "retrieved_sources": [
+        [
+          "07-warranty.md",
+          0.763
+        ],
+        [
+          "07-warranty.md",
+          0.632
+        ],
+        [
+          "07-warranty.md",
+          0.626
+        ],
+        [
+          "07-warranty.md",
+          0.617
+        ]
+      ],
+      "tool_calls": [],
+      "latency_s": 2.08
+    },
+    {
+      "id": "G27",
+      "category": "trap",
+      "question": "Can I use third-party coffee pods with my Belevico machine without error?",
+      "expected_output": "No. Belevico machines only accept Belevico Pods; third-party pods are not supported and trigger error E-23. Damage caused by third-party pods is not covered by the warranty.",
+      "source_docs": [
+        "02-products.md",
+        "12-troubleshooting-error-codes.md",
+        "07-warranty.md"
+      ],
+      "answer": "No, you can't. Belevico machines only accept Belevico Pods. Third-party pods are not supported and will trigger error E-23.\n\nBelevico Pods are sold in boxes of 10 for ₺189 per box.",
+      "contexts": [
+        "# Belevico Machines and Pods\nBelevico Pods only work with Belevico machines. Belevico machines only accept Belevico Pods; third-party pods are not",
+        "# Belevico Machines and Pods\nsupported and will trigger error E-23.",
+        "# About Belevico\nproduce our own compostable coffee pods, called Belevico Pods.",
+        "# Belevico Machines and Pods\n## Belevico Pods\nBelevico Pods are sold in boxes of 10 pods. A box costs ₺189. We currently offer 14 blends, from the"
+      ],
+      "retrieved_sources": [
+        [
+          "02-products.md",
+          0.771
+        ],
+        [
+          "02-products.md",
+          0.662
+        ],
+        [
+          "01-about-belevico.md",
+          0.652
+        ],
+        [
+          "02-products.md",
+          0.633
+        ]
+      ],
+      "tool_calls": [],
+      "latency_s": 1.15
+    },
+    {
+      "id": "G28",
+      "category": "trap",
+      "question": "If I pay with cash on delivery, can I use installment payments for my Forte?",
+      "expected_output": "Cash on delivery is not available; installments are only for Forte paid with credit cards from partner banks.",
+      "source_docs": [
+        "03-ordering-and-payment.md",
+        "02-products.md"
+      ],
+      "answer": "No, cash on delivery is not available at Belevico, so you can't use installments with that option. Installments of up to 9 months are available only for Belevico Forte, and only with credit cards from partner banks shown at checkout. Pods and accessories cannot be paid in installments.\n\nIf you have questions about your payment options, please contact support@belevico.example.",
+      "contexts": [
+        "# Ordering and Payment\n## Installments\nInstallments of up to 9 months are available only for Belevico Forte, and only with credit cards from",
+        "# Ordering and Payment\nCash on delivery is not available.",
+        "# Ordering and Payment\npartner banks shown at checkout. Pods and accessories cannot be paid in installments.",
+        "# Warranty\nBelevico Forte owners receive a free loaner machine during the repair. Loaner machines are not available for Aria or"
+      ],
+      "retrieved_sources": [
+        [
+          "03-ordering-and-payment.md",
+          0.605
+        ],
+        [
+          "03-ordering-and-payment.md",
+          0.483
+        ],
+        [
+          "03-ordering-and-payment.md",
+          0.47
+        ],
+        [
+          "07-warranty.md",
+          0.383
+        ]
+      ],
+      "tool_calls": [],
+      "latency_s": 1.26
+    },
+    {
+      "id": "G29",
+      "category": "trap",
+      "question": "Can I skip more than 3 deliveries in a row with Pod Club subscription?",
+      "expected_output": "The help center does not set a limit on skipping deliveries in a row. You can skip a single delivery up to 3 days before the billing date, or pause the subscription for up to 3 months at a time.",
+      "source_docs": [
+        "08-pod-club-subscription.md"
+      ],
+      "answer": "The help center I have says you can skip a single Pod Club delivery up to 3 days before the billing date. It doesn't say whether you can skip several deliveries in a row, so I don't have an answer to that.\n\nFor a definite answer, please contact Belevico support at support@belevico.example.\n\nIf you'd rather not receive boxes for a while, the help center also says you can pause your subscription for up to 3 months at a time.",
+      "contexts": [
+        "# Pod Club Subscription\n## Skip, pause or cancel\n- Skip: you can skip a single delivery up to 3 days before the billing date.\n- Pause: you can",
+        "# Pod Club Subscription\npause your subscription for up to 3 months at a time.\n- Cancel: you can cancel any time with no cancellation fee. There",
+        "# Pod Club Subscription\nAll plans include free Standard delivery. You can choose your blends and change them any time before the next billing",
+        "# Pod Club Subscription\nis no minimum subscription period. If you cancel after the billing date, that month's box still ships."
+      ],
+      "retrieved_sources": [
+        [
+          "08-pod-club-subscription.md",
+          0.736
+        ],
+        [
+          "08-pod-club-subscription.md",
+          0.643
+        ],
+        [
+          "08-pod-club-subscription.md",
+          0.64
+        ],
+        [
+          "08-pod-club-subscription.md",
+          0.639
+        ]
+      ],
+      "tool_calls": [],
+      "latency_s": 2.02
+    },
+    {
+      "id": "G30",
+      "category": "out_of_scope",
+      "question": "do u have a student discount?",
+      "expected_output": "There is no information about a student discount in the help center. Please contact support@belevico.example.",
+      "source_docs": [],
+      "answer": "I don't have any information about a student discount in the help center. For questions about discounts or eligibility, please contact Belevico support at support@belevico.example.\n\nIs there anything else I can help with, such as Bean Points or Pod Club subscriptions?",
+      "contexts": [
+        "# Bean Points Loyalty Program\n## Using points\nEvery 100 Bean Points can be redeemed for a ₺25 discount at checkout. You can use up to 1,000 points",
+        "# Pod Club Subscription\n| ₺349 |\n| Duo | 4 boxes (40 pods) | ₺649 |\n| Office | 12 boxes (120 pods) | ₺1,790 |",
+        "# Pod Club Subscription\n## Member benefits\nPod Club members earn double Bean Points on all purchases and get early access to limited-edition",
+        "# Pod Club Subscription\nAll plans include free Standard delivery. You can choose your blends and change them any time before the next billing"
+      ],
+      "retrieved_sources": [
+        [
+          "09-bean-points-loyalty.md",
+          0.325
+        ],
+        [
+          "08-pod-club-subscription.md",
+          0.324
+        ],
+        [
+          "08-pod-club-subscription.md",
+          0.312
+        ],
+        [
+          "08-pod-club-subscription.md",
+          0.305
+        ]
+      ],
+      "tool_calls": [],
+      "latency_s": 1.1
+    },
+    {
+      "id": "G31",
+      "category": "out_of_scope",
+      "question": "Are you hiring? I'd love to work as a barista in your showroom.",
+      "expected_output": "There is no information about jobs or hiring in the help center. Please contact support@belevico.example.",
+      "source_docs": [],
+      "answer": "I'm sorry, but I don't have information about job openings or hiring at Belevico. The help center context I have covers our machines, pods, and shipping/pickup details only.\n\nFor career questions, please contact Belevico support at support@belevico.example, and they can point you in the right direction.",
+      "contexts": [
+        "# Belevico Machines and Pods\nliters\n- Pump pressure: 19 bar\n- Drinks: espresso, lungo, americano, cappuccino, latte, flat white\n- LatteCore milk",
+        "# Belevico Machines and Pods\nDrinks: espresso, lungo, americano\n- No milk system\n- Price: ₺7,490",
+        "# Shipping and Delivery\nShowroom pickup is only available at our İzmir Alsancak showroom. Please bring your order number and an ID card.",
+        "# Belevico Machines and Pods\n## Belevico Forte\nBelevico Forte is our premium machine with a built-in milk system called LatteCore.\n- Water tank: 1.8"
+      ],
+      "retrieved_sources": [
+        [
+          "02-products.md",
+          0.363
+        ],
+        [
+          "02-products.md",
+          0.347
+        ],
+        [
+          "04-shipping-and-delivery.md",
+          0.332
+        ],
+        [
+          "02-products.md",
+          0.331
+        ]
+      ],
+      "tool_calls": [],
+      "latency_s": 1.52
+    },
+    {
+      "id": "G32",
+      "category": "trap",
+      "question": "I have 30 days to return my Aria, right?",
+      "expected_output": "No. The return window is 21 days from delivery, and the machine must be returned in its original packaging with all accessories. (30 days is the deadline for registering a machine for Belevico Care+.)",
+      "source_docs": [
+        "06-returns-and-refunds.md",
+        "07-warranty.md"
+      ],
+      "answer": "No, our return window is **21 days from delivery**, not 30 days. This applies to all items, including the Aria.\n\nIf you have a specific order you'd like checked, please send your order number (format BLV-123456) and I can look up its delivery date. For anything else, contact support@belevico.example.",
+      "contexts": [
+        "# Returns and Refunds\n## Return window\nYou can return items within 21 days of delivery.",
+        "# Warranty\nBelevico Forte owners receive a free loaner machine during the repair. Loaner machines are not available for Aria or",
+        "# Warranty\n## Warranty periods\n| Machine | Standard warranty |\n|---------|-------------------|\n| Belevico Aria | 2 years |\n|",
+        "# Returns and Refunds\nrefunds are sent within 7 business days after inspection, to the original payment method. For orders paid by bank"
+      ],
+      "retrieved_sources": [
+        [
+          "06-returns-and-refunds.md",
+          0.457
+        ],
+        [
+          "07-warranty.md",
+          0.429
+        ],
+        [
+          "07-warranty.md",
+          0.414
+        ],
+        [
+          "06-returns-and-refunds.md",
+          0.355
+        ]
+      ],
+      "tool_calls": [],
+      "latency_s": 1.87
+    }
+  ]
+}
