@@ -19,6 +19,11 @@ CHAT_MODEL = os.getenv("CHAT_MODEL", "claude-haiku-5-5")
 JUDGE_MODEL = os.getenv("JUDGE_MODEL", "gpt-4.1-mini")
 EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "text-embedding-3-small")
 
+# RAG settings (Phase 3 deliberately breaks these to see if evals notice)
+CHUNK_SIZE = int(os.getenv("CHUNK_SIZE", "800"))  # max characters per chunk
+TOP_K = int(os.getenv("TOP_K", "4"))  # how many chunks to retrieve per question
+COLLECTION_NAME = "belevico_help_center"
+
 # Paths
 DOCS_DIR = PROJECT_ROOT / "data" / "docs"
 GOLDEN_DIR = PROJECT_ROOT / "data" / "golden"
