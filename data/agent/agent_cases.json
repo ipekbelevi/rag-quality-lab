@@ -1,0 +1,81 @@
+{
+  "version": "v1",
+  "note": "Hand-written agent spec. expected_tools = exact tool calls the agent should make ([] = no tool call). expected_tools = null means more than one behaviour is acceptable, so only task completion is checked.",
+  "cases": [
+    {
+      "id": "A01", "type": "lookup",
+      "input": "Where is my order BLV-482913?",
+      "expected_tools": [{"name": "get_order_status", "input_parameters": {"order_id": "BLV-482913"}}],
+      "task": "Tell the customer that order BLV-482913 has shipped with KuşKargo, give tracking number KK-99812345 and the estimated delivery date 2026-11-03 (3 November 2026)."
+    },
+    {
+      "id": "A02", "type": "lookup_normalize",
+      "input": "hi, my order number is blv-771045. when will it arrive?",
+      "expected_tools": [{"name": "get_order_status", "input_parameters": {"order_id": "BLV-771045"}}],
+      "task": "Tell the customer that order BLV-771045 is being prepared and the estimated delivery date is 2026-11-05 (5 November 2026)."
+    },
+    {
+      "id": "A03", "type": "lookup",
+      "input": "My order BLV-305518 is late, what's going on?",
+      "expected_tools": [{"name": "get_order_status", "input_parameters": {"order_id": "BLV-305518"}}],
+      "task": "Explain that order BLV-305518 is delayed because of a carrier backlog in Ankara and give the new estimated delivery date 2026-11-07 (7 November 2026)."
+    },
+    {
+      "id": "A04", "type": "no_tool_missing_id",
+      "input": "Where's my order?",
+      "expected_tools": [],
+      "task": "Ask the customer for their order number (format BLV- followed by 6 digits) instead of guessing any order status."
+    },
+    {
+      "id": "A05", "type": "no_tool_policy",
+      "input": "What's your return window for machines?",
+      "expected_tools": [],
+      "task": "Explain that machines can be returned within 21 days of delivery in their original packaging with all accessories."
+    },
+    {
+      "id": "A06", "type": "lookup_not_found",
+      "input": "Can you check order BLV-999999?",
+      "expected_tools": [{"name": "get_order_status", "input_parameters": {"order_id": "BLV-999999"}}],
+      "task": "Tell the customer that no order with number BLV-999999 was found and ask them to double-check it, without inventing any order status."
+    },
+    {
+      "id": "A07", "type": "multi_lookup",
+      "input": "Check BLV-482913 and BLV-219987 for me please",
+      "expected_tools": [
+        {"name": "get_order_status", "input_parameters": {"order_id": "BLV-482913"}},
+        {"name": "get_order_status", "input_parameters": {"order_id": "BLV-219987"}}
+      ],
+      "task": "Give the status of both orders: BLV-482913 has shipped (estimated delivery 2026-11-03) and BLV-219987 is out for delivery today."
+    },
+    {
+      "id": "A08", "type": "lookup",
+      "input": "Was my refund for BLV-650072 sent?",
+      "expected_tools": [{"name": "get_order_status", "input_parameters": {"order_id": "BLV-650072"}}],
+      "task": "Tell the customer that order BLV-650072 was cancelled and the refund was sent on 2026-10-29 (29 October 2026)."
+    },
+    {
+      "id": "A09", "type": "lookup_plus_docs",
+      "input": "My order BLV-100234 was delivered. Can I still return the Forte?",
+      "expected_tools": [{"name": "get_order_status", "input_parameters": {"order_id": "BLV-100234"}}],
+      "task": "Use the delivery date of order BLV-100234 (2026-10-25) and the 21-day return window to tell the customer the return deadline (around 2026-11-15), and mention the machine must be in its original packaging with all accessories."
+    },
+    {
+      "id": "A10", "type": "invalid_id",
+      "input": "What's the status of order BLV-12345?",
+      "expected_tools": null,
+      "task": "Tell the customer that BLV-12345 is not a valid order number (it should be BLV- followed by 6 digits) and ask them to check it, without inventing any order status."
+    },
+    {
+      "id": "A11", "type": "no_tool_policy",
+      "input": "Tell me about the Forte's milk system",
+      "expected_tools": [],
+      "task": "Describe the LatteCore milk system of Belevico Forte (built-in, automatic rinse, makes cappuccino, latte and flat white)."
+    },
+    {
+      "id": "A12", "type": "lookup_plus_docs",
+      "input": "I ordered a Nomad, order BLV-305518. Where is it, and how do I charge it when it arrives?",
+      "expected_tools": [{"name": "get_order_status", "input_parameters": {"order_id": "BLV-305518"}}],
+      "task": "Say that order BLV-305518 is delayed with a new estimated delivery date of 2026-11-07, and explain that the Nomad charges over USB-C and should be fully charged (about 2 hours) before first use."
+    }
+  ]
+}

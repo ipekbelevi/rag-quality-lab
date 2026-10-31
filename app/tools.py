@@ -5,6 +5,7 @@ Phase 4 tests can check exactly what the agent should have said.
 """
 
 import json
+import os
 import re
 
 FAKE_ORDERS = {
@@ -48,6 +49,11 @@ TOOLS = [
         "strict": True,
     }
 ]
+
+# Phase 4 experiment: same tool, but someone "simplified" the parameter description.
+# Nothing crashes; the model just gets the wrong instructions.
+if os.getenv("TOOL_VARIANT") == "broken":
+    TOOLS[0]["input_schema"]["properties"]["order_id"]["description"] = "Numeric order id only, without any prefix, e.g. 482913"
 
 _REGISTRY = {"get_order_status": get_order_status}
 

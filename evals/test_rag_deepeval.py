@@ -9,9 +9,7 @@ Out-of-scope items get a GEval "refusal" metric: there is no right context to re
 so the only correct behaviour is to say "I don't know" without inventing anything.
 """
 
-import asyncio
 import json
-import os
 
 import pytest
 from deepeval.metrics import (
@@ -24,13 +22,11 @@ from deepeval.metrics import (
 )
 from deepeval.test_case import LLMTestCase, SingleTurnParams
 
-from deepeval.utils import get_or_create_event_loop
-
 from app import config
 from app.prompts import get_system_prompt
-from evals import score_log
 from evals import thresholds as T
 from evals.conftest import ANSWERS_FILE, PROJECT_ROOT
+from evals.runner import run_checks
 
 RUN = json.loads((PROJECT_ROOT / ANSWERS_FILE).read_text(encoding="utf-8"))
 RECORDS = RUN["records"]
@@ -40,7 +36,6 @@ JUDGE = config.JUDGE_MODEL
 # The bot may also rely on facts we gave it in the system prompt (support email,
 # "I can check orders"). Faithfulness must see that source too, or it flags them as invented.
 SYSTEM_PROMPT_CONTEXT = "Assistant instructions:\n" + get_system_prompt(RUN["settings"]["prompt_variant"])
-LOOP = get_or_create_event_loop()  # one event loop for the whole session
 
 REFUSAL_CRITERIA = (
     "The question is about something the Belevico help center does not cover. "
@@ -56,18 +51,7 @@ def load_docs(names: list[str]) -> list[str]:
 
 
 def check(record: dict, checks: list[tuple]) -> None:
-    """checks: (metric, test_case) pairs. All metrics run concurrently, then we assert."""
-    async def _run():
-        await asyncio.gather(*(metric.a_measure(test_case) for metric, test_case in checks))
-    LOOP.run_until_complete(_run())
-
-    metrics = [metric for metric, _ in checks]
-    score_log.add(record, metrics)
-    failures = [
-        f"{m.__name__}: {m.score:.2f} (threshold {m.threshold}) -> {m.reason}"
-        for m in metrics if not m.is_successful()
-    ]
-    assert not failures, f"{record['question']}\nAnswer: {record['answer']}\n" + "\n".join(failures)
+    run_checks(record, checks, suite="rag")
 
 
 @pytest.mark.parametrize("record", IN_SCOPE, ids=[r["id"] for r in IN_SCOPE])

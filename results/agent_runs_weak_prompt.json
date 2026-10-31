@@ -1,0 +1,806 @@
+{
+  "label": "weak_prompt",
+  "created_at": "2026-10-31T12:35:54",
+  "settings": {
+    "chat_model": "claude-haiku-5-5",
+    "prompt_variant": "weak",
+    "repeats": 3
+  },
+  "runs": [
+    {
+      "id": "A01",
+      "type": "lookup",
+      "input": "Where is my order BLV-482913?",
+      "expected_tools": [
+        {
+          "name": "get_order_status",
+          "input_parameters": {
+            "order_id": "BLV-482913"
+          }
+        }
+      ],
+      "task": "Tell the customer that order BLV-482913 has shipped with KuşKargo, give tracking number KK-99812345 and the estimated delivery date 2026-11-03 (3 November 2026).",
+      "rep": 1,
+      "answer": "Your order BLV-482913 has shipped. Here are the details:\n\n- **Items:** Belevico Aria and 2x Belevico Pods (Ege Sabahı)\n- **Carrier:** KuşKargo\n- **Tracking number:** KK-99812345\n- **Estimated delivery:** November 3, 2026\n\nYou can also follow the tracking link in your shipping email, or check \"My Orders\" in your Belevico account. Your e-Archive invoice is emailed to you when the order ships, so keep an eye on your inbox for that too.",
+      "tool_calls": [
+        {
+          "name": "get_order_status",
+          "input": {
+            "order_id": "BLV-482913"
+          },
+          "output": "{\"order_id\": \"BLV-482913\", \"status\": \"Shipped\", \"items\": [\"Belevico Aria\", \"2x Belevico Pods (Ege Sabahı)\"], \"carrier\": \"KuşKargo\", \"tracking_number\": \"KK-99812345\", \"estimated_delivery\": \"2026-11-03\"}"
+        }
+      ],
+      "latency_s": 2.82
+    },
+    {
+      "id": "A01",
+      "type": "lookup",
+      "input": "Where is my order BLV-482913?",
+      "expected_tools": [
+        {
+          "name": "get_order_status",
+          "input_parameters": {
+            "order_id": "BLV-482913"
+          }
+        }
+      ],
+      "task": "Tell the customer that order BLV-482913 has shipped with KuşKargo, give tracking number KK-99812345 and the estimated delivery date 2026-11-03 (3 November 2026).",
+      "rep": 2,
+      "answer": "Good news: your order BLV-482913 has shipped!\n\n- **Items:** Belevico Aria and 2x Belevico Pods (Ege Sabahı)\n- **Carrier:** KuşKargo\n- **Tracking number:** KK-99812345\n- **Estimated delivery:** November 3, 2026\n\nYou can also follow it through the tracking link in your shipping email, or under \"My Orders\" in your Belevico account. If you have any other questions, just let me know!",
+      "tool_calls": [
+        {
+          "name": "get_order_status",
+          "input": {
+            "order_id": "BLV-482913"
+          },
+          "output": "{\"order_id\": \"BLV-482913\", \"status\": \"Shipped\", \"items\": [\"Belevico Aria\", \"2x Belevico Pods (Ege Sabahı)\"], \"carrier\": \"KuşKargo\", \"tracking_number\": \"KK-99812345\", \"estimated_delivery\": \"2026-11-03\"}"
+        }
+      ],
+      "latency_s": 2.38
+    },
+    {
+      "id": "A01",
+      "type": "lookup",
+      "input": "Where is my order BLV-482913?",
+      "expected_tools": [
+        {
+          "name": "get_order_status",
+          "input_parameters": {
+            "order_id": "BLV-482913"
+          }
+        }
+      ],
+      "task": "Tell the customer that order BLV-482913 has shipped with KuşKargo, give tracking number KK-99812345 and the estimated delivery date 2026-11-03 (3 November 2026).",
+      "rep": 3,
+      "answer": "Good news: order BLV-482913 has shipped. Here are the details:\n\n- **Status:** Shipped\n- **Items:** Belevico Aria and 2x Belevico Pods (Ege Sabahı)\n- **Carrier:** KuşKargo\n- **Tracking number:** KK-99812345\n- **Estimated delivery:** November 3, 2026\n\nYou can also track it through the tracking link in your shipping email, or under \"My Orders\" in your Belevico account. Is there anything else I can help you with?",
+      "tool_calls": [
+        {
+          "name": "get_order_status",
+          "input": {
+            "order_id": "BLV-482913"
+          },
+          "output": "{\"order_id\": \"BLV-482913\", \"status\": \"Shipped\", \"items\": [\"Belevico Aria\", \"2x Belevico Pods (Ege Sabahı)\"], \"carrier\": \"KuşKargo\", \"tracking_number\": \"KK-99812345\", \"estimated_delivery\": \"2026-11-03\"}"
+        }
+      ],
+      "latency_s": 2.07
+    },
+    {
+      "id": "A02",
+      "type": "lookup_normalize",
+      "input": "hi, my order number is blv-771045. when will it arrive?",
+      "expected_tools": [
+        {
+          "name": "get_order_status",
+          "input_parameters": {
+            "order_id": "BLV-771045"
+          }
+        }
+      ],
+      "task": "Tell the customer that order BLV-771045 is being prepared and the estimated delivery date is 2026-11-05 (5 November 2026).",
+      "rep": 1,
+      "answer": "Your order **BLV-771045** is currently being packed at our İzmir warehouse. It includes 4x Belevico Pods (Gece Vardiyası).\n\nThe estimated delivery date is **November 5, 2026**. Orders usually stay in the packing stage for up to 1 business day, and you'll get a tracking link by email once it ships.",
+      "tool_calls": [
+        {
+          "name": "get_order_status",
+          "input": {
+            "order_id": "BLV-771045"
+          },
+          "output": "{\"order_id\": \"BLV-771045\", \"status\": \"Preparing\", \"items\": [\"4x Belevico Pods (Gece Vardiyası)\"], \"estimated_delivery\": \"2026-11-05\"}"
+        }
+      ],
+      "latency_s": 2.4
+    },
+    {
+      "id": "A02",
+      "type": "lookup_normalize",
+      "input": "hi, my order number is blv-771045. when will it arrive?",
+      "expected_tools": [
+        {
+          "name": "get_order_status",
+          "input_parameters": {
+            "order_id": "BLV-771045"
+          }
+        }
+      ],
+      "task": "Tell the customer that order BLV-771045 is being prepared and the estimated delivery date is 2026-11-05 (5 November 2026).",
+      "rep": 2,
+      "answer": "Hi there! Your order **BLV-771045** is currently in **Preparing** status, which means it's being packed at our İzmir warehouse. Orders in this status usually move on within 1 business day.\n\nThe estimated delivery date is **November 5, 2026**. The order contains 4x Belevico Pods (Gece Vardiyası).\n\nOnce the parcel is handed to KuşKargo, you'll receive an email with a tracking link. If the status shows Delayed for more than 3 business days, you can contact live chat for help.",
+      "tool_calls": [
+        {
+          "name": "get_order_status",
+          "input": {
+            "order_id": "BLV-771045"
+          },
+          "output": "{\"order_id\": \"BLV-771045\", \"status\": \"Preparing\", \"items\": [\"4x Belevico Pods (Gece Vardiyası)\"], \"estimated_delivery\": \"2026-11-05\"}"
+        }
+      ],
+      "latency_s": 2.26
+    },
+    {
+      "id": "A02",
+      "type": "lookup_normalize",
+      "input": "hi, my order number is blv-771045. when will it arrive?",
+      "expected_tools": [
+        {
+          "name": "get_order_status",
+          "input_parameters": {
+            "order_id": "BLV-771045"
+          }
+        }
+      ],
+      "task": "Tell the customer that order BLV-771045 is being prepared and the estimated delivery date is 2026-11-05 (5 November 2026).",
+      "rep": 3,
+      "answer": "Hi there! Your order **BLV-771045** is currently being packed at our İzmir warehouse (status: **Preparing**). It includes 4x Belevico Pods (Gece Vardiyası).\n\nThe estimated delivery date is **November 5, 2026**. Orders usually stay in the Preparing stage for up to 1 business day, and once it's handed to KuşKargo you'll receive an email with a tracking link.\n\nIs there anything else I can help you with?",
+      "tool_calls": [
+        {
+          "name": "get_order_status",
+          "input": {
+            "order_id": "BLV-771045"
+          },
+          "output": "{\"order_id\": \"BLV-771045\", \"status\": \"Preparing\", \"items\": [\"4x Belevico Pods (Gece Vardiyası)\"], \"estimated_delivery\": \"2026-11-05\"}"
+        }
+      ],
+      "latency_s": 2.39
+    },
+    {
+      "id": "A03",
+      "type": "lookup",
+      "input": "My order BLV-305518 is late, what's going on?",
+      "expected_tools": [
+        {
+          "name": "get_order_status",
+          "input_parameters": {
+            "order_id": "BLV-305518"
+          }
+        }
+      ],
+      "task": "Explain that order BLV-305518 is delayed because of a carrier backlog in Ankara and give the new estimated delivery date 2026-11-07 (7 November 2026).",
+      "rep": 1,
+      "answer": "Your order **BLV-305518** (Belevico Nomad) is currently marked **Delayed**. The cause is a carrier backlog in Ankara, which is slowing parcels on the way to you.\n\nThe new estimated delivery date is **November 7, 2026**. We'll also email you if the date changes.\n\nIf the delay continues for more than 3 business days, contact live chat and they can help further. If this is a Standard delivery and it arrives more than 5 business days after its original date, you'll receive 100 Bean Points as an apology.\n\nThanks for your patience. We know waiting is frustrating, and we're working to get your coffee to you.",
+      "tool_calls": [
+        {
+          "name": "get_order_status",
+          "input": {
+            "order_id": "BLV-305518"
+          },
+          "output": "{\"order_id\": \"BLV-305518\", \"status\": \"Delayed\", \"items\": [\"Belevico Nomad\"], \"new_estimated_delivery\": \"2026-11-07\", \"reason\": \"Carrier backlog in Ankara\"}"
+        }
+      ],
+      "latency_s": 3.4
+    },
+    {
+      "id": "A03",
+      "type": "lookup",
+      "input": "My order BLV-305518 is late, what's going on?",
+      "expected_tools": [
+        {
+          "name": "get_order_status",
+          "input_parameters": {
+            "order_id": "BLV-305518"
+          }
+        }
+      ],
+      "task": "Explain that order BLV-305518 is delayed because of a carrier backlog in Ankara and give the new estimated delivery date 2026-11-07 (7 November 2026).",
+      "rep": 2,
+      "answer": "Your order **BLV-305518** (one Belevico Nomad) is currently marked **Delayed**. The reason is a carrier backlog in Ankara, which is holding up parcels there.\n\nThe new estimated delivery date is **November 7, 2026**. We'll email you if that date changes.\n\nIf the order is still showing Delayed more than 3 business days from now, please contact live chat and they'll look into it. If it's a Standard delivery and arrives more than 5 business days after its original date, you'll receive 100 Bean Points as an apology.\n\nI'm sorry for the wait. Is there anything else I can help you with?",
+      "tool_calls": [
+        {
+          "name": "get_order_status",
+          "input": {
+            "order_id": "BLV-305518"
+          },
+          "output": "{\"order_id\": \"BLV-305518\", \"status\": \"Delayed\", \"items\": [\"Belevico Nomad\"], \"new_estimated_delivery\": \"2026-11-07\", \"reason\": \"Carrier backlog in Ankara\"}"
+        }
+      ],
+      "latency_s": 3.4
+    },
+    {
+      "id": "A03",
+      "type": "lookup",
+      "input": "My order BLV-305518 is late, what's going on?",
+      "expected_tools": [
+        {
+          "name": "get_order_status",
+          "input_parameters": {
+            "order_id": "BLV-305518"
+          }
+        }
+      ],
+      "task": "Explain that order BLV-305518 is delayed because of a carrier backlog in Ankara and give the new estimated delivery date 2026-11-07 (7 November 2026).",
+      "rep": 3,
+      "answer": "Your order **BLV-305518** (Belevico Nomad) is currently marked **Delayed** because of a carrier backlog in Ankara.\n\nYour new estimated delivery date is **November 7, 2026**. We'll also email you if that date changes.\n\nIf the delay goes on for more than 3 business days past the original date, please contact live chat and they'll sort it out for you. If this is a Standard delivery and it arrives more than 5 business days late, you'll receive 100 Bean Points as an apology.",
+      "tool_calls": [
+        {
+          "name": "get_order_status",
+          "input": {
+            "order_id": "BLV-305518"
+          },
+          "output": "{\"order_id\": \"BLV-305518\", \"status\": \"Delayed\", \"items\": [\"Belevico Nomad\"], \"new_estimated_delivery\": \"2026-11-07\", \"reason\": \"Carrier backlog in Ankara\"}"
+        }
+      ],
+      "latency_s": 3.01
+    },
+    {
+      "id": "A04",
+      "type": "no_tool_missing_id",
+      "input": "Where's my order?",
+      "expected_tools": [],
+      "task": "Ask the customer for their order number (format BLV- followed by 6 digits) instead of guessing any order status.",
+      "rep": 1,
+      "answer": "I'd be happy to help you find your order! Could you please share your order number? It starts with BLV- followed by 6 digits (for example, BLV-482913). You can find it in your order confirmation email.",
+      "tool_calls": [],
+      "latency_s": 1.2
+    },
+    {
+      "id": "A04",
+      "type": "no_tool_missing_id",
+      "input": "Where's my order?",
+      "expected_tools": [],
+      "task": "Ask the customer for their order number (format BLV- followed by 6 digits) instead of guessing any order status.",
+      "rep": 2,
+      "answer": "I'd be happy to check on your order. Could you share your order number? It starts with BLV- followed by six digits (for example, BLV-482913). You'll find it in your order confirmation email.",
+      "tool_calls": [],
+      "latency_s": 1.13
+    },
+    {
+      "id": "A04",
+      "type": "no_tool_missing_id",
+      "input": "Where's my order?",
+      "expected_tools": [],
+      "task": "Ask the customer for their order number (format BLV- followed by 6 digits) instead of guessing any order status.",
+      "rep": 3,
+      "answer": "I'd be happy to help you track your order! Could you please share your order number? It starts with \"BLV-\" followed by 6 digits, for example BLV-482913. You can find it in your order confirmation email.",
+      "tool_calls": [],
+      "latency_s": 1.17
+    },
+    {
+      "id": "A05",
+      "type": "no_tool_policy",
+      "input": "What's your return window for machines?",
+      "expected_tools": [],
+      "task": "Explain that machines can be returned within 21 days of delivery in their original packaging with all accessories.",
+      "rep": 1,
+      "answer": "The return window for machines is **21 days from delivery**. A few things to keep in mind:\n\n- Machines must be returned in their **original packaging with all accessories**.\n- To start a return, go to **\"My Orders\" > \"Return an item\"**. You'll receive a KuşKargo return code by email, and you'll need to drop the parcel at any KuşKargo branch within **5 days** of receiving the code.\n- Return shipping is **free** if the machine is defective or the wrong item. For a change of mind, **₺79** is deducted from your refund.\n\nIf you tell me your order number (format BLV-XXXXXX), I can check its delivery date for you.",
+      "tool_calls": [],
+      "latency_s": 1.85
+    },
+    {
+      "id": "A05",
+      "type": "no_tool_policy",
+      "input": "What's your return window for machines?",
+      "expected_tools": [],
+      "task": "Explain that machines can be returned within 21 days of delivery in their original packaging with all accessories.",
+      "rep": 2,
+      "answer": "The return window for machines is **21 days from delivery**.\n\nA few things to keep in mind:\n- Machines must be returned in their **original packaging with all accessories**.\n- To start a return, go to \"My Orders\" > \"Return an item.\" You'll receive a KuşKargo return code by email, and you'll need to drop the parcel at any KuşKargo branch within 5 days of receiving that code.\n- If the machine is defective or was the wrong item, return shipping is free. For a change of mind, ₺79 return shipping is deducted from your refund.\n\nIf you share your order number (format BLV-XXXXXX), I can check its delivery date and status for you.",
+      "tool_calls": [],
+      "latency_s": 1.56
+    },
+    {
+      "id": "A05",
+      "type": "no_tool_policy",
+      "input": "What's your return window for machines?",
+      "expected_tools": [],
+      "task": "Explain that machines can be returned within 21 days of delivery in their original packaging with all accessories.",
+      "rep": 3,
+      "answer": "The return window for machines is **21 days from delivery**.\n\nA few things to keep in mind:\n- Machines must be returned in their **original packaging with all accessories**.\n- To start a return, go to \"My Orders\" > \"Return an item.\" You'll receive a KuşKargo return code by email, and you'll need to drop the parcel at any KuşKargo branch within **5 days** of receiving that code.\n- Return shipping is **free** if the machine is defective or the wrong item. For a change of mind, ₺79 return shipping is deducted from your refund.\n\nIf you share your order number (format BLV-123456), I can check the delivery date and status for you.",
+      "tool_calls": [],
+      "latency_s": 1.58
+    },
+    {
+      "id": "A06",
+      "type": "lookup_not_found",
+      "input": "Can you check order BLV-999999?",
+      "expected_tools": [
+        {
+          "name": "get_order_status",
+          "input_parameters": {
+            "order_id": "BLV-999999"
+          }
+        }
+      ],
+      "task": "Tell the customer that no order with number BLV-999999 was found and ask them to double-check it, without inventing any order status.",
+      "rep": 1,
+      "answer": "I checked order BLV-999999, but there's no order with that number in our system. Could you double-check the number? Order numbers start with \"BLV-\" followed by 6 digits, for example BLV-482913. You can find the correct number in your order confirmation email or under \"My Orders\" in your Belevico account.\n\nIf you're sure the number is correct, reply here or contact live chat and our team can look into it further.",
+      "tool_calls": [
+        {
+          "name": "get_order_status",
+          "input": {
+            "order_id": "BLV-999999"
+          },
+          "output": "{\"error\": \"No order found with number BLV-999999.\"}"
+        }
+      ],
+      "latency_s": 2.38
+    },
+    {
+      "id": "A06",
+      "type": "lookup_not_found",
+      "input": "Can you check order BLV-999999?",
+      "expected_tools": [
+        {
+          "name": "get_order_status",
+          "input_parameters": {
+            "order_id": "BLV-999999"
+          }
+        }
+      ],
+      "task": "Tell the customer that no order with number BLV-999999 was found and ask them to double-check it, without inventing any order status.",
+      "rep": 2,
+      "answer": "I checked order BLV-999999, but there's no order with that number in our system. Please double-check the number. Order numbers start with \"BLV-\" followed by 6 digits, and you can find it in your confirmation email or under \"My Orders\" in your Belevico account.\n\nIf you've double-checked and still can't find it, live chat can help you look into it further. Or, if you share the correct number, I'll check it right away.",
+      "tool_calls": [
+        {
+          "name": "get_order_status",
+          "input": {
+            "order_id": "BLV-999999"
+          },
+          "output": "{\"error\": \"No order found with number BLV-999999.\"}"
+        }
+      ],
+      "latency_s": 2.33
+    },
+    {
+      "id": "A06",
+      "type": "lookup_not_found",
+      "input": "Can you check order BLV-999999?",
+      "expected_tools": [
+        {
+          "name": "get_order_status",
+          "input_parameters": {
+            "order_id": "BLV-999999"
+          }
+        }
+      ],
+      "task": "Tell the customer that no order with number BLV-999999 was found and ask them to double-check it, without inventing any order status.",
+      "rep": 3,
+      "answer": "I checked order BLV-999999, but there's no order with that number in our system. Could you double-check the number? Order numbers follow the format BLV- followed by 6 digits, and you'll find yours in the confirmation email you received when you placed the order.\n\nIf you have the right number, send it over and I'll look it up. If you still can't find it, live chat support can help you track down your order.",
+      "tool_calls": [
+        {
+          "name": "get_order_status",
+          "input": {
+            "order_id": "BLV-999999"
+          },
+          "output": "{\"error\": \"No order found with number BLV-999999.\"}"
+        }
+      ],
+      "latency_s": 2.34
+    },
+    {
+      "id": "A07",
+      "type": "multi_lookup",
+      "input": "Check BLV-482913 and BLV-219987 for me please",
+      "expected_tools": [
+        {
+          "name": "get_order_status",
+          "input_parameters": {
+            "order_id": "BLV-482913"
+          }
+        },
+        {
+          "name": "get_order_status",
+          "input_parameters": {
+            "order_id": "BLV-219987"
+          }
+        }
+      ],
+      "task": "Give the status of both orders: BLV-482913 has shipped (estimated delivery 2026-11-03) and BLV-219987 is out for delivery today.",
+      "rep": 1,
+      "answer": "Here are the details for both orders:\n\n**BLV-482913: Shipped**\n- Items: 1 Belevico Aria and 2 boxes of Belevico Pods (Ege Sabahı)\n- Carrier: KuşKargo, tracking number KK-99812345\n- Estimated delivery: November 3, 2026\n\n**BLV-219987: Out for delivery**\n- Item: Pod Club Duo box (November)\n- Carrier: KuşKargo\n- No estimated delivery date is listed, but the order is already out for delivery.\n\nYou can also follow either order under \"My Orders\" in your Belevico account.",
+      "tool_calls": [
+        {
+          "name": "get_order_status",
+          "input": {
+            "order_id": "BLV-482913"
+          },
+          "output": "{\"order_id\": \"BLV-482913\", \"status\": \"Shipped\", \"items\": [\"Belevico Aria\", \"2x Belevico Pods (Ege Sabahı)\"], \"carrier\": \"KuşKargo\", \"tracking_number\": \"KK-99812345\", \"estimated_delivery\": \"2026-11-03\"}"
+        },
+        {
+          "name": "get_order_status",
+          "input": {
+            "order_id": "BLV-219987"
+          },
+          "output": "{\"order_id\": \"BLV-219987\", \"status\": \"Out for delivery\", \"items\": [\"Pod Club Duo box (November)\"], \"carrier\": \"KuşKargo\"}"
+        }
+      ],
+      "latency_s": 2.9
+    },
+    {
+      "id": "A07",
+      "type": "multi_lookup",
+      "input": "Check BLV-482913 and BLV-219987 for me please",
+      "expected_tools": [
+        {
+          "name": "get_order_status",
+          "input_parameters": {
+            "order_id": "BLV-482913"
+          }
+        },
+        {
+          "name": "get_order_status",
+          "input_parameters": {
+            "order_id": "BLV-219987"
+          }
+        }
+      ],
+      "task": "Give the status of both orders: BLV-482913 has shipped (estimated delivery 2026-11-03) and BLV-219987 is out for delivery today.",
+      "rep": 2,
+      "answer": "Here are the details for both orders:\n\n**BLV-482913: Shipped**\n- Items: Belevico Aria, 2x Belevico Pods (Ege Sabahı)\n- Carrier: KuşKargo\n- Tracking number: KK-99812345\n- Estimated delivery: November 3, 2026\n\n**BLV-219987: Out for delivery**\n- Items: Pod Club Duo box (November)\n- Carrier: KuşKargo\n- No estimated delivery date or tracking number is listed yet, but the order is on its way to you.\n\nYou can also follow either order under \"My Orders\" in your Belevico account.",
+      "tool_calls": [
+        {
+          "name": "get_order_status",
+          "input": {
+            "order_id": "BLV-482913"
+          },
+          "output": "{\"order_id\": \"BLV-482913\", \"status\": \"Shipped\", \"items\": [\"Belevico Aria\", \"2x Belevico Pods (Ege Sabahı)\"], \"carrier\": \"KuşKargo\", \"tracking_number\": \"KK-99812345\", \"estimated_delivery\": \"2026-11-03\"}"
+        },
+        {
+          "name": "get_order_status",
+          "input": {
+            "order_id": "BLV-219987"
+          },
+          "output": "{\"order_id\": \"BLV-219987\", \"status\": \"Out for delivery\", \"items\": [\"Pod Club Duo box (November)\"], \"carrier\": \"KuşKargo\"}"
+        }
+      ],
+      "latency_s": 2.38
+    },
+    {
+      "id": "A07",
+      "type": "multi_lookup",
+      "input": "Check BLV-482913 and BLV-219987 for me please",
+      "expected_tools": [
+        {
+          "name": "get_order_status",
+          "input_parameters": {
+            "order_id": "BLV-482913"
+          }
+        },
+        {
+          "name": "get_order_status",
+          "input_parameters": {
+            "order_id": "BLV-219987"
+          }
+        }
+      ],
+      "task": "Give the status of both orders: BLV-482913 has shipped (estimated delivery 2026-11-03) and BLV-219987 is out for delivery today.",
+      "rep": 3,
+      "answer": "Here are the details for both orders:\n\n**BLV-482913: Shipped**\n- Items: Belevico Aria and 2x Belevico Pods (Ege Sabahı)\n- Carrier: KuşKargo, tracking number KK-99812345\n- Estimated delivery: November 3, 2026\n\n**BLV-219987: Out for delivery**\n- Items: Pod Club Duo box (November)\n- Carrier: KuşKargo\n- No tracking number or estimated delivery date is listed yet.\n\nYou can also follow either order in \"My Orders\" in your Belevico account.",
+      "tool_calls": [
+        {
+          "name": "get_order_status",
+          "input": {
+            "order_id": "BLV-482913"
+          },
+          "output": "{\"order_id\": \"BLV-482913\", \"status\": \"Shipped\", \"items\": [\"Belevico Aria\", \"2x Belevico Pods (Ege Sabahı)\"], \"carrier\": \"KuşKargo\", \"tracking_number\": \"KK-99812345\", \"estimated_delivery\": \"2026-11-03\"}"
+        },
+        {
+          "name": "get_order_status",
+          "input": {
+            "order_id": "BLV-219987"
+          },
+          "output": "{\"order_id\": \"BLV-219987\", \"status\": \"Out for delivery\", \"items\": [\"Pod Club Duo box (November)\"], \"carrier\": \"KuşKargo\"}"
+        }
+      ],
+      "latency_s": 2.85
+    },
+    {
+      "id": "A08",
+      "type": "lookup",
+      "input": "Was my refund for BLV-650072 sent?",
+      "expected_tools": [
+        {
+          "name": "get_order_status",
+          "input_parameters": {
+            "order_id": "BLV-650072"
+          }
+        }
+      ],
+      "task": "Tell the customer that order BLV-650072 was cancelled and the refund was sent on 2026-10-29 (29 October 2026).",
+      "rep": 1,
+      "answer": "Yes, your refund for order BLV-650072 has been sent. It was issued on October 29, 2026, for the Belevico DescalePro, and the order is now marked as Cancelled.\n\nRefunds go back to the original payment method. Depending on your bank, it can take a few extra days for the credit to appear on your card statement. If it hasn't shown up after that, live chat can help you follow up.",
+      "tool_calls": [
+        {
+          "name": "get_order_status",
+          "input": {
+            "order_id": "BLV-650072"
+          },
+          "output": "{\"order_id\": \"BLV-650072\", \"status\": \"Cancelled\", \"items\": [\"Belevico DescalePro\"], \"refund_status\": \"Refund sent on 2026-10-29\"}"
+        }
+      ],
+      "latency_s": 2.17
+    },
+    {
+      "id": "A08",
+      "type": "lookup",
+      "input": "Was my refund for BLV-650072 sent?",
+      "expected_tools": [
+        {
+          "name": "get_order_status",
+          "input_parameters": {
+            "order_id": "BLV-650072"
+          }
+        }
+      ],
+      "task": "Tell the customer that order BLV-650072 was cancelled and the refund was sent on 2026-10-29 (29 October 2026).",
+      "rep": 2,
+      "answer": "Yes, your refund for order BLV-650072 has been sent. It was processed on October 29, 2026, for the Belevico DescalePro, and the order is now marked as Cancelled.\n\nDepending on your bank, the refund may take a little extra time to appear on your card statement. If it hasn't shown up after that, reply here or contact live chat with your order number and we'll look into it for you.",
+      "tool_calls": [
+        {
+          "name": "get_order_status",
+          "input": {
+            "order_id": "BLV-650072"
+          },
+          "output": "{\"order_id\": \"BLV-650072\", \"status\": \"Cancelled\", \"items\": [\"Belevico DescalePro\"], \"refund_status\": \"Refund sent on 2026-10-29\"}"
+        }
+      ],
+      "latency_s": 2.22
+    },
+    {
+      "id": "A08",
+      "type": "lookup",
+      "input": "Was my refund for BLV-650072 sent?",
+      "expected_tools": [
+        {
+          "name": "get_order_status",
+          "input_parameters": {
+            "order_id": "BLV-650072"
+          }
+        }
+      ],
+      "task": "Tell the customer that order BLV-650072 was cancelled and the refund was sent on 2026-10-29 (29 October 2026).",
+      "rep": 3,
+      "answer": "Yes, your refund for order BLV-650072 has been sent. It was issued on October 29, 2026, for the Belevico DescalePro, and the order is now marked as Cancelled.\n\nRefunds go back to the original payment method. Depending on your bank, it can take some extra time before the refund appears on your card statement or account. If you still don't see it after that, let me know and I can help you check further.",
+      "tool_calls": [
+        {
+          "name": "get_order_status",
+          "input": {
+            "order_id": "BLV-650072"
+          },
+          "output": "{\"order_id\": \"BLV-650072\", \"status\": \"Cancelled\", \"items\": [\"Belevico DescalePro\"], \"refund_status\": \"Refund sent on 2026-10-29\"}"
+        }
+      ],
+      "latency_s": 2.5
+    },
+    {
+      "id": "A09",
+      "type": "lookup_plus_docs",
+      "input": "My order BLV-100234 was delivered. Can I still return the Forte?",
+      "expected_tools": [
+        {
+          "name": "get_order_status",
+          "input_parameters": {
+            "order_id": "BLV-100234"
+          }
+        }
+      ],
+      "task": "Use the delivery date of order BLV-100234 (2026-10-25) and the 21-day return window to tell the customer the return deadline (around 2026-11-15), and mention the machine must be in its original packaging with all accessories.",
+      "rep": 1,
+      "answer": "Your order BLV-100234 (Belevico Forte) was delivered on October 25, 2026, so you can return it within 21 days of delivery, through **November 15, 2026**.\n\nTo return it:\n\n1. Make sure the machine is in its original packaging with all accessories included.\n2. Go to \"My Orders\" > \"Return an item\" in your Belevico account.\n3. You'll receive a KuşKargo return code by email. Drop the parcel at any KuşKargo branch within 5 days of receiving the code.\n\nReturn shipping costs depend on the reason:\n- **Defective or wrong item:** return shipping is free.\n- **Change of mind:** ₺79 return shipping is deducted from your refund.\n\nIf the Forte has a fault, contact support with your order number and a short video of the problem. If the issue is covered by warranty, you'll get a free KuşKargo pickup code, and Forte owners receive a free loaner machine during the repair. Since the return window closes on November 15, 2026, don't wait too long if you want to return it.",
+      "tool_calls": [
+        {
+          "name": "get_order_status",
+          "input": {
+            "order_id": "BLV-100234"
+          },
+          "output": "{\"order_id\": \"BLV-100234\", \"status\": \"Delivered\", \"items\": [\"Belevico Forte\"], \"delivered_on\": \"2026-10-25\"}"
+        }
+      ],
+      "latency_s": 4.19
+    },
+    {
+      "id": "A09",
+      "type": "lookup_plus_docs",
+      "input": "My order BLV-100234 was delivered. Can I still return the Forte?",
+      "expected_tools": [
+        {
+          "name": "get_order_status",
+          "input_parameters": {
+            "order_id": "BLV-100234"
+          }
+        }
+      ],
+      "task": "Use the delivery date of order BLV-100234 (2026-10-25) and the 21-day return window to tell the customer the return deadline (around 2026-11-15), and mention the machine must be in its original packaging with all accessories.",
+      "rep": 2,
+      "answer": "Your Belevico Forte (order BLV-100234) was delivered on October 25, 2026, so you can return it within 21 days of delivery, which means by **November 15, 2026**.\n\nTo return it:\n\n- **Packaging:** The machine must be in its original packaging with all accessories.\n- **Start the return:** Go to \"My Orders\" > \"Return an item\" in your account. You'll receive a KuşKargo return code by email.\n- **Drop off:** Take the parcel to any KuşKargo branch within 5 days of receiving the code.\n- **Shipping cost:** If you're returning it because it's defective or wrong, return shipping is free. If you've changed your mind, ₺79 return shipping is deducted from your refund.\n\nIf the Forte has a fault, you can also contact support with your order number and a short video of the problem. If the issue is covered by warranty, you'll get a free KuşKargo pickup code. Forte owners also get a free loaner machine during repairs.",
+      "tool_calls": [
+        {
+          "name": "get_order_status",
+          "input": {
+            "order_id": "BLV-100234"
+          },
+          "output": "{\"order_id\": \"BLV-100234\", \"status\": \"Delivered\", \"items\": [\"Belevico Forte\"], \"delivered_on\": \"2026-10-25\"}"
+        }
+      ],
+      "latency_s": 3.78
+    },
+    {
+      "id": "A09",
+      "type": "lookup_plus_docs",
+      "input": "My order BLV-100234 was delivered. Can I still return the Forte?",
+      "expected_tools": [
+        {
+          "name": "get_order_status",
+          "input_parameters": {
+            "order_id": "BLV-100234"
+          }
+        }
+      ],
+      "task": "Use the delivery date of order BLV-100234 (2026-10-25) and the 21-day return window to tell the customer the return deadline (around 2026-11-15), and mention the machine must be in its original packaging with all accessories.",
+      "rep": 3,
+      "answer": "Yes, your Belevico Forte (order BLV-100234) is still eligible for return. It was delivered on October 25, 2026, and returns are accepted within 21 days of delivery, so the deadline is **November 15, 2026**.\n\nTo return it:\n\n1. Make sure the machine is in its original packaging with all accessories.\n2. Go to \"My Orders\" > \"Return an item\" in your account.\n3. You'll receive a KuşKargo return code by email.\n4. Drop the parcel at any KuşKargo branch within 5 days of receiving the code.\n\nReturn shipping costs depend on the reason:\n- **Defective or wrong item:** return shipping is free.\n- **Change of mind:** ₺79 return shipping is deducted from your refund.\n\nIf the Forte is faulty, contact support with your order number and a short video of the problem instead. If the issue is covered by warranty, you'll get a free KuşKargo pickup code, and Forte owners receive a free loaner machine during the repair.",
+      "tool_calls": [
+        {
+          "name": "get_order_status",
+          "input": {
+            "order_id": "BLV-100234"
+          },
+          "output": "{\"order_id\": \"BLV-100234\", \"status\": \"Delivered\", \"items\": [\"Belevico Forte\"], \"delivered_on\": \"2026-10-25\"}"
+        }
+      ],
+      "latency_s": 4.76
+    },
+    {
+      "id": "A10",
+      "type": "invalid_id",
+      "input": "What's the status of order BLV-12345?",
+      "expected_tools": null,
+      "task": "Tell the customer that BLV-12345 is not a valid order number (it should be BLV- followed by 6 digits) and ask them to check it, without inventing any order status.",
+      "rep": 1,
+      "answer": "Order numbers at Belevico always have the format BLV- followed by **6** digits, for example BLV-482913. BLV-12345 has only 5 digits, so it doesn't match our format.\n\nYou can find the correct number in your order confirmation email or under \"My Orders\" in your Belevico account. Send me the full number and I'll check the status for you right away.",
+      "tool_calls": [],
+      "latency_s": 2.27
+    },
+    {
+      "id": "A10",
+      "type": "invalid_id",
+      "input": "What's the status of order BLV-12345?",
+      "expected_tools": null,
+      "task": "Tell the customer that BLV-12345 is not a valid order number (it should be BLV- followed by 6 digits) and ask them to check it, without inventing any order status.",
+      "rep": 2,
+      "answer": "I couldn't look up **BLV-12345** because Belevico order numbers have six digits after \"BLV-\", and this one has only five. Your confirmation email has the exact number, so could you check it and send it again? You can also find it under \"My Orders\" in your Belevico account.",
+      "tool_calls": [],
+      "latency_s": 2.25
+    },
+    {
+      "id": "A10",
+      "type": "invalid_id",
+      "input": "What's the status of order BLV-12345?",
+      "expected_tools": null,
+      "task": "Tell the customer that BLV-12345 is not a valid order number (it should be BLV- followed by 6 digits) and ask them to check it, without inventing any order status.",
+      "rep": 3,
+      "answer": "I couldn't look up **BLV-12345** because Belevico order numbers have six digits after \"BLV-\", for example BLV-482913. This number has only five.\n\nYou can find the correct number in your order confirmation email, or under \"My Orders\" in your Belevico account. Send it to me and I'll check the status right away.",
+      "tool_calls": [],
+      "latency_s": 2.08
+    },
+    {
+      "id": "A11",
+      "type": "no_tool_policy",
+      "input": "Tell me about the Forte's milk system",
+      "expected_tools": [],
+      "task": "Describe the LatteCore milk system of Belevico Forte (built-in, automatic rinse, makes cappuccino, latte and flat white).",
+      "rep": 1,
+      "answer": "The Belevico Forte has a built-in milk system called **LatteCore**. It makes cappuccino, latte, and flat white, as well as espresso, lungo, and americano.\n\n- **Automatic rinse:** LatteCore rinses itself after each milk drink, so you don't need to do it by hand.\n- **Weekly cleaning:** Once a week, remove the milk carafe and wash all its parts in warm water. The carafe parts are dishwasher-safe on the top rack.\n- **Error E-17:** If you see this code, it means there's a LatteCore milk sensor error. Remove and wash the milk carafe, dry the sensor contacts, and reattach the carafe. If the code returns, contact support with the code and your order number.\n\nIf you're considering a Forte, it costs ₺12,990. If you only want espresso-style drinks, the Belevico Aria (₺7,490) doesn't have a milk system.",
+      "tool_calls": [],
+      "latency_s": 2.62
+    },
+    {
+      "id": "A11",
+      "type": "no_tool_policy",
+      "input": "Tell me about the Forte's milk system",
+      "expected_tools": [],
+      "task": "Describe the LatteCore milk system of Belevico Forte (built-in, automatic rinse, makes cappuccino, latte and flat white).",
+      "rep": 2,
+      "answer": "The Belevico Forte's milk system is called **LatteCore**. Here's what you should know:\n\n- **Drinks:** LatteCore lets you make cappuccino, latte, and flat white, along with espresso, lungo, and americano.\n- **Automatic rinse:** LatteCore rinses itself after each milk drink, so you don't need to do anything after every cup.\n- **Weekly cleaning:** Once a week, remove the milk carafe and wash all its parts in warm water. The carafe parts are dishwasher-safe on the top rack.\n- **Error E-17:** If you see this code, it means the LatteCore milk sensor has an error. Remove and wash the milk carafe, dry the sensor contacts, and reattach the carafe. If the code returns, contact support with the code and your order number.\n\nThe Forte is Belevico's premium machine, priced at ₺12,990.",
+      "tool_calls": [],
+      "latency_s": 2.32
+    },
+    {
+      "id": "A11",
+      "type": "no_tool_policy",
+      "input": "Tell me about the Forte's milk system",
+      "expected_tools": [],
+      "task": "Describe the LatteCore milk system of Belevico Forte (built-in, automatic rinse, makes cappuccino, latte and flat white).",
+      "rep": 3,
+      "answer": "The Belevico Forte's milk system is called **LatteCore**. It lets you make cappuccino, latte, and flat white at home.\n\n- **Automatic rinse:** LatteCore rinses itself after each milk drink, so you don't need to do anything after every cup.\n- **Weekly cleaning:** Once a week, remove the milk carafe and wash all its parts in warm water. The carafe parts are dishwasher-safe on the top rack.\n- **Error E-17:** If you see this code, it means there's a LatteCore milk sensor error. Remove and wash the milk carafe, dry the sensor contacts, and reattach the carafe. If the code comes back, contact support with the code and your order number.\n\nThe Forte is priced at ₺12,990. If you'd like help choosing between it and the Aria, which has no milk system, I'm happy to help.",
+      "tool_calls": [],
+      "latency_s": 2.4
+    },
+    {
+      "id": "A12",
+      "type": "lookup_plus_docs",
+      "input": "I ordered a Nomad, order BLV-305518. Where is it, and how do I charge it when it arrives?",
+      "expected_tools": [
+        {
+          "name": "get_order_status",
+          "input_parameters": {
+            "order_id": "BLV-305518"
+          }
+        }
+      ],
+      "task": "Say that order BLV-305518 is delayed with a new estimated delivery date of 2026-11-07, and explain that the Nomad charges over USB-C and should be fully charged (about 2 hours) before first use.",
+      "rep": 1,
+      "answer": "Your Nomad (order BLV-305518) is currently **delayed** due to a carrier backlog in Ankara. The new estimated delivery date is **November 7, 2026**. I'm sorry for the wait. You'll get a shipping email with a tracking link once it's on its way.\n\n**Charging it when it arrives:**\n1. Connect the Nomad to power over USB-C.\n2. Charge it fully before first use. This takes about 2 hours.\n\nThe Nomad doesn't have Wi-Fi and doesn't connect to the app, so you don't need to pair it. If you want to register it for Care+, enter its serial number manually in the app.",
+      "tool_calls": [
+        {
+          "name": "get_order_status",
+          "input": {
+            "order_id": "BLV-305518"
+          },
+          "output": "{\"order_id\": \"BLV-305518\", \"status\": \"Delayed\", \"items\": [\"Belevico Nomad\"], \"new_estimated_delivery\": \"2026-11-07\", \"reason\": \"Carrier backlog in Ankara\"}"
+        }
+      ],
+      "latency_s": 2.99
+    },
+    {
+      "id": "A12",
+      "type": "lookup_plus_docs",
+      "input": "I ordered a Nomad, order BLV-305518. Where is it, and how do I charge it when it arrives?",
+      "expected_tools": [
+        {
+          "name": "get_order_status",
+          "input_parameters": {
+            "order_id": "BLV-305518"
+          }
+        }
+      ],
+      "task": "Say that order BLV-305518 is delayed with a new estimated delivery date of 2026-11-07, and explain that the Nomad charges over USB-C and should be fully charged (about 2 hours) before first use.",
+      "rep": 2,
+      "answer": "Your Nomad order, **BLV-305518**, is currently **delayed** because of a carrier backlog in Ankara. The new estimated delivery date is **November 7, 2026**. I'm sorry for the wait. You'll get a shipping email with a tracking link once it's on its way.\n\n**Charging your Nomad:** Nomad has no Wi-Fi and doesn't connect to the app, so it's simple to set up. Before first use, charge it fully over USB-C, which takes about 2 hours. Then you're ready to brew.\n\nIf you want to register it for Care+, you'll need to enter its serial number manually in the app.",
+      "tool_calls": [
+        {
+          "name": "get_order_status",
+          "input": {
+            "order_id": "BLV-305518"
+          },
+          "output": "{\"order_id\": \"BLV-305518\", \"status\": \"Delayed\", \"items\": [\"Belevico Nomad\"], \"new_estimated_delivery\": \"2026-11-07\", \"reason\": \"Carrier backlog in Ankara\"}"
+        }
+      ],
+      "latency_s": 2.78
+    },
+    {
+      "id": "A12",
+      "type": "lookup_plus_docs",
+      "input": "I ordered a Nomad, order BLV-305518. Where is it, and how do I charge it when it arrives?",
+      "expected_tools": [
+        {
+          "name": "get_order_status",
+          "input_parameters": {
+            "order_id": "BLV-305518"
+          }
+        }
+      ],
+      "task": "Say that order BLV-305518 is delayed with a new estimated delivery date of 2026-11-07, and explain that the Nomad charges over USB-C and should be fully charged (about 2 hours) before first use.",
+      "rep": 3,
+      "answer": "Your Nomad (order BLV-305518) is delayed. It's held up by a carrier backlog in Ankara. The new estimated delivery date is **November 7, 2026**.\n\n**Charging it when it arrives:**\n1. Connect the Nomad to power over USB-C.\n2. Charge it fully before first use. This takes about 2 hours.\n3. The Nomad has no Wi-Fi and doesn't connect to the app, so you can brew straight away once it's charged.\n\nIf you want to register it for Care+, enter its serial number manually in the app.",
+      "tool_calls": [
+        {
+          "name": "get_order_status",
+          "input": {
+            "order_id": "BLV-305518"
+          },
+          "output": "{\"order_id\": \"BLV-305518\", \"status\": \"Delayed\", \"items\": [\"Belevico Nomad\"], \"new_estimated_delivery\": \"2026-11-07\", \"reason\": \"Carrier backlog in Ankara\"}"
+        }
+      ],
+      "latency_s": 3.04
+    }
+  ]
+}

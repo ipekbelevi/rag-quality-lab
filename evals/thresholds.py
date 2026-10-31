@@ -25,6 +25,10 @@ CONTEXTUAL_RECALL = 0.8     # share of the reference answer covered by retrieved
 HALLUCINATION = 0.7         # share of source docs the answer agrees with (no contradiction)
 REFUSAL = 0.7               # out-of-scope: says "I don't know" without inventing details
 
+# Agent (Phase 4)
+TOOL_CORRECTNESS = 1.0      # deterministic exact match of tool names + parameters: no judge noise, so strict
+TASK_COMPLETION = 0.7       # LLM judge: did the customer get what they asked for?
+
 # Gate thresholds: minimum mean per metric
 GATE = {
     "Faithfulness": 0.70,
@@ -33,4 +37,11 @@ GATE = {
     "Contextual Recall": 0.85,
     "Hallucination": 0.85,
     "Refusal [GEval]": 0.75,
+}
+
+# Agent gate (baseline: Tool Correctness 1.00, Task Completion 0.96 over 12 cases x 3 repeats).
+# Tool Correctness is deterministic, so the only noise is the agent itself: keep it high.
+AGENT_GATE = {
+    "Tool Correctness": 0.95,
+    "Task Completion": 0.85,
 }
