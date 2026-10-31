@@ -1,0 +1,25 @@
+# Secrets: never commit real keys
+.env
+
+# Personal learning notes (kept local on purpose)
+OGRENME_NOTLARI.md
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Generated data: rebuilt from data/docs by ingest.py
+chroma_db/
+
+# Eval / red-team run outputs
+.deepeval/
+reports/
+redteam/output/
+node_modules/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

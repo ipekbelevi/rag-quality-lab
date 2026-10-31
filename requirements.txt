@@ -1,0 +1,11 @@
+# Pinned top-level dependencies (Python 3.11).
+# Each phase adds its own block so it is clear why a package is here.
+
+# Phase 0: LLM clients, config, test runner
+anthropic==2.3.0
+openai==3.42.0
+python-dotenv==1.2.4
+pytest==9.2.0
+
+# Phase 1: vector database
+chromadb==1.5.9
