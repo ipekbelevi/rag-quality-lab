@@ -1,0 +1,270 @@
+{
+  "source_file": "results/agent_runs_ci.json",
+  "summary": {
+    "Task Completion": {
+      "mean": 0.933,
+      "passed": 12,
+      "total": 12
+    },
+    "Tool Correctness": {
+      "mean": 1.0,
+      "passed": 11,
+      "total": 11
+    }
+  },
+  "rows": [
+    {
+      "suite": "agent",
+      "id": "A01",
+      "rep": 1,
+      "category": "lookup",
+      "metric": "Tool Correctness",
+      "score": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "reason": "[\n\t Tool Calling Reason: Exact match: expected ['get_order_status'], called ['get_order_status']. See details above.\n\t Tool Selection Reason: No available tools were provided to assess tool selection criteria\n]\n"
+    },
+    {
+      "suite": "agent",
+      "id": "A01",
+      "rep": 1,
+      "category": "lookup",
+      "metric": "Task Completion",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The actual outcome fully meets the task requirements by informing the customer that order BLV-482913 has shipped with KuşKargo, providing the tracking number KK-99812345, and stating the estimated delivery date as 3 November 2026."
+    },
+    {
+      "suite": "agent",
+      "id": "A02",
+      "rep": 1,
+      "category": "lookup_normalize",
+      "metric": "Tool Correctness",
+      "score": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "reason": "[\n\t Tool Calling Reason: Exact match: expected ['get_order_status'], called ['get_order_status']. See details above.\n\t Tool Selection Reason: No available tools were provided to assess tool selection criteria\n]\n"
+    },
+    {
+      "suite": "agent",
+      "id": "A02",
+      "rep": 1,
+      "category": "lookup_normalize",
+      "metric": "Task Completion",
+      "score": 0.95,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The actual outcome clearly informs the customer that order BLV-771045 is being prepared and provides the estimated delivery date as November 5, 2026, fulfilling the main requirements of the task. Additional details about the warehouse location and tracking link enhance the response but are not explicitly requested, so the verdict is slightly less than perfect."
+    },
+    {
+      "suite": "agent",
+      "id": "A03",
+      "rep": 1,
+      "category": "lookup",
+      "metric": "Tool Correctness",
+      "score": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "reason": "[\n\t Tool Calling Reason: Exact match: expected ['get_order_status'], called ['get_order_status']. See details above.\n\t Tool Selection Reason: No available tools were provided to assess tool selection criteria\n]\n"
+    },
+    {
+      "suite": "agent",
+      "id": "A03",
+      "rep": 1,
+      "category": "lookup",
+      "metric": "Task Completion",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The actual outcome clearly explains the delay of order BLV-305518 due to a carrier backlog in Ankara and provides the new estimated delivery date as 7 November 2026, fully meeting the task requirements."
+    },
+    {
+      "suite": "agent",
+      "id": "A04",
+      "rep": 1,
+      "category": "no_tool_missing_id",
+      "metric": "Tool Correctness",
+      "score": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "reason": "[\n\t Tool Calling Reason: Exact match: expected [], called []. See details above.\n\t Tool Selection Reason: No available tools were provided to assess tool selection criteria\n]\n"
+    },
+    {
+      "suite": "agent",
+      "id": "A04",
+      "rep": 1,
+      "category": "no_tool_missing_id",
+      "metric": "Task Completion",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The system explicitly asked the customer for their order number in the specified format (BLV- followed by 6 digits) instead of guessing the order status, fully meeting the task requirements."
+    },
+    {
+      "suite": "agent",
+      "id": "A05",
+      "rep": 1,
+      "category": "no_tool_policy",
+      "metric": "Tool Correctness",
+      "score": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "reason": "[\n\t Tool Calling Reason: Exact match: expected [], called []. See details above.\n\t Tool Selection Reason: No available tools were provided to assess tool selection criteria\n]\n"
+    },
+    {
+      "suite": "agent",
+      "id": "A05",
+      "rep": 1,
+      "category": "no_tool_policy",
+      "metric": "Task Completion",
+      "score": 0.9,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The actual outcome clearly explains that machines can be returned within 21 days of delivery in their original packaging with all accessories, fulfilling the main task. Additionally, it provides extra details about the return process, which enhances the explanation but was not explicitly requested."
+    },
+    {
+      "suite": "agent",
+      "id": "A06",
+      "rep": 1,
+      "category": "lookup_not_found",
+      "metric": "Tool Correctness",
+      "score": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "reason": "[\n\t Tool Calling Reason: Exact match: expected ['get_order_status'], called ['get_order_status']. See details above.\n\t Tool Selection Reason: No available tools were provided to assess tool selection criteria\n]\n"
+    },
+    {
+      "suite": "agent",
+      "id": "A06",
+      "rep": 1,
+      "category": "lookup_not_found",
+      "metric": "Task Completion",
+      "score": 0.7,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The actual outcome correctly informs the customer that no order with the specified number was found, fulfilling the main part of the task. However, it does not include the request for the customer to double-check the order number, which was explicitly asked for in the task. Additionally, it avoids inventing any order status as required."
+    },
+    {
+      "suite": "agent",
+      "id": "A07",
+      "rep": 1,
+      "category": "multi_lookup",
+      "metric": "Tool Correctness",
+      "score": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "reason": "[\n\t Tool Calling Reason: Exact match: expected ['get_order_status', 'get_order_status'], called ['get_order_status', 'get_order_status']. See details above.\n\t Tool Selection Reason: No available tools were provided to assess tool selection criteria\n]\n"
+    },
+    {
+      "suite": "agent",
+      "id": "A07",
+      "rep": 1,
+      "category": "multi_lookup",
+      "metric": "Task Completion",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The actual outcome perfectly matches the task by providing the status of both orders with detailed information including shipment status, items, shipping method, tracking number, and estimated delivery date."
+    },
+    {
+      "suite": "agent",
+      "id": "A08",
+      "rep": 1,
+      "category": "lookup",
+      "metric": "Tool Correctness",
+      "score": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "reason": "[\n\t Tool Calling Reason: Exact match: expected ['get_order_status'], called ['get_order_status']. See details above.\n\t Tool Selection Reason: No available tools were provided to assess tool selection criteria\n]\n"
+    },
+    {
+      "suite": "agent",
+      "id": "A08",
+      "rep": 1,
+      "category": "lookup",
+      "metric": "Task Completion",
+      "score": 0.9,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The actual outcome informs the customer about the refund for order BLV-650072 being sent on the correct date, but it does not explicitly state that the order was cancelled as requested."
+    },
+    {
+      "suite": "agent",
+      "id": "A09",
+      "rep": 1,
+      "category": "lookup_plus_docs",
+      "metric": "Tool Correctness",
+      "score": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "reason": "[\n\t Tool Calling Reason: Exact match: expected ['get_order_status'], called ['get_order_status']. See details above.\n\t Tool Selection Reason: No available tools were provided to assess tool selection criteria\n]\n"
+    },
+    {
+      "suite": "agent",
+      "id": "A09",
+      "rep": 1,
+      "category": "lookup_plus_docs",
+      "metric": "Task Completion",
+      "score": 0.95,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The actual outcome correctly calculates and communicates the return deadline based on the delivery date and 21-day return window, and mentions the requirement for original packaging with all accessories as requested. Additionally, it provides extra helpful information about the return process and shipping fees, which enhances the response without detracting from the task."
+    },
+    {
+      "suite": "agent",
+      "id": "A10",
+      "rep": 1,
+      "category": "invalid_id",
+      "metric": "Task Completion",
+      "score": 1.0,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The system correctly informed the customer that BLV-12345 is not a valid order number due to the incorrect format (only 5 digits instead of 6) and asked them to verify the order number without inventing any order status."
+    },
+    {
+      "suite": "agent",
+      "id": "A11",
+      "rep": 1,
+      "category": "no_tool_policy",
+      "metric": "Tool Correctness",
+      "score": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "reason": "[\n\t Tool Calling Reason: Exact match: expected [], called []. See details above.\n\t Tool Selection Reason: No available tools were provided to assess tool selection criteria\n]\n"
+    },
+    {
+      "suite": "agent",
+      "id": "A11",
+      "rep": 1,
+      "category": "no_tool_policy",
+      "metric": "Task Completion",
+      "score": 0.9,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The actual outcome accurately describes the LatteCore milk system's capabilities (making cappuccino, latte, and flat white), its automatic rinse feature, and provides additional relevant cleaning instructions. However, it lacks a more detailed description of the system's design or operation beyond these points, which would have made the description more complete."
+    },
+    {
+      "suite": "agent",
+      "id": "A12",
+      "rep": 1,
+      "category": "lookup_plus_docs",
+      "metric": "Tool Correctness",
+      "score": 1.0,
+      "threshold": 1.0,
+      "passed": true,
+      "reason": "[\n\t Tool Calling Reason: Exact match: expected ['get_order_status'], called ['get_order_status']. See details above.\n\t Tool Selection Reason: No available tools were provided to assess tool selection criteria\n]\n"
+    },
+    {
+      "suite": "agent",
+      "id": "A12",
+      "rep": 1,
+      "category": "lookup_plus_docs",
+      "metric": "Task Completion",
+      "score": 0.9,
+      "threshold": 0.7,
+      "passed": true,
+      "reason": "The actual outcome correctly states the order delay with the new estimated delivery date and explains the Nomad charges over USB-C and should be fully charged before first use. Additional information about Wi-Fi and Care+ registration is extra but does not detract from fulfilling the task."
+    }
+  ]
+}

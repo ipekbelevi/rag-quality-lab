@@ -3,6 +3,7 @@
 Run (after the pytest suite has written the results file):
     .venv/bin/python -m evals.gate --label baseline                 # RAG: results/deepeval_<label>.json
     .venv/bin/python -m evals.gate --label baseline --suite agent   # agent: results/agent_<label>.json
+    .venv/bin/python -m evals.gate --label baseline --suite safety  # safety: results/safety_<label>.json
 
 Exit code 0 = gate passed, 1 = gate failed. CI uses the exit code to break the build.
 """
@@ -12,9 +13,9 @@ import json
 import sys
 
 from app import config
-from evals.thresholds import AGENT_GATE, GATE
+from evals.thresholds import AGENT_GATE, GATE, SAFETY_GATE
 
-SUITES = {"rag": ("deepeval", GATE), "agent": ("agent", AGENT_GATE)}
+SUITES = {"rag": ("deepeval", GATE), "agent": ("agent", AGENT_GATE), "safety": ("safety", SAFETY_GATE)}
 
 
 def check_gate(label: str, suite: str = "rag") -> bool:
