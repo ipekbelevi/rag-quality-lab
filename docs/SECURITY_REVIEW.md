@@ -79,10 +79,24 @@ Good: `permissions: contents: read`; `pull_request` (not `pull_request_target`),
 
 - Different model families for bot and judge; deterministic security regression tests; defense in depth (prompt + input filter + tool limits + output sanitization); unit tests for guardrail false positives; least-privilege CI; no secrets in git; telemetry off.
 
-## 7. Suggested order of work
+## 7. What was done after this review (same day)
 
-1. Pin `langchain-openai==1.1.14`, upgrade setuptools, add the dependency-audit CI job, pin actions to SHAs (one small PR, zero API cost).
-2. Input length limit + per-session lookup limit + Pydantic tool validation (small code changes; re-run `./scripts/ci_eval.sh`).
-3. Ownership check for orders (changes the agent spec in `data/agent/agent_cases.json`; update expected behaviour, re-run agent and safety suites).
-4. Model-based guardrail and allowlisted tool fields; re-run the Promptfoo red team and compare with `results/redteam_summary.md`.
-5. PII masking and retention in Langfuse before any real user data.
+| Finding | Status | Where |
+|---|---|---|
+| Secret scanner | ✅ gitleaks job on every push/PR and weekly | `.github/workflows/dependency-audit.yml` |
+| Dependency audit in CI | ✅ `pip-audit` (blocking, with a documented accepted-risk list) + lockfile-only `npm audit` (warning) | `scripts/audit_deps.sh`, same workflow |
+| `langchain-openai` 1.1.14 | ❌ not possible: needs `openai>=2.26`, which breaks `ragas` → `instructor` (`openai<2`). Pinned at 1.1.9 as an accepted risk (code path unused) | `requirements.txt` |
+| setuptools | ✅ `>=84.1.0` | `requirements.txt` |
+| Actions pinned to SHAs | ✅ both workflows | `.github/workflows/*.yml` |
+| A1 ownership check | ⚠️ **not implemented on purpose** (changes the product and the agent spec); warnings in code and README | `app/tools.py`, `app/guardrails.py`, README "Security warnings" |
+| A2 per-session limits | ✅ requests, lookups and lockout after 3 failed order numbers (`SessionLimiter`); in-memory, see warning | `app/guardrails.py`, `app/chatbot.py` |
+| A3 input length limit | ✅ 2,000 chars, checked before any API call | `app/guardrails.py` |
+| A4 rate limiting / budget | ✅ per-session request cap; ⚠️ per-IP limits and provider spend caps are deployment tasks (README warning) | — |
+| A5 model-based guardrail | ⚠️ not added (cost/latency per request; needs its own eval); documented as next step | README |
+| A6 tool-output allowlist | ✅ only business-owned fields reach the model; customer text is hidden regardless of wording | `app/guardrails.py` `filter_tool_output` |
+| A7 error details | ✅ generic error to the caller, details to the local log | `redteam/provider.py` |
+| A8 multi-turn | ⚠️ warning only (no multi-turn support) | README |
+| A9 tool input validation | ✅ Pydantic model with `extra="forbid"` before any function call | `app/tools.py` |
+| PII in traces | ✅ masking of e-mails, phones and card-like numbers on by default; ⚠️ retention/DPA are deployment tasks | `app/tracing.py` |
+
+All changes are covered by unit tests (`tests/test_guardrails.py`, 64 tests, no API calls) and the full gate (`./scripts/ci_eval.sh`) plus a Promptfoo re-run were executed afterwards; see `results/verify_security_fixes.log` and `results/redteam_summary.md`.

@@ -13,10 +13,12 @@ import json
 import os
 import sys
 import time
+import uuid
 
 import anthropic
 
 from app import config, guardrails, tracing
+from app.guardrails import session_limiter
 from app.prompts import build_user_message, get_system_prompt
 from app.retriever import retrieve
 from app.tools import TOOLS, execute_tool
@@ -28,12 +30,14 @@ TRACE_TAGS = [t for t in os.getenv("TRACE_TAGS", "").split(",") if t]
 _client = anthropic.Anthropic()
 
 
-def answer(question: str) -> dict:
+def answer(question: str, session_id: str | None = None) -> dict:
+    """Answer one question. session_id enables per-session limits (GUARDRAIL=on); None = unlimited."""
     settings = {"chat_model": config.CHAT_MODEL, "prompt_variant": config.PROMPT_VARIANT,
                 "guardrail": config.GUARDRAIL, "chunk_size": config.CHUNK_SIZE, "top_k": config.TOP_K}
-    with tracing.trace_attributes(trace_name="belevico-chat", tags=TRACE_TAGS, metadata={k: str(v) for k, v in settings.items()}):
+    with tracing.trace_attributes(trace_name="belevico-chat", tags=TRACE_TAGS, session_id=session_id,
+                                  metadata={k: str(v) for k, v in settings.items()}):
         with tracing.observe("belevico-chat", as_type="agent", input={"question": question}) as root:
-            result = _answer(question)
+            result = _answer(question, session_id)
             root.update(output=result["answer"], metadata={
                 "blocked": result.get("blocked"),
                 "tool_calls": len(result["tool_calls"]),
@@ -44,19 +48,24 @@ def answer(question: str) -> dict:
     return result
 
 
-def _answer(question: str) -> dict:
+def _blocked(question: str, reason: str, message: str, start: float) -> dict:
+    return {"question": question, "answer": message, "blocked": reason,
+            "contexts": [], "sources": [], "tool_calls": [],
+            "input_tokens": 0, "output_tokens": 0, "latency_s": round(time.perf_counter() - start, 2)}
+
+
+def _answer(question: str, session_id: str | None) -> dict:
     start = time.perf_counter()
 
-    # Guardrail 1: block known attacks before spending any LLM call on them
+    # Guardrail 1: block abuse before spending any LLM call on it
     if config.GUARDRAIL:
         with tracing.observe("input-guardrail", as_type="guardrail", input=question) as span:
-            reason = guardrails.check_input(question)
+            reason = session_limiter.allow_request(session_id) or guardrails.check_input(question)
             span.update(output={"blocked": reason is not None, "reason": reason},
                         level="WARNING" if reason else "DEFAULT")
         if reason:
-            return {"question": question, "answer": guardrails.BLOCKED_MESSAGE, "blocked": reason,
-                    "contexts": [], "sources": [], "tool_calls": [],
-                    "input_tokens": 0, "output_tokens": 0, "latency_s": round(time.perf_counter() - start, 2)}
+            message = guardrails.LIMIT_MESSAGE if "limit" in reason else guardrails.BLOCKED_MESSAGE
+            return _blocked(question, reason, message, start)
 
     with tracing.observe("retrieval", as_type="retriever", input={"query": question, "top_k": config.TOP_K}) as span:
         contexts = retrieve(question)
@@ -99,15 +108,23 @@ def _answer(question: str) -> dict:
                 continue
             with tracing.observe(f"tool:{block.name}", as_type="tool", input=block.input) as span:
                 executed = sum(1 for c in tool_calls if not c.get("blocked"))
-                if config.GUARDRAIL and executed >= guardrails.MAX_ORDER_LOOKUPS:
-                    # Guardrail 2: hard limit on lookups per message (stops enumeration)
-                    output = f'{{"error": "Lookup limit reached: at most {guardrails.MAX_ORDER_LOOKUPS} orders per message."}}'
+                limit = None
+                if config.GUARDRAIL:
+                    # Guardrail 2 + 3: per-message and per-session lookup limits (stop enumeration)
+                    if executed >= guardrails.MAX_ORDER_LOOKUPS:
+                        limit = f"at most {guardrails.MAX_ORDER_LOOKUPS} orders per message"
+                    else:
+                        limit = session_limiter.allow_lookup(session_id)
+                if limit:
+                    output = json.dumps({"error": f"Lookup limit reached: {limit}."})
                     tool_calls.append({"name": block.name, "input": block.input, "output": output, "blocked": True})
                     is_error = True
                 else:
-                    # Guardrail 3 (inside execute_tool): strip instruction-like text from tool results
-                    output, is_error = execute_tool(block.name, block.input, sanitize=config.GUARDRAIL)
+                    # Guardrail 4 (inside execute_tool): only allowlisted fields reach the model
+                    output, is_error = execute_tool(block.name, block.input, guarded=config.GUARDRAIL)
                     tool_calls.append({"name": block.name, "input": block.input, "output": output})
+                    if config.GUARDRAIL:
+                        session_limiter.record_lookup(session_id, failed=is_error)
                 span.update(output=json.loads(output), level="WARNING" if is_error else "DEFAULT")
             results.append({"type": "tool_result", "tool_use_id": block.id,
                             "content": output, "is_error": is_error})
@@ -156,9 +173,14 @@ def _print_result(result: dict) -> None:
 
 
 if __name__ == "__main__":
+    if not config.GUARDRAIL:
+        print("WARNING: GUARDRAIL=off. Input filter, lookup limits and tool-output filtering are disabled.", file=sys.stderr)
+    print("WARNING: demo only. Order lookups have no ownership check; never point this at real customer data "
+          "(docs/SECURITY_REVIEW.md, A1).", file=sys.stderr)
     if len(sys.argv) > 1:
         _print_result(answer(" ".join(sys.argv[1:])))
     else:
+        session = str(uuid.uuid4())  # one interactive run = one session, so per-session limits apply
         print("Belevico assistant. Empty line to quit.")
         while question := input("\nYou: ").strip():
-            _print_result(answer(question))
+            _print_result(answer(question, session_id=session))

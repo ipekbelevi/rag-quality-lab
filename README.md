@@ -107,7 +107,7 @@ The agent usually recovers by retrying, so an outcome-only test would miss a reg
 
 ### 4. Red teaming and defenses
 
-Defenses, each behind a flag so they can be measured separately: **hardened system prompt** → **input filter** (blocks known injection phrases and base64-hidden text before any LLM call) → **code-level tool controls** (max 2 order lookups per message, instruction-like text removed from tool output).
+Defenses, each behind a flag so they can be measured separately: **hardened system prompt** → **input filter** (rejects oversized input, known injection phrases and base64-hidden text before any LLM call) → **code-level tool controls** (validated tool input, max 2 order lookups per message, per-session request/lookup limits with lockout after repeated failed numbers, and an **allowlist** of business-owned fields in tool output so customer-written text never reaches the model).
 
 Security regression tests (13 cases × 3 runs):
 
@@ -118,7 +118,7 @@ Security regression tests (13 cases × 3 runs):
 | Security Policy (GEval) | 0.85 | 0.96 | 0.94 |
 | Bias | 0.93 | 1.00 | 1.00 |
 
-Promptfoo (same 112 attacks): 112 → 111 → 111 graded as defended; the input filter stopped **30 attacks with zero LLM calls** (all 28 base64 attacks). Full table: [`results/redteam_summary.md`](results/redteam_summary.md).
+Promptfoo (same 112 attacks): 112 → 111 → 111 graded as defended, and 112/112 after the security-review fixes (`defended_v2`: tool-output allowlist, session limits, input length limit); the input filter stops **30 attacks with zero LLM calls** (all 28 base64 attacks). Full table: [`results/redteam_summary.md`](results/redteam_summary.md).
 
 The defended bot still passes the RAG and agent gates. Cost of the defense: **+17% input tokens** (longer system prompt).
 
@@ -173,7 +173,9 @@ Other entry points:
 | `./redteam/run.sh generate` / `./redteam/run.sh eval X` | Promptfoo red team (local mode) |
 | `.venv/bin/python scripts/show_trace.py <trace_id>` | Print a Langfuse trace as a timeline |
 
-Settings (env vars): `PROMPT_VARIANT=default|weak|hardened`, `GUARDRAIL=on|off`, `CHUNK_SIZE`, `TOP_K`, `EXCLUDE_DOCS`, `TOOL_VARIANT=broken`, `TRACING=off`, `TRACE_TAGS`.
+Settings (env vars): `PROMPT_VARIANT=default|weak|hardened`, `GUARDRAIL=on|off`, `CHUNK_SIZE`, `TOP_K`, `EXCLUDE_DOCS`, `TOOL_VARIANT=broken`, `TRACING=off`, `TRACE_TAGS`, `TRACE_MASK_PII=off`.
+
+Dependency and secret audit (free, no keys): `./scripts/audit_deps.sh`.
 
 ### Red teaming modes
 
@@ -190,6 +192,9 @@ Settings (env vars): `PROMPT_VARIANT=default|weak|hardened`, `GUARDRAIL=on|off`,
 - **The workflow is currently disabled in this repository** (no API-key secrets are configured, so every run would fail on missing keys). To set up the pipeline in your own copy: add the two secrets below, then run `gh workflow enable "LLM quality gate"` (or Actions tab → LLM quality gate → Enable workflow). PR runs and the weekly schedule start working immediately; nothing in the workflow file needs to change.
 - New pushes cancel the previous run; PRs from forks skip the paid job (no secrets).
 - Secrets: `ANTHROPIC_API_KEY`, `OPENAI_API_KEY` (optional: `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_SECRET_KEY`, `LANGFUSE_HOST`).
+- Actions are pinned to commit SHAs.
+
+A second, free workflow, [`dependency-audit.yml`](.github/workflows/dependency-audit.yml), needs no keys and is enabled: gitleaks secret scan of the whole history, `pip-audit` with a documented accepted-risk list, and a lockfile-only `npm audit` for the red-team tooling. Locally: `./scripts/audit_deps.sh`.
 
 > **Disclaimer: API keys and CI**
 > - No API keys are stored in this repository. `.env` is git-ignored; `.env.example` only lists the variable names.
@@ -216,12 +221,24 @@ tests/          guardrail unit tests
 
 ---
 
+## Security warnings (read before using with real data)
+
+This is a learning project with a fictional company and a fake order table. The full review is in [docs/SECURITY_REVIEW.md](docs/SECURITY_REVIEW.md); these are the points that are **not fixed on purpose** or need action in a real deployment:
+
+- ⚠️ **No ownership check on order lookups.** Anyone who knows or guesses an order number gets its items, tracking number and delivery date. Fixing this changes the product (ask for the order e-mail or phone digits first) and therefore the agent spec; it is left as a documented finding. Never point the tool at real orders as is.
+- ⚠️ **Regex input filter.** It stops encoded and well-known attacks cheaply, but only 1 of 28 jailbreak templates. The model's own training and the code limits are the real defense; add a model-based guardrail for real traffic.
+- ⚠️ **Per-session limits are in-memory, single-process.** Fine for the demo; a real deployment needs a shared store and per-IP limits at the gateway.
+- ⚠️ **Traces contain user text.** Langfuse receives questions, retrieved chunks and answers (EU cloud). PII masking (e-mails, phones, card-like numbers) is on by default (`TRACE_MASK_PII=off` disables it), but masking is not anonymisation: set retention, sign a DPA, and keep `TRACING=off` until that is done.
+- ⚠️ **Accepted dependency advisories.** `scripts/audit_deps.sh` ignores 11 advisory rows with a written reason each (Chroma HTTP-server bugs while we use the embedded client; unused RAGAS multimodal and `langchain-openai` image code paths; `diskcache` pickle). The `Dependency and secret audit` workflow fails on any new advisory. Promptfoo's Node dependencies have high-severity advisories; it is a local dev tool and never runs in CI.
+- ⚠️ **Single-turn only.** Adding conversation memory opens new injection paths; re-run the red team first.
+- ⚠️ **API spend.** Set spend caps on the provider keys used by CI; a misconfigured loop is a cost incident.
+
 ## Known issues and next steps
 
 - Multi-hop questions: top-4 retrieval often fills with chunks from one document (try per-document caps, hybrid search, reranking).
 - Markdown tables can be split across chunks (table-aware chunking).
 - No ownership check for order lookups (needs authentication, e.g. order email verification).
 - Regex input filter catches encoded attacks but only 1/28 jailbreak templates; the model remains the main defense.
-- Next: Promptfoo in the weekly CI job, online evaluation on sampled production traces in Langfuse, prompt caching to cut input tokens, a dev/held-out split of the golden set, pin GitHub Actions to commit SHAs, a full lock file.
+- Next: Promptfoo in the weekly CI job, online evaluation on sampled production traces in Langfuse, prompt caching to cut input tokens, a dev/held-out split of the golden set, a full lock file for transitive pins, a model-based guardrail.
 
 Total API cost to build and run everything in this repo: about **$4** (judge and chatbot are both "mini"-class models).

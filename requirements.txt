@@ -16,6 +16,12 @@ deepeval==4.3.2
 ragas==0.4.3
 # ragas 0.4.3 imports langchain_community.chat_models.vertexai, removed in 0.4.x
 langchain-community==0.3.31
+# Pinned explicitly (pulled in by ragas). 1.1.14 fixes PYSEC-2026-76 but needs openai>=2.26,
+# which conflicts with instructor (openai<2). Accepted risk: the vulnerable code path is not used.
+langchain-openai==1.1.9
+
+# Security: build tooling flagged by pip-audit (PYSEC-2026-3447, GHSA-xmj3-9gf7-h52w)
+setuptools>=84.1.0
 
 # Phase 6: tracing / observability
 langfuse==5.0.4

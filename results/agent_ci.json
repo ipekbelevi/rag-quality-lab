@@ -2,7 +2,7 @@
   "source_file": "results/agent_runs_ci.json",
   "summary": {
     "Task Completion": {
-      "mean": 0.933,
+      "mean": 0.946,
       "passed": 12,
       "total": 12
     },
@@ -52,10 +52,10 @@
       "rep": 1,
       "category": "lookup_normalize",
       "metric": "Task Completion",
-      "score": 0.95,
+      "score": 1.0,
       "threshold": 0.7,
       "passed": true,
-      "reason": "The actual outcome clearly informs the customer that order BLV-771045 is being prepared and provides the estimated delivery date as November 5, 2026, fulfilling the main requirements of the task. Additional details about the warehouse location and tracking link enhance the response but are not explicitly requested, so the verdict is slightly less than perfect."
+      "reason": "The actual outcome clearly informs the customer that order BLV-771045 is being prepared and provides the estimated delivery date as November 5, 2026, fully meeting the task requirements."
     },
     {
       "suite": "agent",
@@ -77,7 +77,7 @@
       "score": 1.0,
       "threshold": 0.7,
       "passed": true,
-      "reason": "The actual outcome clearly explains the delay of order BLV-305518 due to a carrier backlog in Ankara and provides the new estimated delivery date as 7 November 2026, fully meeting the task requirements."
+      "reason": "The actual outcome clearly explains that order BLV-305518 is delayed due to a carrier backlog in Ankara and provides the new estimated delivery date as 7 November 2026, fully meeting the task requirements."
     },
     {
       "suite": "agent",
@@ -99,7 +99,7 @@
       "score": 1.0,
       "threshold": 0.7,
       "passed": true,
-      "reason": "The system explicitly asked the customer for their order number in the specified format (BLV- followed by 6 digits) instead of guessing the order status, fully meeting the task requirements."
+      "reason": "The system correctly asked the customer for their order number in the specified format (BLV- followed by 6 digits) instead of guessing any order status, fully meeting the task requirements."
     },
     {
       "suite": "agent",
@@ -118,10 +118,10 @@
       "rep": 1,
       "category": "no_tool_policy",
       "metric": "Task Completion",
-      "score": 0.9,
+      "score": 1.0,
       "threshold": 0.7,
       "passed": true,
-      "reason": "The actual outcome clearly explains that machines can be returned within 21 days of delivery in their original packaging with all accessories, fulfilling the main task. Additionally, it provides extra details about the return process, which enhances the explanation but was not explicitly requested."
+      "reason": "The actual outcome clearly explains that machines can be returned within 21 days of delivery in their original packaging with all accessories, fulfilling the task completely. Additionally, it provides detailed instructions on how to initiate the return process, which enhances the explanation."
     },
     {
       "suite": "agent",
@@ -143,7 +143,7 @@
       "score": 0.7,
       "threshold": 0.7,
       "passed": true,
-      "reason": "The actual outcome correctly informs the customer that no order with the specified number was found, fulfilling the main part of the task. However, it does not include the request for the customer to double-check the order number, which was explicitly asked for in the task. Additionally, it avoids inventing any order status as required."
+      "reason": "The actual outcome correctly informs the customer that no order with the given number was found, fulfilling the main part of the task. However, it does not include the request for the customer to double-check the order number, which was explicitly asked for in the task. Additionally, it does not invent any order status, which aligns with the task requirements."
     },
     {
       "suite": "agent",
@@ -162,10 +162,10 @@
       "rep": 1,
       "category": "multi_lookup",
       "metric": "Task Completion",
-      "score": 1.0,
+      "score": 0.9,
       "threshold": 0.7,
       "passed": true,
-      "reason": "The actual outcome perfectly matches the task by providing the status of both orders with detailed information including shipment status, items, shipping method, tracking number, and estimated delivery date."
+      "reason": "The system provided detailed status information for both orders, including status, items, carrier, tracking number, and estimated delivery date for BLV-482913, and status, items, and carrier for BLV-219987. However, it did not explicitly confirm that BLV-219987 is out for delivery today as requested, which slightly reduces completeness."
     },
     {
       "suite": "agent",
@@ -206,10 +206,10 @@
       "rep": 1,
       "category": "lookup_plus_docs",
       "metric": "Task Completion",
-      "score": 0.95,
+      "score": 0.9,
       "threshold": 0.7,
       "passed": true,
-      "reason": "The actual outcome correctly calculates and communicates the return deadline based on the delivery date and 21-day return window, and mentions the requirement for original packaging with all accessories as requested. Additionally, it provides extra helpful information about the return process and shipping fees, which enhances the response without detracting from the task."
+      "reason": "The actual outcome correctly identifies the delivery date and the 21-day return window, implying a return deadline around 2026-11-15, and mentions the requirement for the machine to be in its original packaging with all accessories. Additionally, it provides extra helpful details about the return process and conditions, which enhances the response. The only minor shortcoming is that the return deadline date is not explicitly stated as 'around 2026-11-15' but can be inferred."
     },
     {
       "suite": "agent",
@@ -217,10 +217,10 @@
       "rep": 1,
       "category": "invalid_id",
       "metric": "Task Completion",
-      "score": 1.0,
+      "score": 0.95,
       "threshold": 0.7,
       "passed": true,
-      "reason": "The system correctly informed the customer that BLV-12345 is not a valid order number due to the incorrect format (only 5 digits instead of 6) and asked them to verify the order number without inventing any order status."
+      "reason": "The system correctly informed the customer that BLV-12345 is not a valid order number format, specifying that it should be BLV- followed by 6 digits, and asked the customer to verify the order number. It did not invent any order status and provided helpful suggestions for verification, fully aligning with the task requirements."
     },
     {
       "suite": "agent",
@@ -239,10 +239,10 @@
       "rep": 1,
       "category": "no_tool_policy",
       "metric": "Task Completion",
-      "score": 0.9,
+      "score": 1.0,
       "threshold": 0.7,
       "passed": true,
-      "reason": "The actual outcome accurately describes the LatteCore milk system's capabilities (making cappuccino, latte, and flat white), its automatic rinse feature, and provides additional relevant cleaning instructions. However, it lacks a more detailed description of the system's design or operation beyond these points, which would have made the description more complete."
+      "reason": "The actual outcome fully describes the LatteCore milk system of Belevico Forte, mentioning that it is built-in, has automatic rinse, and can make cappuccino, latte, and flat white, exactly as requested in the task."
     },
     {
       "suite": "agent",
@@ -261,10 +261,10 @@
       "rep": 1,
       "category": "lookup_plus_docs",
       "metric": "Task Completion",
-      "score": 0.9,
+      "score": 1.0,
       "threshold": 0.7,
       "passed": true,
-      "reason": "The actual outcome correctly states the order delay with the new estimated delivery date and explains the Nomad charges over USB-C and should be fully charged before first use. Additional information about Wi-Fi and Care+ registration is extra but does not detract from fulfilling the task."
+      "reason": "The actual outcome fully addresses the task by stating the order BLV-305518 is delayed with the new estimated delivery date of 2026-11-07 and explains that the Nomad charges over USB-C and should be fully charged for about 2 hours before first use. Additional relevant details about charging and connectivity are also provided, enhancing clarity."
     }
   ]
 }

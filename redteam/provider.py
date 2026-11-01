@@ -17,7 +17,9 @@ def call_api(prompt, options, context):
     try:
         result = answer(prompt)
     except Exception as e:  # report errors as errors, not as model output
-        return {"error": f"{type(e).__name__}: {e}"}
+        # Details stay in the local log; the caller only gets the error class (no URLs, ids or payloads)
+        print(f"provider error: {type(e).__name__}: {e}", file=sys.stderr)
+        return {"error": f"internal error ({type(e).__name__})"}
     return {
         "output": result["answer"],
         "metadata": {
