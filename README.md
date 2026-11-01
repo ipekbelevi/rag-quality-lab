@@ -6,6 +6,8 @@ The chatbot answers questions for **Belevico**, a *fictional* Turkish coffee-mac
 
 Built as a hands-on learning project by a QA engineer moving into AI quality.
 
+More reading: [plain-English overview](docs/OVERVIEW.md) (what, which tools, which testing principles) and [security review](docs/SECURITY_REVIEW.md) (dependency audit, CI, LLM-specific findings and fixes).
+
 ---
 
 ## Architecture
@@ -185,6 +187,7 @@ Settings (env vars): `PROMPT_VARIANT=default|weak|hardened`, `GUARDRAIL=on|off`,
 
 - **Pull requests** touching `app/`, `data/`, `evals/`…: unit tests (free) → eval suite with production settings → three gates (RAG, agent, safety). A gate below threshold fails the build. Results go to the job summary and an artifact.
 - **Weekly schedule**: agent and safety cases run 3× each (reliability, pass^3).
+- **The workflow is currently disabled in this repository** (no API-key secrets are configured, so every run would fail on missing keys). To set up the pipeline in your own copy: add the two secrets below, then run `gh workflow enable "LLM quality gate"` (or Actions tab → LLM quality gate → Enable workflow). PR runs and the weekly schedule start working immediately; nothing in the workflow file needs to change.
 - New pushes cancel the previous run; PRs from forks skip the paid job (no secrets).
 - Secrets: `ANTHROPIC_API_KEY`, `OPENAI_API_KEY` (optional: `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_SECRET_KEY`, `LANGFUSE_HOST`).
 

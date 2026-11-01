@@ -17,6 +17,10 @@ on:
       - "scripts/ci_eval.sh"
       - "requirements.txt"
       - ".github/workflows/llm-quality-gate.yml"
+  # Weekly reliability run (agent and safety cases 3x each). NOTE: this workflow is DISABLED in the
+  # original repository because no API-key secrets are configured there. To turn the pipeline on in
+  # your copy: add the secrets, then `gh workflow enable "LLM quality gate"` (or Actions tab ->
+  # LLM quality gate -> Enable workflow). The schedule then starts on its own.
   schedule:
     - cron: "0 6 * * 1"   # Mondays 06:00 UTC
   workflow_dispatch:
