@@ -99,4 +99,4 @@ Good: `permissions: contents: read`; `pull_request` (not `pull_request_target`),
 | A9 tool input validation | ✅ Pydantic model with `extra="forbid"` before any function call | `app/tools.py` |
 | PII in traces | ✅ masking of e-mails, phones and card-like numbers on by default; ⚠️ retention/DPA are deployment tasks | `app/tracing.py` |
 
-All changes are covered by unit tests (`tests/test_guardrails.py`, 64 tests, no API calls) and the full gate (`./scripts/ci_eval.sh`) plus a Promptfoo re-run were executed afterwards; see `results/verify_security_fixes.log` and `results/redteam_summary.md`.
+All changes are covered by unit tests (`tests/test_guardrails.py`, 64 tests, no API calls) and the full gate (`./scripts/ci_eval.sh`) plus a Promptfoo re-run were executed afterwards: all three gates pass (`results/*_ci.json`) and the red team scores 112/112 (`results/redteam_summary.md`, column `defended_v2`).
