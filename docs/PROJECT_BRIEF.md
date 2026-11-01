@@ -5,6 +5,7 @@ Repository: https://github.com/ipekbelevi/rag-quality-lab
 **TL;DR**
 - I built the **complete QA layer around an LLM app**: evals, agent tests, red teaming, tracing, CI gate.
 - The chatbot is **only the test subject**. The work is the testing.
+- **With the system I built I can measure, in numbers, how accurate the model is and how well a prompt works**, and I can see which change made it better or worse.
 - **8 phases, ~$3.5 of API usage, every step documented with numbers.**
 
 ---
@@ -20,6 +21,22 @@ Repository: https://github.com/ipekbelevi/rag-quality-lab
 - **Invented facts** that sound right
 - **Hidden instructions** inside a message
 - `assert answer == expected` catches **none** of this
+
+**What I achieved:** a measurement system that turns "the bot seems fine" into numbers. I can **score the model's accuracy** on a reviewed dataset, **score a prompt** and compare it with another prompt on the same questions, **prove that a change broke something** before it ships, and **show which layer broke** (retrieval, prompt, model or tool).
+
+---
+
+## What I achieved (in detail)
+
+Everything below is something I can **do and show today**, with the code and results in this repository:
+
+- **I measured model accuracy.** Faithfulness, answer relevancy, context precision/recall, hallucination and correct refusal, scored by an independent judge on **30 human-reviewed questions**. Baseline: faithfulness **0.80**, hallucination **0.94**, refusal **0.86**.
+- **I measured prompt quality.** The same questions were run with three system prompts (default, weak, hardened). The weak prompt dropped answer relevancy **0.89 → 0.73** and failed the gate; the hardened prompt kept every gate green at **+17% token cost**. A prompt is now **a tested, versioned artifact**, not a text someone edits by feel.
+- **I can prove a change is a regression.** Chunk size, a missing document, a weakened prompt, a broken tool description: each one was caught by the gate, and the metric that dropped pointed at the layer that broke.
+- **I measured the measurement.** The judge flipped **5 of 130** results on identical answers, so I calibrated thresholds to the measured noise instead of guessing them.
+- **I measured agent behaviour, not just answers.** Right tool, right parameters, task completed, consistency over 3 repeats.
+- **I measured security.** 112 red-team attacks, bias and toxicity cases, and a before/after of three defense layers (**0.50 → 1.00** on security regressions, 30 attacks stopped before any LLM call).
+- **I made it repeatable.** The whole suite runs on every pull request with production settings for **≈$0.40**, and the results of every experiment are saved in `results/`.
 
 ---
 
