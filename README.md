@@ -6,7 +6,7 @@ The chatbot answers questions for **Belevico**, a *fictional* Turkish coffee-mac
 
 Built as a hands-on learning project by a QA engineer moving into AI quality.
 
-More reading: [plain-English overview](docs/OVERVIEW.md) (what, which tools, which testing principles) and [security review](docs/SECURITY_REVIEW.md) (dependency audit, CI, LLM-specific findings and fixes).
+More reading: [project brief](docs/PROJECT_BRIEF.md) (one-page summary to share), [plain-English overview](docs/OVERVIEW.md) (what, which tools, which testing principles), [security review](docs/SECURITY_REVIEW.md) (dependency audit, CI, LLM-specific findings and fixes) and [cost report](docs/COST_REPORT.md) (tokens spent, what it costs at scale).
 
 ---
 
@@ -241,4 +241,4 @@ This is a learning project with a fictional company and a fake order table. The 
 - Regex input filter catches encoded attacks but only 1/28 jailbreak templates; the model remains the main defense.
 - Next: Promptfoo in the weekly CI job, online evaluation on sampled production traces in Langfuse, prompt caching to cut input tokens, a dev/held-out split of the golden set, a full lock file for transitive pins, a model-based guardrail.
 
-Total API cost to build and run everything in this repo: about **$4** (judge and chatbot are both "mini"-class models).
+Total API cost to build and run everything in this repo: about **$3.5** (judge and chatbot are both "mini"-class models; ≈90% of it is the judge, not the chatbot). Breakdown and scaling model: [docs/COST_REPORT.md](docs/COST_REPORT.md).
