@@ -6,7 +6,7 @@ The chatbot answers questions for **Belevico**, a *fictional* Turkish coffee-mac
 
 Built as a hands-on learning project by a QA engineer moving into AI quality.
 
-More reading: [project brief](docs/PROJECT_BRIEF.md) (one-page summary to share), [plain-English overview](docs/OVERVIEW.md) (what, which tools, which testing principles), [security review](docs/SECURITY_REVIEW.md) (dependency audit, CI, LLM-specific findings and fixes) and [cost report](docs/COST_REPORT.md) (tokens spent, what it costs at scale).
+More reading: [project brief](docs/PROJECT_BRIEF.md) (three-paragraph summary and a prompt for presenting the project), [plain-English overview](docs/OVERVIEW.md) (what, which tools, which testing principles), [security review](docs/SECURITY_REVIEW.md) (dependency audit, CI, LLM-specific findings and fixes) and [cost report](docs/COST_REPORT.md) (tokens spent, what it costs at scale).
 
 ---
 
