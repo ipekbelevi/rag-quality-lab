@@ -2,7 +2,8 @@
 #   pull_request      -> PR loop: golden set + agent (1 run per case) + safety, ~5-6 min, ~$0.40
 #   schedule (weekly) -> reliability loop: agent and safety cases 3 times each
 #   workflow_dispatch -> run manually from the Actions tab
-# Required repository secrets: ANTHROPIC_API_KEY, OPENAI_API_KEY
+# Required repository secrets: ANTHROPIC_API_KEY, OPENAI_API_KEY (the repo owner's own keys).
+# Without them the llm-eval job fails on missing keys, not on quality (see README, "Disclaimer").
 # Optional: LANGFUSE_PUBLIC_KEY, LANGFUSE_SECRET_KEY, LANGFUSE_HOST (traces tagged "ci")
 
 name: LLM quality gate

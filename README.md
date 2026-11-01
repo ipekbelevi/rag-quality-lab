@@ -188,6 +188,12 @@ Settings (env vars): `PROMPT_VARIANT=default|weak|hardened`, `GUARDRAIL=on|off`,
 - New pushes cancel the previous run; PRs from forks skip the paid job (no secrets).
 - Secrets: `ANTHROPIC_API_KEY`, `OPENAI_API_KEY` (optional: `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_SECRET_KEY`, `LANGFUSE_HOST`).
 
+> **Disclaimer: API keys and CI**
+> - No API keys are stored in this repository. `.env` is git-ignored; `.env.example` only lists the variable names.
+> - To run the project, copy `.env.example` to `.env` and use **your own** keys. All API costs are on your account.
+> - The `llm-eval` CI job needs repository secrets with the repo owner's own keys. In a repository without these secrets (for example a fork or a fresh clone pushed elsewhere), the job **fails because the keys are missing, not because quality dropped**. Add your own secrets to enable it; the free `unit-tests` job runs either way.
+> - CI results only reflect runs made with the keys configured in that repository.
+
 ---
 
 ## Project structure
