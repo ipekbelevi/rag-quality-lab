@@ -242,3 +242,7 @@ This is a learning project with a fictional company and a fake order table. The 
 - Next: Promptfoo in the weekly CI job, online evaluation on sampled production traces in Langfuse, prompt caching to cut input tokens, a dev/held-out split of the golden set, a full lock file for transitive pins, a model-based guardrail.
 
 Total API cost to build and run everything in this repo: about **$3.5** (judge and chatbot are both "mini"-class models; ≈90% of it is the judge, not the chatbot). Breakdown and scaling model: [docs/COST_REPORT.md](docs/COST_REPORT.md).
+
+## License
+
+MIT, see [LICENSE](LICENSE). The company, documents and orders are fictional.
